@@ -1,0 +1,17 @@
+{
+  "1.0.0":{
+      "date": "7/22/17",
+      "desc": "Initial build written using Discord.io.",
+      "features": "Insult generator, text macros"
+  },
+  "2.0.0":{
+      "date": "7/30/17",
+      "desc": "Rewrote bot to use Discord.js, a more robust and feature-rich library.",
+      "features": "Message deletion, ability to remove basic human rights, voice macros, revamped `help` command"
+  },
+  "2.1.0":{
+      "date": "7/31/17",
+      "desc": "Overhauled backend to allow for easier maintenance and reliability",
+      "features": "New event and command handlers, image macro database"
+  }
+}

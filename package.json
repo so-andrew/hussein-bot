@@ -1,0 +1,12 @@
+{
+  "name": "hussein-bot",
+  "version": "2.1.0",
+  "description": "The Coon and his goon",
+  "main": "hussein-bot.js",
+  "author": "Lain of the Wired",
+  "dependencies": {
+    "discord.js": "^11.1.0",
+    "djs-collection-persistent": "^0.1.3",
+    "winston": "^2.3.1"
+  }
+}
