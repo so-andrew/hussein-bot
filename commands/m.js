@@ -1,5 +1,5 @@
 exports.run = (client, message, args) => {
-    
+
     let argsArray;
     if(message.content.indexOf(" ")!== -1){
         argsArray = args.split(" ");
