@@ -15,5 +15,4 @@ exports.run = (client, messageReaction) => {
             .then(() => {})
             .catch(console.log)
     }
-
 };
