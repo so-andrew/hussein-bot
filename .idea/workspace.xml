@@ -2,19 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="503cfad0-2bba-4fe8-b27e-a65329e45080" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/commands/say.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/macros/000135.ldb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/macros/000137.ldb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/macros/000140.ldb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/macros/000143.ldb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/macros/000144.log" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/macros/MANIFEST-000142" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/commands/about.js" afterPath="$PROJECT_DIR$/commands/about.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/commands/m.js" afterPath="$PROJECT_DIR$/commands/m.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/macros/CURRENT" afterPath="$PROJECT_DIR$/data/macros/CURRENT" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/macros/LOG" afterPath="$PROJECT_DIR$/data/macros/LOG" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/macros/LOG.old" afterPath="$PROJECT_DIR$/data/macros/LOG.old" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/events/messageReactionAdd.js" afterPath="$PROJECT_DIR$/events/messageReactionAdd.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,76 +31,38 @@
     <favorites_list name="hussein-bot" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="hussein-bot.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/hussein-bot.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="102">
-                  <caret line="6" column="23" lean-forward="false" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="say.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/commands/say.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="680">
-                  <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="message.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/events/message.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="459">
-                  <caret line="27" column="24" lean-forward="false" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="updatelog.json" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/updatelog.json">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="289">
-                  <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="sayings.json" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/sayings.json">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1054">
-                  <caret line="62" column="31" lean-forward="false" selection-start-line="62" selection-start-column="31" selection-end-line="62" selection-end-column="31" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="help.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/commands/help.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="328">
-                  <caret line="34" column="19" lean-forward="false" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="hussein-bot.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hussein-bot.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="6" column="23" lean-forward="false" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="say.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/commands/say.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="m.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/commands/m.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="117" column="105" lean-forward="false" selection-start-line="117" selection-start-column="105" selection-end-line="117" selection-end-column="105" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -170,12 +124,12 @@
         <option value="$PROJECT_DIR$/commands/helpx.js" />
         <option value="$PROJECT_DIR$/commands/help.js" />
         <option value="$PROJECT_DIR$/events/message.js" />
-        <option value="$PROJECT_DIR$/commands/m.js" />
         <option value="$PROJECT_DIR$/events/messageReactionAdd.js" />
         <option value="$PROJECT_DIR$/commands/about.js" />
         <option value="$PROJECT_DIR$/commands/sayings.js" />
         <option value="$PROJECT_DIR$/sayings.json" />
         <option value="$PROJECT_DIR$/commands/say.js" />
+        <option value="$PROJECT_DIR$/commands/m.js" />
       </list>
     </option>
   </component>
@@ -196,7 +150,6 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="840" />
     <option name="y" value="22" />
     <option name="width" value="840" />
     <option name="height" value="973" />
@@ -424,7 +377,7 @@
       <workItem from="1501808016270" duration="3465000" />
       <workItem from="1501812187576" duration="9000" />
       <workItem from="1501824407080" duration="5327000" />
-      <workItem from="1501977093143" duration="18000" />
+      <workItem from="1501977093143" duration="2469000" />
     </task>
     <task id="LOCAL-00001" summary="First test of messageReactionAdd">
       <created>1501808818691</created>
@@ -440,11 +393,18 @@
       <option name="project" value="LOCAL" />
       <updated>1501810705146</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="!say basic functionality">
+      <created>1501977160172</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1501977160172</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="123181000" />
+    <option name="totallyTimeSpent" value="125632000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -456,7 +416,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="840" y="22" width="840" height="973" extended-state="0" />
+    <frame x="0" y="22" width="840" height="973" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32963374" sideWeight="0.49761903" order="9" side_tool="false" content_ui="tabs" />
@@ -466,11 +427,11 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32963374" sideWeight="0.50238097" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32963374" sideWeight="0.49285713" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3218646" sideWeight="0.50476193" order="10" side_tool="true" content_ui="tabs" x="0" y="397" width="1680" height="221" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3218646" sideWeight="0.50476193" order="10" side_tool="true" content_ui="tabs" x="0" y="397" width="1680" height="221" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3218646" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25357142" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25357142" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -506,7 +467,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First test of messageReactionAdd" />
     <MESSAGE value="messageReactionAdd basic functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="messageReactionAdd basic functionality" />
+    <MESSAGE value="!say basic functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="!say basic functionality" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -709,17 +671,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/commands/m.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="30" lean-forward="true" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/commands/about.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="89" lean-forward="false" selection-start-line="6" selection-start-column="89" selection-end-line="6" selection-end-column="89" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -741,13 +697,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="5" lean-forward="true" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/updatelog.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -761,7 +710,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hussein-bot.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
+        <state relative-caret-position="0">
           <caret line="6" column="23" lean-forward="false" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
           <folding />
         </state>
@@ -769,7 +718,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/commands/help.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
+        <state relative-caret-position="446">
           <caret line="34" column="19" lean-forward="false" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
           <folding />
         </state>
@@ -777,8 +726,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sayings.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1054">
-          <caret line="62" column="31" lean-forward="false" selection-start-line="62" selection-start-column="31" selection-end-line="62" selection-end-column="31" />
+        <state relative-caret-position="884">
+          <caret line="51" column="29" lean-forward="false" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/updatelog.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -793,8 +750,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/commands/say.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
+        <state relative-caret-position="391">
           <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commands/m.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="117" column="105" lean-forward="false" selection-start-line="117" selection-start-column="105" selection-end-line="117" selection-end-column="105" />
           <folding />
         </state>
       </provider>

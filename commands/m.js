@@ -1,3 +1,5 @@
+const urlRegex = new RegExp('/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g');
+
 exports.run = (client, message, args) => {
 
     let argsArray;
@@ -41,6 +43,12 @@ exports.run = (client, message, args) => {
     }
     else if(argsArray[0] === "list"){
         listMacros(message, client.macros);
+    }
+    else if(argsArray[0] === "edit"){
+        if(argsArray.length === 3){
+            editMacro(message, client.macros, argsArray)
+        }
+        else message.channel.send("Command usage: `!m edit [name] [name/link]`");
     }
     else{
         retrieveMacro(message, client.macros, argsArray[0]);
@@ -96,4 +104,27 @@ function listMacros(message, macros) {
         macroList += `\`${macros.get(key).name}\`, `;
     }
     message.channel.send(macroList.slice(0, (macroList.length-2)));
+}
+
+function editMacro(message, macros, argsArray){
+    //edit name link
+    if(macros.has(argsArray[1])){
+        let macroToEdit = macros.get(argsArray[1]);
+        if(message.author.id === macroToEdit.creatorID || message.author.id === "197598081867448320"){
+            macros.delete(argsArray[1]);
+            if(urlRegex.test(argsArray[2])||argsArray[2].indexOf("http")!==-1){
+                macroToEdit.text = argsArray[2];
+                macros.set(argsArray[1], macroToEdit);
+                message.channel.send(`Macro \`${argsArray[1]}\` contents changed to \`${argsArray[2]}\`.`)
+            }
+            else{
+                macroToEdit.name = argsArray[2].toLowerCase();
+                macros.set(argsArray[2].toLowerCase(), macroToEdit);
+                message.channel.send(`Macro \`${argsArray[1]}\` changed to \`${argsArray[2].toLowerCase()}\`.`);
+            }
+        }
+        else message.channel.send("This is not your macro to edit!");
+    }
+    else message.channel.send("No such macro exists.");
+
 }
