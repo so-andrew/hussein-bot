@@ -12,4 +12,4 @@ exports.run = (client, message, args) => {
             })
             .catch(console.log);
     }
-}
+};

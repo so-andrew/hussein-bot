@@ -21,9 +21,13 @@ function help(message, args){
     if(helpFile.has(args)){
         let cmdHelp = helpFile.get(args);
         if (cmdHelp.type === "function"){
+            // noinspection Annotator
+            // noinspection Annotator
+            // noinspection Annotator
             message.channel.send(`\`!${args}\`\n\n${cmdHelp.desc}\n\n**Parameters**: ${cmdHelp.params}\n\n**Example**:\n\nInput: ${cmdHelp.exinput}\nOutput: ${cmdHelp.exoutput}`);
         }
         else if (cmdHelp.type === "macro"){
+            // noinspection Annotator
             message.channel.send(`\`!${args}\`\n\n${cmdHelp.desc}\n\n**Parameters**: ${cmdHelp.params}\n\n`);
         }
     }

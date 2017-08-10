@@ -14,18 +14,18 @@ exports.run = (client, message) => {
     if (message.content.startsWith(config.prefix)){
         let indexOfFirstSpace = message.content.indexOf(' ');
         let cmd;
-        let args;
+        let argsArray;
         if (indexOfFirstSpace === -1) {
             cmd = message.content.substring(1);
-            args = null;
+            argsArray = null;
         }
         else {
             cmd = message.content.substring(1, indexOfFirstSpace);
-            args = message.content.substring(indexOfFirstSpace + 1);
+            argsArray = message.content.substring(indexOfFirstSpace + 1).split(" ");
         }
         try {
             let commandFile = require(`../commands/${cmd}.js`);
-            commandFile.run(client, message, args);
+            commandFile.run(client, message, argsArray);
             client.cooldown.push(message.author.id);
             removeCooldown(client, message, 5);
         }

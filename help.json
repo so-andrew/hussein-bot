@@ -1,5 +1,6 @@
 {
     "insult":{
+        "name": "insult",
         "desc": "A Hussein-style insult generator. Takes in a user-specified ethnicity as an input.",
         "params": "`String` (required)",
         "exinput": "`!insult Italian`",
@@ -7,6 +8,7 @@
         "type": "function"
     },
     "clean":{
+        "name": "clean",
         "desc": "Deletes previous messages.",
         "params": "`Integer` (required)",
         "exinput": "`!clean 5`",
@@ -14,6 +16,7 @@
         "type": "function"
     },
     "setgame":{
+        "name": "setgame",
         "desc": "Sets Hussein Bot's presence on Discord (shown in the member list).",
         "params": "`String` (required)",
         "exinput": "`!setgame Tales of Berseria`",
@@ -21,6 +24,7 @@
         "type": "function"
     },
     "smite":{
+        "name": "smite",
         "desc": "Strips the mentioned user of their basic human rights. Only wieldable by the bot's creator, and will not work on admins.",
         "params": "`@mention` (required)",
         "exinput": "`!smite` <@231184514997551114>",
@@ -28,6 +32,7 @@
         "type": "function"
     },
     "unsmite":{
+        "name": "unsmite",
         "desc": "Returns basic human rights to the mentioned user. Only wieldable by the bot's creator.",
         "params": "`@mention` (required)",
         "exinput": "`!unsmite` <@231184514997551114>",
@@ -35,31 +40,37 @@
         "type": "function"
     },
     "pizzatime":{
+        "name": "pizzatime",
         "desc": "Joins the current voice channel and plays the Pizza Theme from Spider-Man 2.",
         "params": "User must be in a voice channel",
         "type": "macro"
     },
     "england":{
+        "name": "england",
         "desc": "Returns the lyrics of the best verse from It's Everyday Bro. Adding the `play` argument will play said verse in the current voice channel.",
         "params": "`play` (optional; user must be in a voice channel)",
         "type": "macro"
     },
     "doajig":{
+        "name": "doajig",
         "desc": "Hussein Bot reaffirms his servitude to you with a little jig and a potentially offensive picture.",
         "params": "None",
         "type": "macro"
     },
     "obliterate":{
+        "name": "obliterate",
         "desc": "Returns a gif of the famous \"Exodia Obliterate\" scene from everyone's favorite anime based off of a children's card game. Mentioning <@219615190629613578> will instead return some classic fanart from <@278696840227061761>.",
         "params": "`@mention` (optional)",
         "type": "macro"
     },
     "m":{
+        "name": "m",
         "desc": "The base command for photo macros. Returns the specified image from the database, if it exists. See `!help m create`, `!help m search`, `!help m delete`, and `!help m list` for other commands related to the macro feature.",
         "params": "`[name]` (required)",
         "type": "macro"
     },
     "m create":{
+        "name": "m create",
         "desc": "Allows the user to add their own macros to the database.",
         "params": "`[name] [url]` (required)",
         "exinput": "`!m create megumin https://megumin.love/images/bg.jpg`",
@@ -67,6 +78,7 @@
         "type": "function"
     },
     "m search": {
+        "name": "m search",
         "desc": "Searches the database for the specified macro. Currently the search is case-sensitive, though this will likely change in a future revision.",
         "params": "`[name]` (required)",
         "exinput": "`!m search prospec`",
@@ -74,6 +86,7 @@
         "type": "function"
     },
     "m delete": {
+        "name": "m delete",
         "desc": "Allows the user to delete macros that they have created. Attempting to delete macros created by another user will result in failure.",
         "params": "`[name]`",
         "exinput": "`!m delete dogma`",
@@ -81,8 +94,17 @@
         "type":  "function"
     },
     "m list": {
+        "name": "m list",
         "desc": "Returns a list of all current macros in the database.",
         "params": "None",
         "type": "macro"
+    },
+    "m edit": {
+        "name": "m edit",
+        "desc": "Allows the user to edit macros that they have created. Currently the command supports changing either the name or the contents of the macro, depending on the parameters given.",
+        "params": "`[Current name] [New name or url]` (required)",
+        "exinput": "`!m edit megumin https://cdn.awwni.me/vqsy.jpg`",
+        "exoutput": "Macro `megumin` contents changed to `https://cdn.awwni.me/vqsy.jpg`.",
+        "type": "function"
     }
 }

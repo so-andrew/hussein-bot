@@ -5,16 +5,16 @@ let helpFile = new Map();
 exports.run = (client, message, args) => {
     fetchHelpJSON();
     console.log("Command !%s received from %s", "help", message.author.username);
-    if(args === null){
+    if(!args){
         const embed = new Discord.RichEmbed()
             .setTitle("Commands")
             .setColor(3447003)
             .setDescription("An index of commands currently supported by Hussein Bot.")
             .setFooter("Type !help [command] for more info on a specific command.")
-            .addField("Primary Commands", "`insult`, `clean`, `setgame`, `about`")
+            .addField("Primary Commands", "`insult`, `say`, `clean`, `setgame`, `about`")
             .addField("Mod Commands", "`smite`, `unsmite`")
             .addField("Original Macros", "`doajig`, `england`, `obliterate`, `pizzatime`")
-            .addField("User Macro System", "`m create`, `m search`, `m delete`, `m list`");
+            .addField("User Macro System", "`m create`, `m search`, `m delete`, `m list`, `m edit`");
         message.channel.send({embed: embed});
     }
     else help(message, args);
@@ -28,12 +28,16 @@ function fetchHelpJSON(){
 }
 
 function help(message, args){
-    if(helpFile.has(args)){
-        let cmdHelp = helpFile.get(args);
+    if(helpFile.has(args[0])){
+        let cmdHelp;
+        if(args[0] === "m" && args[1]){
+            cmdHelp = helpFile.get(args.join(" "));
+        }
+        else cmdHelp = helpFile.get(args[0]);
         let embed;
         if (cmdHelp.type === "function"){
             embed = new Discord.RichEmbed()
-                .setTitle(`!\`${args}\``)
+                .setTitle(`\`!${cmdHelp.name}\``)
                 .setColor(3447003)
                 .setDescription(cmdHelp.desc)
                 .addField("Parameters", cmdHelp.params)
@@ -42,7 +46,7 @@ function help(message, args){
         }
         else if (cmdHelp.type === "macro"){
             embed = new Discord.RichEmbed()
-                .setTitle(`!\`${args}\``)
+                .setTitle(`\`!${cmdHelp.name}\``)
                 .setColor(3447003)
                 .setDescription(cmdHelp.desc)
                 .addField("Parameters", cmdHelp.params);

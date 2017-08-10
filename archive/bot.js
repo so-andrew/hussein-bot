@@ -4,7 +4,9 @@ var auth = require('./auth.json');
 var fs = require('fs');
 
 // Configure logger settings
+// noinspection Annotator
 logger.remove(logger.transports.Console);
+// noinspection Annotator
 logger.add(logger.transports.Console, {
     colorize: true
 });
@@ -18,8 +20,11 @@ var bot = new Discord.Client({
 
 bot.on('ready', function (evt) {
     bot.setPresence({ status:'online', game: {name: 'The Coon'}});
+    // noinspection Annotator
     logger.info('Connected');
+    // noinspection Annotator
     logger.info('Logged in as: ');
+    // noinspection Annotator
     logger.info(bot.username + ' - (' + bot.id + ')');
 });
 
