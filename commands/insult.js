@@ -5,13 +5,13 @@ exports.run = (client, message, args) => {
         message.channel.send("I can\'t insult people without mentioning their ethnicity! (No ethnicity specified)");
     }
     else {
-        let clientmessage = insult(args.join(" "));
-        message.channel.send(clientmessage);
+        let clientMessage = insult(args.join(" "));
+        message.channel.send(clientMessage);
     }
 };
 
 function insult(args){
-    let clientmessage;
+    let clientMessage;
     let uck;
     if (Math.floor(Math.random() * 10) % 2 === 0.0) {
         uck = ' cuck!';
@@ -20,10 +20,10 @@ function insult(args){
         uck = ' fuck!';
     }
     if (/Italian/i.test(args)) {
-        clientmessage = 'Listen here, you greasy ' + args + uck;
+        clientMessage = 'Listen here, you greasy ' + args + uck;
     }
     else {
-        clientmessage = 'Listen here, you dirty ' + args + uck;
+        clientMessage = 'Listen here, you dirty ' + args + uck;
     }
-    return clientmessage;
+    return clientMessage;
 }

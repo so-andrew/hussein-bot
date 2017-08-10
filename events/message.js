@@ -36,7 +36,7 @@ exports.run = (client, message) => {
 };
 
 function cooldown(client, message){
-    if(message.author.id === "197598081867448320") {
+    if(message.author.id === config.ownerID) {
         return false
     }
     else return client.cooldown.indexOf(message.author.id) !== -1;

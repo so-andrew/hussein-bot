@@ -33,8 +33,6 @@ function smite(message){
         }
         else message.channel.send("This command requires the use of mentions.")
 
-
-
         /*let index = args[0].search(/\d+/);
         let smiteID = args[0].slice(index, args.length - 1);
         if(message.guild.members.has(smiteID)){

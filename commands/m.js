@@ -1,4 +1,5 @@
 const urlRegex = new RegExp('/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g');
+const config = require("../config.json");
 
 exports.run = (client, message, args) => {
     
@@ -75,7 +76,7 @@ function searchMacro(macros, arg){
 
 function deleteMacro(message, macros, arg){
     if(macros.has(arg)){
-        if(message.author.id === macros.get(arg).creatorID || message.author.id === "197598081867448320"){
+        if(message.author.id === macros.get(arg).creatorID || message.author.id === config.ownerID){
             macros.delete(arg);
             message.channel.send(`Macro \`${arg}\` deleted.`);
             return macros;
@@ -101,7 +102,7 @@ function editMacro(message, macros, args){
     //edit name link
     if(macros.has(args[1])){
         let macroToEdit = macros.get(args[1]);
-        if(message.author.id === macroToEdit.creatorID || message.author.id === "197598081867448320"){
+        if(message.author.id === macroToEdit.creatorID || message.author.id === config.ownerID){
             macros.delete(args[1]);
             if(urlRegex.test(args[2])||args[2].indexOf("http")!==-1){
                 macroToEdit.text = args[2];
