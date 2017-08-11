@@ -2,15 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="503cfad0-2bba-4fe8-b27e-a65329e45080" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sayings.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/commands/m.js" afterPath="$PROJECT_DIR$/commands/m.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/commands/reload.js" afterPath="$PROJECT_DIR$/commands/reload.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/commands/say.js" afterPath="$PROJECT_DIR$/commands/say.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/commands/tts.js" afterPath="$PROJECT_DIR$/commands/tts.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/macros/CURRENT" afterPath="$PROJECT_DIR$/data/macros/CURRENT" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/macros/LOG" afterPath="$PROJECT_DIR$/data/macros/LOG" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/macros/LOG.old" afterPath="$PROJECT_DIR$/data/macros/LOG.old" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/updatelog.json" afterPath="$PROJECT_DIR$/updatelog.json" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,72 +36,19 @@
       <file leaf-file-name="message.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/events/message.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="200">
               <caret line="35" column="2" lean-forward="false" selection-start-line="35" selection-start-column="2" selection-end-line="35" selection-end-column="2" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="say.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/commands/say.js">
+      <file leaf-file-name="help.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/commands/help.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
-              <caret line="37" column="40" lean-forward="true" selection-start-line="37" selection-start-column="40" selection-end-line="37" selection-end-column="40" />
+            <state relative-caret-position="698">
+              <caret line="56" column="1" lean-forward="true" selection-start-line="56" selection-start-column="1" selection-end-line="56" selection-end-column="1" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tts.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/commands/tts.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="2" lean-forward="true" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="reload.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/commands/reload.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="37" lean-forward="false" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sayings.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sayings.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="78" column="0" lean-forward="true" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
-              <folding>
-                <element signature="n#!!block;n#oatmeal#0;n#!!top" expanded="false" />
-                <element signature="n#!!block;n#jojogay#0;n#!!top" expanded="false" />
-                <element signature="n#!!block;n#loli#0;n#!!top" expanded="false" />
-                <element signature="n#!!block;n#waifu#0;n#!!top" expanded="false" />
-                <element signature="n#!!block;n#fbi#0;n#!!top" expanded="false" />
-                <element signature="n#!!block;n#feed#0;n#!!top" expanded="false" />
-                <element signature="n#!!block;n#convert#0;n#!!top" expanded="false" />
-                <element signature="n#!!block;n#dunecoon#0;n#!!top" expanded="false" />
-                <element signature="n#!!block;n#india#0;n#!!top" expanded="false" />
-                <element signature="n#!!block;n#reference#0;n#!!top" expanded="false" />
-                <element signature="n#!!block;n#muslimnoises#0;n#!!top" expanded="false" />
-                <element signature="n#!!block;n#animesafety#0;n#!!top" expanded="false" />
-                <element signature="n#!!block;n#junglesoraka#0;n#!!top" expanded="false" />
-                <element signature="n#!!block;n#nfsector#0;n#!!top" expanded="false" />
-                <element signature="n#!!block;n#riot#0;n#!!top" expanded="false" />
-                <element signature="n#!!block;n#metroid#0;n#!!top" expanded="false" />
-                <element signature="n#!!block;n#ngrd#0;n#!!top" expanded="false" />
-                <element signature="n#!!block;n#closer#0;n#!!top" expanded="false" />
-                <element signature="n#!!block;n#pastability#0;n#!!top" expanded="false" />
-                <element signature="n#!!block;n#heretonibber#0;n#!!top" expanded="false" />
-                <element signature="n#!!block;n#crompton#0;n#!!top" expanded="false" />
-                <element signature="n#!!block;n#blackcat#0;n#!!top" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -112,18 +56,8 @@
       <file leaf-file-name="m.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/commands/m.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="11" column="43" lean-forward="false" selection-start-line="10" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="hussein-bot.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hussein-bot.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="24" lean-forward="false" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+            <state relative-caret-position="2142">
+              <caret line="120" column="23" lean-forward="true" selection-start-line="120" selection-start-column="23" selection-end-line="120" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -146,6 +80,7 @@
       <find>cooldownUsers</find>
       <find>cooldown</find>
       <find>er</find>
+      <find>search</find>
     </findStrings>
     <replaceStrings>
       <replace>send</replace>
@@ -178,7 +113,6 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/commands/stand.js" />
         <option value="$PROJECT_DIR$/hussein-bot.js" />
-        <option value="$PROJECT_DIR$/updatelog.json" />
         <option value="$PROJECT_DIR$/commands/join.js" />
         <option value="$PROJECT_DIR$/events/guildMemberSpeaking.js" />
         <option value="$PROJECT_DIR$/commands/helpx.js" />
@@ -200,6 +134,7 @@
         <option value="$PROJECT_DIR$/commands/tts.js" />
         <option value="$PROJECT_DIR$/commands/reload.js" />
         <option value="$PROJECT_DIR$/commands/m.js" />
+        <option value="$PROJECT_DIR$/updatelog.json" />
       </list>
     </option>
   </component>
@@ -262,6 +197,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -279,9 +215,8 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
-      <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -458,7 +393,8 @@
       <workItem from="1502397187209" duration="2796000" />
       <workItem from="1502400701628" duration="1236000" />
       <workItem from="1502403882742" duration="770000" />
-      <workItem from="1502428032835" duration="3478000" />
+      <workItem from="1502428032835" duration="3506000" />
+      <workItem from="1502432266241" duration="3702000" />
     </task>
     <task id="LOCAL-00001" summary="First test of messageReactionAdd">
       <created>1501808818691</created>
@@ -502,11 +438,18 @@
       <option name="project" value="LOCAL" />
       <updated>1502404567207</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Argument handling improved part 2">
+      <created>1502431757871</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1502431757871</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="141212000" />
+    <option name="totallyTimeSpent" value="144942000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -519,7 +462,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="840" height="976" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32963374" sideWeight="0.49761903" order="9" side_tool="false" content_ui="tabs" />
@@ -533,7 +475,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3218646" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21666667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21666667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -574,11 +516,12 @@
     <MESSAGE value="!m edit added" />
     <MESSAGE value="Argument handling improved" />
     <MESSAGE value="ownerID setting in config.json" />
-    <option name="LAST_COMMIT_MESSAGE" value="ownerID setting in config.json" />
+    <MESSAGE value="Argument handling improved part 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Argument handling improved part 2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="17" />
+      <option name="time" value="18" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -677,13 +620,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/updatelog.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/discord.js/src/client/websocket/packets/handlers/MessageCreate.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -716,13 +652,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="7" column="46" lean-forward="true" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/commands/help.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="35" column="45" lean-forward="false" selection-start-line="35" selection-start-column="45" selection-end-line="35" selection-end-column="45" />
         </state>
       </provider>
     </entry>
@@ -775,27 +704,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hussein-bot.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="24" lean-forward="false" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/events/message.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="35" column="2" lean-forward="false" selection-start-line="35" selection-start-column="2" selection-end-line="35" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/events/messageReactionAdd.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="31" lean-forward="false" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -803,7 +715,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -818,7 +729,7 @@
     <entry file="file://$PROJECT_DIR$/sayings.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
-          <caret line="78" column="0" lean-forward="true" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+          <caret line="78" column="0" lean-forward="false" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
           <folding>
             <element signature="n#!!block;n#oatmeal#0;n#!!top" expanded="false" />
             <element signature="n#!!block;n#jojogay#0;n#!!top" expanded="false" />
@@ -850,7 +761,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="2" lean-forward="true" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -858,7 +768,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="5" column="38" lean-forward="false" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -866,7 +775,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-327">
           <caret line="10" column="27" lean-forward="true" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -881,23 +789,55 @@
     <entry file="file://$PROJECT_DIR$/commands/tts.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="4" column="2" lean-forward="true" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
+          <caret line="4" column="2" lean-forward="false" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hussein-bot.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="24" lean-forward="false" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/commands/say.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="37" column="40" lean-forward="true" selection-start-line="37" selection-start-column="40" selection-end-line="37" selection-end-column="40" />
+        <state relative-caret-position="98">
+          <caret line="37" column="40" lean-forward="false" selection-start-line="37" selection-start-column="40" selection-end-line="37" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/events/message.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="35" column="2" lean-forward="false" selection-start-line="35" selection-start-column="2" selection-end-line="35" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commands/help.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="698">
+          <caret line="56" column="1" lean-forward="true" selection-start-line="56" selection-start-column="1" selection-end-line="56" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/updatelog.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="9" column="113" lean-forward="true" selection-start-line="9" selection-start-column="113" selection-end-line="9" selection-end-column="113" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/commands/m.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="11" column="43" lean-forward="false" selection-start-line="10" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+        <state relative-caret-position="2142">
+          <caret line="120" column="23" lean-forward="true" selection-start-line="120" selection-start-column="23" selection-end-line="120" selection-end-column="23" />
           <folding />
         </state>
       </provider>

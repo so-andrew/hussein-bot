@@ -1,12 +1,14 @@
 const urlRegex = new RegExp("(http(s)?:\/\/)?(www.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\/?([-a-zA-Z0-9@:%_+.~#?&/=]*)");
 const config = require("../config.json");
+const Discord = require("discord.js");
 
 exports.run = (client, message, args) => {
-    
+    if(!args){
+        message.channel.send("Needs more parameters.");
+        return;
+    }
     if(args[0] === "create"){
         //args[2].indexOf("http") !== -1
-        console.log(urlRegex.test(args[2]));
-        console.log(args[2]);
         if(args.length === 3 && urlRegex.test(args[2])){
             if(!client.macros.has(args[1])){
                 client.macros = createMacro(message, client.macros, args);
@@ -19,10 +21,10 @@ exports.run = (client, message, args) => {
     }
     else if(args[0] === "search"){
         if(args.length === 2){
-            if(searchMacro(client.macros, args[1])){
-                message.channel.send(`Macro \`${args[1]}\` exists.`);
-            }
-            else message.channel.send("No such macro exists.");
+            searchMacro(message, client.macros, args[1]);
+            //if()
+                //message.channel.send(`Macro \`${args[1]}\` exists.`);
+            //else message.channel.send("No such macro exists.");
         }
         else{
             message.channel.send("Command usage: `!m search [name]`");
@@ -73,8 +75,30 @@ function retrieveMacro(message, macros, arg){
     }
 }
 
-function searchMacro(macros, arg){
-    return !!macros.has(arg);
+function searchMacro(message, macros, arg){
+    if(arg === "?" || arg === "*" || arg === "^" || arg === "\\" || arg === "$" || arg === "+"){
+        arg = "\\" + arg;
+    }
+    let searchRegex = new RegExp(arg, "i");
+    let msg = "";
+    let found = false;
+
+    function testMap(value, key, map){
+        //console.log(macros.get(key).name);
+        if(searchRegex.test(macros.get(key).name)){
+            msg += `\`${macros.get(key).name}\`, `;
+            found = true;
+        }
+    }
+    macros.forEach(testMap);
+    if(found){
+        const embed = new Discord.RichEmbed()
+            .setTitle("You may be looking for: ")
+            .setDescription(msg.slice(0, (msg.length-2)))
+            .setColor("DARK_BLUE");
+        message.channel.send({embed: embed});
+    }
+    else message.channel.send("No such macro exists.");
 }
 
 function deleteMacro(message, macros, arg){
@@ -94,11 +118,15 @@ function deleteMacro(message, macros, arg){
 }
 
 function listMacros(message, macros) {
-    let macroList = "List of macros: ";
+    let macroList = "";
     for (let key of macros.keys()) {
         macroList += `\`${macros.get(key).name}\`, `;
     }
-    message.channel.send(macroList.slice(0, (macroList.length-2)));
+    const embed = new Discord.RichEmbed()
+        .setTitle("List of Macros")
+        .setDescription(macroList.slice(0, (macroList.length-2)))
+        .setColor("DARK_RED");
+    message.channel.send({embed: embed});
 }
 
 function editMacro(message, macros, args){
@@ -107,7 +135,7 @@ function editMacro(message, macros, args){
         let macroToEdit = macros.get(args[1]);
         if(message.author.id === macroToEdit.creatorID || message.author.id === config.ownerID){
             macros.delete(args[1]);
-            if(urlRegex.test(args[2])||args[2].indexOf("http")!==-1){
+            if(urlRegex.test(args[2])){
                 macroToEdit.text = args[2];
                 macros.set(args[1], macroToEdit);
                 message.channel.send(`Macro \`${args[1]}\` contents changed to \`${args[2]}\`.`)

@@ -13,5 +13,13 @@
       "date": "7/31/17",
       "desc": "Overhauled backend to allow for easier maintenance and reliability",
       "features": "New event and command handlers, image macro database"
+  },
+  "2.2.0":{
+      "date": "8/3/17",
+      "desc": ""
+  },
+  "2.3.0":{
+      "date": "8/11/17",
+      "desc": ""
   }
 }
