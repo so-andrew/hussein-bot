@@ -1,10 +1,13 @@
-const urlRegex = new RegExp('/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g');
+const urlRegex = new RegExp("(http(s)?:\/\/)?(www.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\/?([-a-zA-Z0-9@:%_+.~#?&/=]*)");
 const config = require("../config.json");
 
 exports.run = (client, message, args) => {
     
     if(args[0] === "create"){
-        if(args.length === 3 && args[2].indexOf("http") !== -1){
+        //args[2].indexOf("http") !== -1
+        console.log(urlRegex.test(args[2]));
+        console.log(args[2]);
+        if(args.length === 3 && urlRegex.test(args[2])){
             if(!client.macros.has(args[1])){
                 client.macros = createMacro(message, client.macros, args);
             }

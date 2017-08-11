@@ -29,7 +29,7 @@ exports.run = (client, message, args) => {
         message.channel.send({embed: embed});
     }
     else{
-        let quote = sayings.get(args);
+        let quote = sayings.get(args[0]);
         const embed = new Discord.RichEmbed()
             .setTitle(`"${quote.text}"`);
         if(quote.hasOwnProperty("author")){
