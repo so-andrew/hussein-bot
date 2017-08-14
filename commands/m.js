@@ -1,4 +1,4 @@
-const urlRegex = new RegExp("(http(s)?:\\/\\/)(www.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\\.[a-z]{2,6}([-a-zA-Z0-9@:%_+.~#?&/=]*)?", "g");
+//const urlRegex = new RegExp("(http(s)?:\\/\\/)(www.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\\.[a-z]{2,6}([-a-zA-Z0-9@:%_+.~#?&/=]*)?", "g");
 let reg = /(http(s)?:\/\/)(www.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}([-a-zA-Z0-9@:%_+.~#?&/=]*)?/g;
 
 const config = require("../config.json");
@@ -10,7 +10,8 @@ exports.run = (client, message, args) => {
         return;
     }
     if(args[0] === "create"){
-        if(args.length === 3 && !urlRegex.test(args[1]) && urlRegex.test(args[2])){
+        //at least 3 arguments, args[1] cannot be a URL, args[2] must be a URL
+        if(args.length === 3 && !reg.test(args[1]) && reg.test(args[2])){
             if(!client.macros.has(args[1])){
                 client.macros = createMacro(message, client.macros, args);
             }
@@ -101,6 +102,7 @@ function searchMacro(message, macros, arg){
         }
     }
     macros.forEach(testMap);
+
     if(found){
         const embed = new Discord.RichEmbed()
             .setTitle("You may be looking for: ")
@@ -148,17 +150,17 @@ function editMacro(message, macros, args){
         let macroToEdit = macros.get(args[1]);
         if(message.author.id === macroToEdit.creatorID || message.author.id === config.ownerID){
             macros.delete(args[1]);
-            console.log(args[2]);
-            console.log(urlRegex.test(args[2]));
-            if(urlRegex.test(args[2])){
+            if(reg.test(args[2])){
+                //argument is a URL, editing macro text
                 macroToEdit.text = args[2];
                 macros.set(args[1], macroToEdit);
                 message.channel.send(`Macro \`${args[1]}\` contents changed to \`${args[2]}\`.`);
                 console.log(`Macro ${args[1]} contents changed to ${args[2]}.`);
             }
             else{
+                //argument is not a URL, editing macro name
                 macroToEdit.name = args[2].toLowerCase();
-                macros.set(args[2].toLowerCase(), macroToEdit);
+                macros.set(macroToEdit.name, macroToEdit);
                 message.channel.send(`Macro \`${args[1]}\` changed to \`${args[2].toLowerCase()}\`.`);
                 console.log(`Macro ${args[1]} changed to ${args[2].toLowerCase()}.`);
             }
