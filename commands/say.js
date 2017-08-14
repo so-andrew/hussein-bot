@@ -5,10 +5,9 @@ let sayings = new Map();
 
 exports.run = (client, message, args) => {
     fetchSayJSON();
-    //console.log(args);
     if(!args){
-        let saydb = Array.from(sayings.values());
-        let quote = saydb[Math.floor(Math.random()*(saydb.length))];
+        let sayDB = Array.from(sayings.values());
+        let quote = sayDB[Math.floor(Math.random()*(sayDB.length))];
         const embed = new Discord.RichEmbed()
             .setTitle(`"${quote.text}"`);
         if(quote.hasOwnProperty("author")){
