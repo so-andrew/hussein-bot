@@ -1,4 +1,6 @@
-const urlRegex = new RegExp("(http(s)?:\/\/)?(www.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\/?([-a-zA-Z0-9@:%_+.~#?&/=]*)");
+const urlRegex = new RegExp("(http(s)?:\\/\\/)(www.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\\.[a-z]{2,6}([-a-zA-Z0-9@:%_+.~#?&/=]*)?", "g");
+let reg = /(http(s)?:\/\/)(www.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}([-a-zA-Z0-9@:%_+.~#?&/=]*)?/g;
+
 const config = require("../config.json");
 const Discord = require("discord.js");
 
@@ -8,8 +10,7 @@ exports.run = (client, message, args) => {
         return;
     }
     if(args[0] === "create"){
-        //args[2].indexOf("http") !== -1
-        if(args.length === 3 && urlRegex.test(args[2])){
+        if(args.length === 3 && !urlRegex.test(args[1]) && urlRegex.test(args[2])){
             if(!client.macros.has(args[1])){
                 client.macros = createMacro(message, client.macros, args);
             }
@@ -22,9 +23,6 @@ exports.run = (client, message, args) => {
     else if(args[0] === "search"){
         if(args.length === 2){
             searchMacro(message, client.macros, args[1]);
-            //if()
-                //message.channel.send(`Macro \`${args[1]}\` exists.`);
-            //else message.channel.send("No such macro exists.");
         }
         else{
             message.channel.send("Command usage: `!m search [name]`");
@@ -47,6 +45,12 @@ exports.run = (client, message, args) => {
         }
         else message.channel.send("Command usage: `!m edit [name] [name/link]`");
     }
+    else if(args[0] === "info") {
+        if (args.length === 2) {
+            macroInfo(message, client.macros, args[1]);
+        }
+        else message.channel.send("Command usage: `!m info [name]`");
+    }
     else{
         retrieveMacro(message, client.macros, args[0]);
     }
@@ -56,19 +60,25 @@ function createMacro(message, macros, args){
     let newMacro = {
         name: args[1].toLowerCase(),
         text: args[2],
-        creatorID: message.author.id
+        creatorID: message.author.id,
+        uses: 0
     };
     macros.set(args[1].toLowerCase(), newMacro);
     message.channel.send(`Macro \`${args[1].toLowerCase()}\` created.`);
+    console.log(`Macro ${args[1].toLowerCase()} created by ${message.author.username}.`);
     return macros;
 }
 
 function retrieveMacro(message, macros, arg){
     if(macros.has(arg)){
+        let macro = macros.get(arg);
         message.channel.send(macros.get(arg).text)
-            .then(()=>{})
+            .then(()=>{
+                macro.uses++;
+                macros.set(macro.name, macro);
+            })
             .catch(console.log);
-        //console.log(macros.get(arg));
+        console.log(`Macro ${arg} invoked by ${message.author.username}.`);
     }
     else{
         message.channel.send("No such macro exists.");
@@ -76,6 +86,7 @@ function retrieveMacro(message, macros, arg){
 }
 
 function searchMacro(message, macros, arg){
+    console.log(`Command !m search received from ${message.author.username} with arguments ${arg}.`);
     if(arg === "?" || arg === "*" || arg === "^" || arg === "\\" || arg === "$" || arg === "+"){
         arg = "\\" + arg;
     }
@@ -84,7 +95,6 @@ function searchMacro(message, macros, arg){
     let found = false;
 
     function testMap(value, key, map){
-        //console.log(macros.get(key).name);
         if(searchRegex.test(macros.get(key).name)){
             msg += `\`${macros.get(key).name}\`, `;
             found = true;
@@ -106,6 +116,7 @@ function deleteMacro(message, macros, arg){
         if(message.author.id === macros.get(arg).creatorID || message.author.id === config.ownerID){
             macros.delete(arg);
             message.channel.send(`Macro \`${arg}\` deleted.`);
+            console.log(`Macro ${arg} deleted.`);
             return macros;
         }
         else{
@@ -119,35 +130,98 @@ function deleteMacro(message, macros, arg){
 
 function listMacros(message, macros) {
     let macroList = "";
+    let macroCount = 0;
     for (let key of macros.keys()) {
         macroList += `\`${macros.get(key).name}\`, `;
+        macroCount++;
     }
     const embed = new Discord.RichEmbed()
         .setTitle("List of Macros")
         .setDescription(macroList.slice(0, (macroList.length-2)))
-        .setColor("DARK_RED");
+        .setColor("DARK_RED")
+        .setFooter(`Number of macros: ${macroCount}`);
     message.channel.send({embed: embed});
 }
 
 function editMacro(message, macros, args){
-    //edit name link
     if(macros.has(args[1])){
         let macroToEdit = macros.get(args[1]);
         if(message.author.id === macroToEdit.creatorID || message.author.id === config.ownerID){
             macros.delete(args[1]);
+            console.log(args[2]);
+            console.log(urlRegex.test(args[2]));
             if(urlRegex.test(args[2])){
                 macroToEdit.text = args[2];
                 macros.set(args[1], macroToEdit);
-                message.channel.send(`Macro \`${args[1]}\` contents changed to \`${args[2]}\`.`)
+                message.channel.send(`Macro \`${args[1]}\` contents changed to \`${args[2]}\`.`);
+                console.log(`Macro ${args[1]} contents changed to ${args[2]}.`);
             }
             else{
                 macroToEdit.name = args[2].toLowerCase();
                 macros.set(args[2].toLowerCase(), macroToEdit);
                 message.channel.send(`Macro \`${args[1]}\` changed to \`${args[2].toLowerCase()}\`.`);
+                console.log(`Macro ${args[1]} changed to ${args[2].toLowerCase()}.`);
             }
         }
         else message.channel.send("This is not your macro to edit!");
     }
     else message.channel.send("No such macro exists.");
+}
 
+function macroInfo(message, macros, arg){
+    if(macros.has(arg)){
+        let retrievedMacro = macros.get(arg);
+        const embed = new Discord.RichEmbed()
+            .setTitle(`\`${retrievedMacro.name}\``)
+            .setDescription(retrievedMacro.text)
+            .setColor(3447003)
+            .setThumbnail(retrievedMacro.text)
+            .addField("Creator", retrievedMacro.creatorName, true)
+            .addField("Uses", retrievedMacro.uses, true);
+        message.channel.send({embed: embed})
+    }
+    else message.channel.send("No such macro exists.");
+}
+
+function setUses(macros){
+    let macrosArray = [];
+    for(let key of macros.keys()){
+        macrosArray.push(macros.get(key));
+        console.log(macros.get(key));
+    }
+    console.log(macrosArray);
+    for(let i = 0; i < macrosArray.length; i++){
+        macros.delete(macrosArray[i].name);
+        let newMacro = {
+            name: macrosArray[i].name,
+            text: macrosArray[i].text,
+            creatorID: macrosArray[i].creatorID,
+            uses: 0
+        };
+        macros.set(newMacro.name, newMacro);
+    }
+    console.log("This should work?");
+    return macros;
+}
+
+function setUsername(message, macros){
+    let macrosArray = [];
+    for(let key of macros.keys()){
+        macrosArray.push(macros.get(key));
+        console.log(macros.get(key));
+    }
+    console.log(macrosArray);
+    for(let i = 0; i < macrosArray.length; i++){
+        macros.delete(macrosArray[i].name);
+        let newMacro = {
+            name: macrosArray[i].name,
+            text: macrosArray[i].text,
+            creatorID: macrosArray[i].creatorID,
+            creatorName: message.guild.members.get(macrosArray[i].creatorID).user.username,
+            uses: macrosArray[i].uses
+        };
+        macros.set(newMacro.name, newMacro);
+    }
+    console.log("This should work?");
+    return macros;
 }

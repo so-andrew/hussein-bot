@@ -79,16 +79,16 @@
     },
     "m search": {
         "name": "m search",
-        "desc": "Searches the database for the specified macro. Currently the search is case-sensitive, though this will likely change in a future revision.",
-        "params": "`[name]` (required)",
-        "exinput": "`!m search prospec`",
-        "exoutput": "Macro `prospec` exists.",
+        "desc": "Searches the database for macros that match the given parameters. Provides a list of possible matches if more than one macro fits the search criteria.",
+        "params": "`[search term]` (required)",
+        "exinput": "`!m search or`",
+        "exoutput": "You may be looking for: `digiorno`, `dishonorable`, `honorablemadlung`. (returns embed)",
         "type": "function"
     },
     "m delete": {
         "name": "m delete",
         "desc": "Allows the user to delete macros that they have created. Attempting to delete macros created by another user will result in failure.",
-        "params": "`[name]`",
+        "params": "`[name]` (required)",
         "exinput": "`!m delete dogma`",
         "exoutput": "Macro `dogma` deleted.",
         "type":  "function"
@@ -101,10 +101,16 @@
     },
     "m edit": {
         "name": "m edit",
-        "desc": "Allows the user to edit macros that they have created. Currently the command supports changing either the name or the contents of the macro, depending on the parameters given.",
+        "desc": "Allows the user to edit macros that they have created. Currently the command supports changing either the name or the contents of the macro, depending on the parameters given. (Beta feature)",
         "params": "`[Current name] [New name or url]` (required)",
         "exinput": "`!m edit megumin https://cdn.awwni.me/vqsy.jpg`",
         "exoutput": "Macro `megumin` contents changed to `https://cdn.awwni.me/vqsy.jpg`.",
         "type": "function"
+    },
+    "m info":{
+        "name": "m info",
+        "desc": "Provides information on the creator and number of uses of a specified macro.",
+        "params": "`[name]` (required)",
+        "type": "macro"
     }
 }

@@ -7,11 +7,11 @@ exports.run = (client, message) => {
         standRef.run(client, message);
         return;
     }
-    if(cooldown(client, message)){
-        message.reply("this is a no spam zone!");
-        return;
-    }
     if (message.content.startsWith(config.prefix)){
+        if(cooldown(client, message)){
+            message.reply("this is a no spam zone!");
+            return;
+        }
         let indexOfFirstSpace = message.content.indexOf(' ');
         let cmd;
         let argsArray;
