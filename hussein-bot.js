@@ -7,6 +7,7 @@ const macros = new PersistentCollection({name: "macros"});
 client.macros = macros;
 let cooldown = [];
 client.cooldown = cooldown;
+client.disable = [];
 
 fs.readdir("./events/", (err, files) => {
     if (err) return console.error(err);

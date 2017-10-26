@@ -15,4 +15,9 @@ exports.run = (client, messageReaction) => {
             .then(() => {})
             .catch(console.log)
     }
+    if(messageReaction.emoji.identifier === "%F0%9F%A4%94" ){
+      messageReaction.message.react("%F0%9F%A4%94")
+        .then(()=>{})
+        .catch(console.log)
+    }
 };

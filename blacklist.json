@@ -1,0 +1,8 @@
+{
+  "music": ["play", "pause", "queue", "restart", "clear", "volume", "shutdown"],
+  "yuki1": ["airing", "anime", "catgirl", "character", "dance", "humlookup", "lewd", "loli", "lolihug", "lolipat", "manga", "quote", "smug", "changelog", "donate", "featurerequest", "invite", "ping", "profile"],
+  "yuki2": ["server", "source", "stats", "uptime", "chat", "hug", "pet", "poke", "punt", "slap", "call", "lenny", "letsplay", "sneakylenny", "weedle", "wewlad", "channelmute", "prefix", "setting"],
+  "yuki3": ["toggle", "gif", "google", "image", "searchusers", "urban", "weather", "wiki", "youtube", "chan", "8ball", "avatar", "calculate"],
+  "yuki4":["channelinfo", "coinflip", "info", "pick", "roll", "servericon", "echo", "pun", "reverse"],
+  "eve": ["roast"]
+}

@@ -9,7 +9,7 @@ logger.add(logger.transports.Console, {
 logger.level = 'debug';
 
 exports.run = (client) => {
-    client.user.setPresence({ status:'online', game: {name: 'The Coon'}})
+    client.user.setPresence({ status:'online', game: {name: 'League of Legends'}})
         .then(() =>{})
         .catch(console.log);
     // noinspection Annotator

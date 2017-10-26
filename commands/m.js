@@ -1,5 +1,4 @@
-//const urlRegex = new RegExp("(http(s)?:\\/\\/)(www.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\\.[a-z]{2,6}([-a-zA-Z0-9@:%_+.~#?&/=]*)?", "g");
-let reg = /(http(s)?:\/\/)(www.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}([-a-zA-Z0-9@:%_+.~#?&/=]*)?/g;
+let urlRegex = /(http(s)?:\/\/)(www.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}([-a-zA-Z0-9@:%_+.~#?&/=]*)?/g;
 
 const config = require("../config.json");
 const Discord = require("discord.js");
@@ -11,7 +10,7 @@ exports.run = (client, message, args) => {
     }
     if(args[0] === "create"){
         //at least 3 arguments, args[1] cannot be a URL, args[2] must be a URL
-        if(args.length === 3 && !reg.test(args[1]) && reg.test(args[2])){
+        if(args.length === 3 && !urlRegex.test(args[1]) && urlRegex.test(args[2])){
             if(!client.macros.has(args[1])){
                 client.macros = createMacro(message, client.macros, args);
             }
@@ -62,11 +61,12 @@ function createMacro(message, macros, args){
         name: args[1].toLowerCase(),
         text: args[2],
         creatorID: message.author.id,
+        creatorName: message.guild.members.get(message.author.id).user.username,
         uses: 0
     };
-    macros.set(args[1].toLowerCase(), newMacro);
-    message.channel.send(`Macro \`${args[1].toLowerCase()}\` created.`);
-    console.log(`Macro ${args[1].toLowerCase()} created by ${message.author.username}.`);
+    macros.set(newMacro.name, newMacro);
+    message.channel.send(`Macro \`${newMacro.name}\` created.`);
+    console.log(`Macro ${newMacro.name} created by ${message.author.username}.`);
     return macros;
 }
 
@@ -150,7 +150,7 @@ function editMacro(message, macros, args){
         let macroToEdit = macros.get(args[1]);
         if(message.author.id === macroToEdit.creatorID || message.author.id === config.ownerID){
             macros.delete(args[1]);
-            if(reg.test(args[2])){
+            if(urlRegex.test(args[2])){
                 //argument is a URL, editing macro text
                 macroToEdit.text = args[2];
                 macros.set(args[1], macroToEdit);

@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="503cfad0-2bba-4fe8-b27e-a65329e45080" name="Default" comment="Macro info feature added">
+    <list default="true" id="503cfad0-2bba-4fe8-b27e-a65329e45080" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/commands/m.js" afterPath="$PROJECT_DIR$/commands/m.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/commands/say.js" afterPath="$PROJECT_DIR$/commands/say.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/macros/CURRENT" afterPath="$PROJECT_DIR$/data/macros/CURRENT" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/macros/LOG" afterPath="$PROJECT_DIR$/data/macros/LOG" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/macros/LOG.old" afterPath="$PROJECT_DIR$/data/macros/LOG.old" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -147,7 +142,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="840" />
     <option name="y" value="22" />
     <option name="width" value="840" />
@@ -419,7 +414,7 @@
       <workItem from="1502569927600" duration="1508000" />
       <workItem from="1502576754644" duration="5037000" />
       <workItem from="1502585077280" duration="10773000" />
-      <workItem from="1502734878219" duration="4002000" />
+      <workItem from="1502734878219" duration="4048000" />
     </task>
     <task id="LOCAL-00001" summary="First test of messageReactionAdd">
       <created>1501808818691</created>
@@ -484,11 +479,18 @@
       <option name="project" value="LOCAL" />
       <updated>1502735058843</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Fixed !m edit URL checking">
+      <created>1502739520695</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1502739520695</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="168154000" />
+    <option name="totallyTimeSpent" value="168200000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -500,7 +502,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="840" y="22" width="840" height="976" extended-state="0" />
+    <frame x="0" y="22" width="1680" height="976" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -511,7 +513,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32963374" sideWeight="0.50238097" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32963374" sideWeight="0.49285713" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21902655" sideWeight="0.50476193" order="10" side_tool="true" content_ui="tabs" x="0" y="397" width="553" height="323" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21902655" sideWeight="0.50476193" order="10" side_tool="true" content_ui="tabs" x="0" y="397" width="553" height="323" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3218646" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -589,7 +591,8 @@
     <MESSAGE value="Argument handling improved part 2" />
     <MESSAGE value="Macro search revamped" />
     <MESSAGE value="Macro info feature added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Macro info feature added" />
+    <MESSAGE value="Fixed !m edit URL checking" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed !m edit URL checking" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

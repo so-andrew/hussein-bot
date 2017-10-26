@@ -1,78 +1,109 @@
 {
   "oatmeal":{
+    "name": "oatmeal",
     "text": "Oatmeal is not a food."
   },
   "jojogay":{
+    "name": "jojogay",
     "text": "JoJo is gay"
   },
   "loli":{
+    "name": "loli",
     "text": "Don't lewd lolis!"
   },
   "waifu":{
+    "name": "waifu",
     "text": "Your waifu is shit"
   },
   "fbi":{
+    "name": "fbi",
     "text": "The FBI knows about your loli hentai."
   },
   "feed":{
+    "name": "feed",
     "text": "Don't feed!"
   },
   "convert":{
-    "text": "La eela la ill all ah mohamed are a sue la lah"
+    "name": "convert",
+    "text": "La eela la ill all ah mohamed are a sue la lah."
   },
   "dunecoon":{
+    "name": "dunecoon",
     "text": "I'm just a dumb Dune Coon",
     "author": "Hussein"
   },
   "india":{
-    "text": "I would rather die than live in India",
+    "name": "india",
+    "text": "I would rather die than live in India.",
     "author": "Hassan"
   },
   "reference": {
+    "name": "reference",
     "text": "Not everything is a JoJo reference you fucking weeaboo"
   },
   "muslimnoises":{
+    "name": "muslimnoises",
     "text": "[Muslim noises]"
   },
   "animesafety":{
+    "name": "animesafety",
     "text": "Say one more bad thing about anime and I can no longer guarantee your safety..."
   },
   "junglesoraka": {
+    "name": "junglesoraka",
     "text": "Someone jungle for me please I only play Soraka",
     "author": "Tyler"
   },
   "nfsector":{
+    "name": "nfsector",
     "text": "Begin warp to Niggerfuck Sector",
     "author": "Tyler"
   },
   "riot":{
+    "name": "riot",
     "text": "Riot is a shitty company."
   },
   "metroid": {
+    "name": "metroid",
     "text": "I like Metroid, he's a cool dude."
   },
   "ngrd": {
+    "name": "ngrd",
     "text": "Im so NIggered right now",
     "author": "Hussein"
   },
   "closer":{
+    "name": "closer",
     "text": "We should be allowed to insult niggers and paul tho, it brings us closer",
     "author": "Hassan"
   },
   "pastability":{
+    "name": "pastability",
     "text": "It's a pastability",
     "author": "Tyler"
   },
   "heretonibber":{
+    "name": "heretonibber",
     "text": "IM HERE TO NIGGER",
     "author": "Hussein"
   },
   "crompton":{
+    "name": "crompton",
     "text": "I didn't know Nick Crompton was actually gay... That's gay.",
     "author": "Tyler"
   },
   "blackcat":{
+    "name": "blackcat",
     "text": "The only Selina I know is the BLACK CAT",
     "author": "Tyler"
+  },
+  "breed":{
+    "name": "breed",
+    "text": "You breed the team and the trainer to lead it.",
+    "author": "Sarinda"
+  },
+  "nani":{
+    "name": "nani",
+    "text": "Nani the fuck did you just fucking iimasu about watashi, you chiisai bitch desuka? Watashi’ll have anata know that watashi graduated top of my class in Nihongo 3, and watashi’ve been involved in iroirona Nihongo tutoring sessions, and watashi have over sanbyaku perfect test scores. Watashi am trained in kanji, and watashi is the top letter writer in all of southern California. Anata are nothing to watashi but just another weaboo. Watashi will korosu anata the fuck out with vocabulary the likes of which has never been mimasu’d before on this continent, mark watashino fucking words. Anata thinks anata can get away with hanashimasing that kuso to watashi over the intaaneto? Omou again, fucker. As we hanashimasu, watashi am contacting watashino secret netto of otakus across the USA, and anatano IP is being traced right now so you better junbishimasu for the ame, ujimushi. The ame that korosu’s the pathetic chiisai thing anata calls anatano life. You’re fucking shinimashita’d, akachan."
   }
 }

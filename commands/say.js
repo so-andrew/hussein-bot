@@ -1,6 +1,7 @@
 const fs = require("fs");
 let sayJSON = require("../sayings.json");
 const Discord = require("discord.js");
+const config = require("../config.json");
 let sayings = new Map();
 
 exports.run = (client, message, args) => {
@@ -22,6 +23,9 @@ exports.run = (client, message, args) => {
                 embed.setColor("DARK_BLUE");
             }
         }
+        else if(quote.name === "convert"){
+            embed.setDescription(`- ${message.author.username}`);
+        }
         else{
             embed.setDescription("- Anonymous");
         }
@@ -42,6 +46,13 @@ exports.run = (client, message, args) => {
             else if(quote.author === "Hassan"){
                 embed.setColor("DARK_BLUE");
             }
+            else if(quote.author === "Sarinda"){
+                embed.setColor("DARK_GREEN");
+            }
+        }
+        else if(quote.name === "convert"){
+          if(message.mentions && message.author.id === config.ownerID) embed.setDescription(`- ${message.mentions.members.first().user.username}`);
+          else embed.setDescription(`- ${message.author.username}`);
         }
         else{
             embed.setDescription("- Anonymous");

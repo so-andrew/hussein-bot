@@ -7,7 +7,7 @@ exports.run = (client, message, args) => {
 };
 
 function clean(message, args){
-    if(!isNaN(args)){
+  if(!isNaN(args)){
         message.channel.fetchMessages({limit: parseInt(args) + 1})
             .then(messageCollection => {
                 message.channel.bulkDelete(messageCollection);
@@ -25,6 +25,6 @@ function clean(message, args){
                         .catch(console.log);
                 }
             }).catch(console.log);
-    }
-    else message.channel.send("Please input a valid number of messages to delete.");
+  }
+  else message.channel.send("Please input a valid number of messages to delete.");
 }

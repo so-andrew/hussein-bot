@@ -13,7 +13,7 @@ exports.run = (client, message, args) => {
             .setFooter("Type !help [command] for more info on a specific command.")
             .addField("Primary Commands", "`insult`, `say`, `clean`, `setgame`, `about`")
             .addField("Mod Commands", "`smite`, `unsmite`")
-            .addField("Original Macros", "`doajig`, `england`, `obliterate`, `pizzatime`")
+            .addField("Original Macros", "`doajig`, `england`, `obliterate`, `pizzatime`, `jojo`")
             .addField("User Macro System", "`m create`, `m search`, `m delete`, `m list`, `m edit`");
         message.channel.send({embed: embed});
     }
