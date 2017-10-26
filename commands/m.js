@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 let urlRegex = /(http(s)?:\/\/)(www.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}([-a-zA-Z0-9@:%_+.~#?&/=]*)?/g;
+=======
+//const urlRegex = new RegExp("(http(s)?:\\/\\/)(www.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\\.[a-z]{2,6}([-a-zA-Z0-9@:%_+.~#?&/=]*)?", "g");
+let reg = /(http(s)?:\/\/)(www.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}([-a-zA-Z0-9@:%_+.~#?&/=]*)?/g;
+>>>>>>> 6be7ee7678f92d357e30305bbe4998d2cb639550
 
 const config = require("../config.json");
 const Discord = require("discord.js");
@@ -10,7 +15,11 @@ exports.run = (client, message, args) => {
     }
     if(args[0] === "create"){
         //at least 3 arguments, args[1] cannot be a URL, args[2] must be a URL
+<<<<<<< HEAD
         if(args.length === 3 && !urlRegex.test(args[1]) && urlRegex.test(args[2])){
+=======
+        if(args.length === 3 && !reg.test(args[1]) && reg.test(args[2])){
+>>>>>>> 6be7ee7678f92d357e30305bbe4998d2cb639550
             if(!client.macros.has(args[1])){
                 client.macros = createMacro(message, client.macros, args);
             }
@@ -150,7 +159,11 @@ function editMacro(message, macros, args){
         let macroToEdit = macros.get(args[1]);
         if(message.author.id === macroToEdit.creatorID || message.author.id === config.ownerID){
             macros.delete(args[1]);
+<<<<<<< HEAD
             if(urlRegex.test(args[2])){
+=======
+            if(reg.test(args[2])){
+>>>>>>> 6be7ee7678f92d357e30305bbe4998d2cb639550
                 //argument is a URL, editing macro text
                 macroToEdit.text = args[2];
                 macros.set(args[1], macroToEdit);
