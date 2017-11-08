@@ -8,6 +8,8 @@ client.macros = macros;
 let cooldown = [];
 client.cooldown = cooldown;
 client.disable = [];
+const gamemodes = fs.readFileSync("./gamemodes.json");
+client.gamemodes = JSON.parse(gamemodes);
 
 fs.readdir("./events/", (err, files) => {
     if (err) return console.error(err);
@@ -19,5 +21,19 @@ fs.readdir("./events/", (err, files) => {
 });
 
 client.login(config.token)
-    .then(() =>{})
+    .then(() =>{
+      randomizeArray(client.gamemodes);
+    })
     .catch(console.log);
+
+function randomizeArray(array){
+    let i = array.length;
+    if(i==0) return;
+    while(--i){
+      let j = Math.floor(Math.random()*(i+1));
+      let tempi = array[i];
+      let tempj = array[j];
+      array[i]= tempj;
+      array[j]= tempi;
+    }
+}
