@@ -30,7 +30,7 @@ function fetchHelpJSON(){
 function help(message, args){
     if(helpFile.has(args[0])){
         let cmdHelp;
-        if(args[0] === "m" && args[1]){
+        if((args[0] === "m" || args[0] === "gamemode") && args[1]){
             cmdHelp = helpFile.get(args.join(" "));
         }
         else cmdHelp = helpFile.get(args[0]);

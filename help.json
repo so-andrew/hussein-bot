@@ -112,5 +112,29 @@
         "desc": "Provides information on the creator and number of uses of a specified macro.",
         "params": "`[name]` (required)",
         "type": "macro"
+    },
+    "gamemode":{
+        "name": "gamemode",
+        "desc": "The base command for player rotation games in League of Legends. See `!help gamemode print`, `!help gamemode next`, and `!help gamemode refresh` for related commands.",
+        "params": "`[Command name]` (required)",
+        "type": "macro"
+    },
+    "gamemode print":{
+        "name": "gamemode print",
+        "desc": "Prints the current queue for player rotation game modes.",
+        "params": "None",
+        "type": "macro"
+    },
+    "gamemode next":{
+        "name": "gamemode next",
+        "desc": "Displays the next game mode to be played and removes it from the queue.",
+        "params": "None",
+        "type": "macro"
+    },
+    "gamemode refresh":{
+        "name": "gamemode refresh",
+        "desc": "Resets and randomizes the game mode queue.",
+        "params": "None",
+        "type": "macro"
     }
 }
