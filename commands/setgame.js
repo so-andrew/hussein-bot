@@ -4,10 +4,9 @@ exports.run = (client, message, args) => {
         message.channel.send("No game specified.");
     }
     else {
-        client.user.setPresence({status: 'online', game: {name: args.join(" ")}})
-            .then(()=>{})
-            .catch(console.log);
-
+        client.user.setPresence({game: {name: args.join(" "), type: 0}});
+            //.then(presence => console.log(`Activity set to ${presence.game ? presence.game.name : 'none'}`))
+            //.catch(console.error);
         message.channel.send('Changed game to **' + args.join(" ") + '**.');
     }
 };

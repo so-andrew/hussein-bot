@@ -14,7 +14,8 @@ exports.run = (client, message, args) => {
             .addField("Primary Commands", "`insult`, `say`, `clean`, `setgame`, `about`")
             .addField("Mod Commands", "`smite`, `unsmite`")
             .addField("Original Macros", "`doajig`, `england`, `obliterate`, `pizzatime`, `jojo`")
-            .addField("User Macro System", "`m create`, `m search`, `m delete`, `m list`, `m edit`");
+            .addField("User Macro System", "`m create`, `m search`, `m delete`, `m list`, `m edit`")
+            .addField("League Player Rotation", "`gamemode next`, `gamemode refresh`");
         message.channel.send({embed: embed});
     }
     else help(message, args);

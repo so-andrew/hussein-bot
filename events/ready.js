@@ -9,9 +9,9 @@ logger.add(logger.transports.Console, {
 logger.level = 'debug';
 
 exports.run = (client) => {
-    client.user.setPresence({ status:'online', game: {name: 'League of Legends'}})
-        .then(() =>{})
-        .catch(console.log);
+    client.user.setPresence({game: {name: 'League of Legends', type: 0}});
+        //.then(() =>{})
+        //.catch(console.log);
     // noinspection Annotator
     logger.info("Connected");
     // noinspection Annotator

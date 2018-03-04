@@ -65,7 +65,7 @@
     },
     "m":{
         "name": "m",
-        "desc": "The base command for photo macros. Returns the specified image from the database, if it exists. See `!help m create`, `!help m search`, `!help m delete`, and `!help m list` for other commands related to the macro feature.",
+        "desc": "The base command for photo macros. Returns the specified image from the database, if it exists. See `!help m create`, `!help m search`, `!help m delete`, `!help m list`, `!help m edit`, and `!help m info` for other commands related to the macro feature.",
         "params": "`[name]` (required)",
         "type": "macro"
     },

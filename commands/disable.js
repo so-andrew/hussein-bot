@@ -15,4 +15,10 @@ exports.run = (client, message, args) => {
         console.log(`Function ${args[0]} is already disabled.`);
       }
     }
+    else if(whitelist.list.indexOf(args[0]) == -1){
+      console.log(`ERROR: The specified function either does not exist or cannot be disabled.`);
+    }
+    else if(message.author.id != config.ownerID){
+      console.log(`User ${message.author.username} does not have the proper permissions.`);
+    }
 };

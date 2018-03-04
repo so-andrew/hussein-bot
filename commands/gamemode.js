@@ -3,8 +3,7 @@ const fs = require("fs");
 
 exports.run = (client, message, args) => {
   console.log("Command !%s received from %s", "gamemode", message.author.username);
-  //console.log(client.gamemodes);
-  if(args[0]==="print"){
+  if(args[0]==="print" || args[0]==="list"){
     let queueStr = "";
     if(client.gamemodes.length>0){
       for(i = 0;i<client.gamemodes.length;i++){
@@ -23,10 +22,9 @@ exports.run = (client, message, args) => {
       message.channel.send({embed: embed});
     }
     else message.channel.send("No more gamemodes in queue.");
-    //message.channel.send(`The next gamemode is **${client.gamemodes.shift()}**`);
   }
   if(args[0]==="hidn"){
-    if(args.length === 2){
+    if(args.length === 2 && args[1] <= client.gamemodes.length){
       promote(client.gamemodes, args[1]);
     }
     else message.channel.send("U fucked up");
@@ -38,7 +36,9 @@ exports.run = (client, message, args) => {
 };
 
 function promote(gamemodes, index){
-  gamemodes.splice(0,0, gamemodes.splice(index-1, 1));
+  if(index <= client.gamemodes.length){
+    gamemodes.splice(0,0, gamemodes.splice(index-1, 1));
+  }
 }
 
 function refresh(client){
