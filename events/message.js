@@ -1,9 +1,17 @@
 const config = require("../config.json");
 const blacklist = require("../blacklist.json");
 const filter = require("../filter.json");
+let pogRegex = /p{1}\s*o*\s*g{1}/ig;
 
 exports.run = (client, message) => {
+    // Ignore bot messages
     if (message.author.bot) return;
+    // Non-command features
+    if (pogRegex.test(message.content) && !disableCheck(client, "pog") && !message.content.startsWith(config.prefix)){
+        let pogRef = require("../commands/pog.js");
+        pogRef.run(client, message);
+        return;
+    }
     if (/stand/i.test(message.content) && !disableCheck(client, "stand") && !message.content.startsWith(config.prefix)){
         let standRef = require("../commands/stand.js");
         standRef.run(client, message);
@@ -12,11 +20,14 @@ exports.run = (client, message) => {
     if (filterCheck(message.content) && !disableCheck(client, "fightflight") && !message.content.startsWith(config.prefix)){
         let fightflight = require("../commands/fightflight.js");
         fightflight.run(client, message, true);
+        return;
     }
     if (attackCheck(message.content) && !disableCheck(client, "fightflight") && !message.content.startsWith(config.prefix)){
         let fightflight = require("../commands/fightflight.js");
         fightflight.run(client, message, false);
+        return;
     }
+    // Command checks
     if (message.content.startsWith(config.prefix)){
         if(cooldown(client, message)){
             message.reply("this is a no spam zone!");
@@ -42,31 +53,26 @@ exports.run = (client, message) => {
           }
           catch (err) {
               console.log(`Command ${cmd} does not exist.`);
-              console.log(err);
           }
       }
     }
 };
 
 function blacklistCheck(cmd){
-  if(blacklist.music.indexOf(cmd)!== -1 || blacklist.yuki1.indexOf(cmd)!== -1 || blacklist.yuki2.indexOf(cmd)!== -1 || blacklist.yuki3.indexOf(cmd)!== -1 || blacklist.yuki4.indexOf(cmd)!== -1 || blacklist.eve.indexOf(cmd)!== -1){
+  if(blacklist.music.indexOf(cmd)!== -1 || blacklist.eve.indexOf(cmd)!== -1){
     return false;
   }
   return true;
 }
 
 function disableCheck(client, cmd){
-  if(client.disable.indexOf(cmd)!== -1){
-    return true;
-  }
-  return false;
+  return (client.disable.indexOf(cmd) !== -1);
 }
 
 function filterCheck(content){
   for(i = 0; i < filter.curses.length; i++){
     var regex = new RegExp(filter.curses[i], 'i');
       if(regex.test(content)){
-        //console.log("contains curse");
         return true;
       }
   }
@@ -77,7 +83,6 @@ function attackCheck(content){
   for(i = 0; i < filter.attacks.length; i++){
     var regex = new RegExp(filter.attacks[i], 'i');
       if(regex.test(content)){
-        //console.log("contains attack");
         return true;
       }
   }

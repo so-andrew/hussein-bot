@@ -95,7 +95,7 @@ function searchMacro(message, macros, arg){
     let msg = "";
     let found = false;
 
-    function testMap(value, key, map){
+    function testMap(key){
         if(searchRegex.test(macros.get(key).name)){
             msg += `\`${macros.get(key).name}\`, `;
             found = true;

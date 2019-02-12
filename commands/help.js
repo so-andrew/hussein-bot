@@ -11,11 +11,11 @@ exports.run = (client, message, args) => {
             .setColor(3447003)
             .setDescription("An index of commands currently supported by Hussein Bot.")
             .setFooter("Type !help [command] for more info on a specific command.")
-            .addField("Primary Commands", "`insult`, `say`, `clean`, `setgame`, `about`")
+            .addField("Primary Commands", "`insult`, `say`, `clean`, `pogjar`, `about`")
             .addField("Mod Commands", "`smite`, `unsmite`")
             .addField("Original Macros", "`doajig`, `england`, `obliterate`, `pizzatime`, `jojo`")
-            .addField("User Macro System", "`m create`, `m search`, `m delete`, `m list`, `m edit`")
-            .addField("League Player Rotation", "`gamemode next`, `gamemode refresh`");
+            .addField("User Macro System", "`m create`, `m search`, `m delete`, `m list`, `m edit`, `m info`")
+            .addField("League Player Rotation", "`gamemode print`, `gamemode next`, `gamemode refresh`");
         message.channel.send({embed: embed});
     }
     else help(message, args);
