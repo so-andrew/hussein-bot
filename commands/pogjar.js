@@ -4,7 +4,7 @@ exports.run = (client, message, args) => {
     console.log("Command !%s received from %s", "pogjar", message.author.username);
     let pogCount = 0;
     let pluralString = "s";
-    if(!args){
+    if(!args || !args.length){
       if(client.pogjar.has(message.author.id)){
           pogCount = client.pogjar.get(message.author.id);
           if(pogCount == 1) pluralString = "";

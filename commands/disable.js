@@ -1,5 +1,5 @@
 const fs = require("fs");
-const whitelist = require("../whitelist.json");
+const whitelist = require("../data/whitelist.json");
 const config = require("../config.json");
 
 exports.run = (client, message, args) => {

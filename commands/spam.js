@@ -1,6 +1,6 @@
 exports.run = (client, message, args) => {
     console.log(`Command !%s received from %s`, "spam", message.author.username);
-    if(!args){
+    if(!args || !args.length){
       message.channel.send("No argument specified.");
     }
     else {

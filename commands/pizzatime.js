@@ -1,37 +1,36 @@
-exports.run = (client, message, args) => {
-    console.log("Command !%s received from %s", "pizzatime", message.author.username);
-    if (message.member.voiceChannel) {
-        message.member.voiceChannel.join()
-            .then(connection => {
-                message.channel.send("**PIZZA TIME**\n\nhttps://cdn.discordapp.com/attachments/231599783255605248/336404762587037696/unknown.png");
-                let currentGame = client.user.presence.game.name;
-                client.user.setPresence({ status:'online', game: {name: 'PIZZA TIME'}})
-                    .then(() =>{})
-                    .catch(console.log);
-                const dispatcher = connection.playFile('./resources/pizzatheme.mp3');
-                if(parseInt(args) === 0){
-                    dispatcher.setVolume(0);
-                }
-                else dispatcher.setVolume(0.15);
-                dispatcher.on('end', () => {
-                    setTimeout(()=>{
-                        try{
-                            message.member.voiceChannel.leave();
-                        }
-                        catch(err){
-                            console.log(err);
-                        }
-                        client.user.setPresence({ status:'online', game: {name: currentGame}})
-                            .then(() =>{})
-                            .catch(console.log);
-                    }, 3000);
-                });
+const presence = require("../commands/presence.js");
 
-                dispatcher.on('error', e => {
-                    console.log(e);
-                });
-            })
-            .catch(console.log);
-    }
-    else message.reply('join a voice channel first.');
+exports.run = async (client, message, args) => {
+		console.log("Command !%s received from %s", "pizzatime", message.author.username);
+		if(message.member.voiceChannel){
+			try{
+				const connection = await message.member.voiceChannel.join();
+				message.channel.send("**PIZZA TIME**\n\nhttps://cdn.discordapp.com/attachments/231599783255605248/336404762587037696/unknown.png");
+				client.user.setPresence({ status:'online', game: {name: 'PIZZA TIME'}});
+				const dispatcher = connection.playFile('./resources/pizzatheme.mp3');
+				if(parseInt(args[0]) === 0){
+						dispatcher.setVolume(0);
+				}
+				else dispatcher.setVolume(0.15);
+				dispatcher.on('end', async () => {
+						try{
+								const connection = await client.voiceConnections.get(message.guild.id);
+								setTimeout(()=>{
+									connection.disconnect();
+									presence.setPresence(client);
+								}, 3000);
+						}
+						catch(err){
+								console.log(err);
+						}
+				});
+				dispatcher.on('error', err => {
+						console.log(err);
+				});
+				}
+				catch(err){
+						console.error(err);
+				}
+		}
+		else message.reply('join a voice channel first.');
 };

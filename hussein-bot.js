@@ -9,9 +9,8 @@ client.macros = new Enmap({ provider: new EnmapLevel({ name: 'macros' }) });
 client.cooldown = [];
 client.disable = [];
 client.interval = null;
-client.gamemodes = JSON.parse(fs.readFileSync("./gamemodes.json"));
-client.mode = 1;
-client.pogjar = new Map(JSON.parse(fs.readFileSync("./pogjar.json")));
+client.gamemodes = JSON.parse(fs.readFileSync("./data/gamemodes.json"));
+client.pogjar = new Map(JSON.parse(fs.readFileSync("./data/pogjar.json")));
 
 fs.readdir("./events/", (err, files) => {
     if (err) return console.error(err);
@@ -23,9 +22,7 @@ fs.readdir("./events/", (err, files) => {
 });
 
 client.login(config.token)
-    .then(() => {
-      randomizeArray(client.gamemodes);
-    })
+    .then(randomizeArray(client.gamemodes))
     .catch(console.log);
 
 function randomizeArray(array){

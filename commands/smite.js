@@ -4,7 +4,7 @@ exports.run = (client, message, args) => {
         message.channel.send("Wrong server, nerd.");
     }
     else{
-        if(!args){
+        if(!args || !args.length){
             message.channel.send("No one to smite.");
         }
         else{

@@ -1,8 +1,8 @@
-const games = require("../games.json");
+const games = require("../data/games.json");
 
 exports.run = (client, message, args) => {
     console.log(`Command !%s received from %s`, "setgame", message.author.username);
-    if (!args) {
+    if (!args || !args.length) {
         message.channel.send("No game specified.");
     }
     else if(args[0] == "reset"){

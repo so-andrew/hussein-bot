@@ -1,11 +1,11 @@
-const helpJSON = require('../help.json');
+const helpJSON = require('../data/help.json');
 const Discord = require('discord.js');
 let helpFile = new Map();
 
 exports.run = (client, message, args) => {
     fetchHelpJSON();
     console.log("Command !%s received from %s", "help", message.author.username);
-    if(!args){
+    if(!args || !args.length){
         const embed = new Discord.RichEmbed()
             .setTitle("Commands")
             .setColor(3447003)

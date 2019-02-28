@@ -1,12 +1,12 @@
 const fs = require("fs");
-let sayJSON = require("../sayings.json");
+let sayJSON = require("../data/sayings.json");
 const Discord = require("discord.js");
 const config = require("../config.json");
 let sayings = new Map();
 
 exports.run = (client, message, args) => {
     fetchSayJSON();
-    if(!args){
+    if(!args || !args.length){
         let sayDB = Array.from(sayings.values());
         let quote = sayDB[Math.floor(Math.random()*(sayDB.length))];
         const embed = new Discord.RichEmbed()

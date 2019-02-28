@@ -1,15 +1,26 @@
 const config = require("../config.json");
-const blacklist = require("../blacklist.json");
-const filter = require("../filter.json");
-let pogRegex = /p{1}\s*o*\s*g{1}/ig;
+const blacklist = require("../data/blacklist.json");
+const filter = require("../data/filter.json");
 
-exports.run = (client, message) => {
+exports.run = async (client, message) => {
     // Ignore bot messages
     if (message.author.bot) return;
     // Non-command features
-    if (pogRegex.test(message.content) && !disableCheck(client, "pog") && !message.content.startsWith(config.prefix)){
+    if (pogCheck(message) && !disableCheck(client, "pog") && !message.content.startsWith(config.prefix)){
         let pogRef = require("../commands/pog.js");
-        pogRef.run(client, message);
+        let pogType = whichPog(message);
+        //console.log(pogType);
+        if(pogType === 2 || pogType === 3){
+            try{
+                const filter = m => (m.author.id === message.author.id);
+                const collected = await message.channel.awaitMessages(filter, {max: 1, time: 15000});
+                if(ogCheck(collected.first()) || gCheck(collected.first())) pogRef.run(client, message, pogType);
+            }
+            catch(error){
+                console.error(err);
+            }
+        }
+        else pogRef.run(client, message, pogType);
         return;
     }
     if (/stand/i.test(message.content) && !disableCheck(client, "stand") && !message.content.startsWith(config.prefix)){
@@ -17,7 +28,7 @@ exports.run = (client, message) => {
         standRef.run(client, message);
         return;
     }
-    if (filterCheck(message.content) && !disableCheck(client, "fightflight") && !message.content.startsWith(config.prefix)){
+    /*if (filterCheck(message.content) && !disableCheck(client, "fightflight") && !message.content.startsWith(config.prefix)){
         let fightflight = require("../commands/fightflight.js");
         fightflight.run(client, message, true);
         return;
@@ -26,35 +37,27 @@ exports.run = (client, message) => {
         let fightflight = require("../commands/fightflight.js");
         fightflight.run(client, message, false);
         return;
-    }
+    }*/
     // Command checks
-    if (message.content.startsWith(config.prefix)){
+    if(message.content.startsWith(config.prefix)){
         if(cooldown(client, message)){
             message.reply("this is a no spam zone!");
             return;
         }
-        let indexOfFirstSpace = message.content.indexOf(' ');
-        let cmd;
-        let argsArray;
-        if (indexOfFirstSpace === -1) {
-            cmd = message.content.substring(1);
-            argsArray = null;
-        }
-        else {
-            cmd = message.content.substring(1, indexOfFirstSpace);
-            argsArray = message.content.substring(indexOfFirstSpace + 1).split(" ");
-        }
+        const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+        const cmd = args.shift().toLowerCase();
         if(blacklistCheck(cmd) && !disableCheck(client, cmd)){
-          try {
-              let commandFile = require(`../commands/${cmd}.js`);
-              commandFile.run(client, message, argsArray);
-              client.cooldown.push(message.author.id);
-              removeCooldown(client, message, 5);
-          }
-          catch (err) {
-              console.log(`Command ${cmd} does not exist.`);
-          }
-      }
+            try {
+                let commandFile = require(`../commands/${cmd}.js`);
+                commandFile.run(client, message, args);
+                client.cooldown.push(message.author.id);
+                removeCooldown(client, message, 5);
+            }
+            catch (err) {
+                console.log(`Command ${cmd} does not exist.`);
+                console.error(err);
+            }
+        }
     }
 };
 
@@ -103,4 +106,39 @@ function removeCooldown(client, message, timeInSeconds){
             client.cooldown = client.cooldown.splice(index, 0);
         }, timeInSeconds * 1000)
     }
+}
+
+function pogCheck(message){
+    let pogRegex = /p{1}\s*o{1}\s*g{1}/ig;
+    let singlePRegex = /\bp{1}$/ig;
+    let poRegex =/\bp{1}\s*o{1}$/ig;
+    return (pogRegex.test(message.content) || singlePRegex.test(message.content) || poRegex.test(message.content));
+}
+
+function ogCheck(message){
+    let ogRegex = /^o{1}\s*g{1}$/ig;
+    return ogRegex.test(message.content);
+}
+
+function poCheck(message){
+    let poRegex =/\bp{1}\s*o{1}$/ig;
+    return poRegex.test(message.content);
+}
+
+function gCheck(message){
+    let gRegex = /^g{1}$/ig;
+    return gRegex.test(message.content);
+}
+
+function whichPog(message){
+    let pogRegex = /p{1}\s*o{1}\s*g{1}/ig;
+    let singlePRegex = /\bp{1}$/ig;
+    let poRegex =/\bp{1}\s*o{1}$/ig;
+    if(pogRegex.test(message.content)){
+        return 1;
+    } else if(poRegex.test(message.content)){
+        return 3;
+    } else if(singlePRegex.test(message.content)){
+        return 2;
+    } else return 0;
 }

@@ -42,7 +42,7 @@ function promote(gamemodes, index){
 }
 
 function refresh(client){
-  const gamemodes = fs.readFileSync("./gamemodes.json");
+  const gamemodes = fs.readFileSync("./data/gamemodes.json");
   client.gamemodes = JSON.parse(gamemodes);
   randomizeArray(client.gamemodes);
 }

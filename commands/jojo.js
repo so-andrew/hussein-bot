@@ -6,7 +6,7 @@ exports.run = (client, message, args) => {
       message.member.voiceChannel.join()
             .then(connection => {
                 const dispatcher = connection.playFile('./resources/shindeiru.mp3');
-                if(parseInt(args) === 0){
+                if(parseInt(args[0]) === 0){
                     dispatcher.setVolume(0);
                 }
                 else dispatcher.setVolume(0.75);
@@ -31,7 +31,7 @@ exports.run = (client, message, args) => {
       message.member.voiceChannel.join()
           .then(connection => {
               const dispatcher = connection.playFile('./resources/shindeiru.mp3');
-              if(parseInt(args) === 0){
+              if(parseInt(args[0]) === 0){
                   dispatcher.setVolume(0);
               }
               else dispatcher.setVolume(0.75);
