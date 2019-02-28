@@ -4,7 +4,7 @@ const config = require("../config.json");
 const Discord = require("discord.js");
 
 exports.run = (client, message, args) => {
-    if(!args){
+    if(!args || !args.length){
         message.channel.send("Needs more parameters.");
         return;
     }
@@ -61,7 +61,7 @@ function createMacro(message, macros, args){
         name: args[1].toLowerCase(),
         text: args[2],
         creatorID: message.author.id,
-        creatorName: message.guild.members.get(message.author.id).user.username,
+        creatorName: message.author.username,
         uses: 0
     };
     macros.set(newMacro.name, newMacro);
@@ -72,14 +72,19 @@ function createMacro(message, macros, args){
 
 function retrieveMacro(message, macros, arg){
     if(macros.has(arg)){
+      try{
         let macro = macros.get(arg);
-        message.channel.send(macros.get(arg).text)
-            .then(()=>{
-                macro.uses++;
-                macros.set(macro.name, macro);
-            })
-            .catch(console.log);
+        const embed = new Discord.RichEmbed()
+            .setImage(macro.text)
+            .setColor(3447003);
+        message.channel.send({embed: embed});
+        macro.uses++;
+        macros.set(macro.name, macro);
         console.log(`Macro ${arg} invoked by ${message.author.username}.`);
+      }
+      catch(err){
+        console.error(err);
+      }
     }
     else{
         message.channel.send("No such macro exists.");
@@ -95,9 +100,9 @@ function searchMacro(message, macros, arg){
     let msg = "";
     let found = false;
 
-    function testMap(key){
-        if(searchRegex.test(macros.get(key).name)){
-            msg += `\`${macros.get(key).name}\`, `;
+    function testMap(key, name){
+        if(searchRegex.test(name)){
+            msg += `\`${name}\`, `;
             found = true;
         }
     }
