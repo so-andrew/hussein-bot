@@ -24,7 +24,7 @@ exports.run = async (client, message, args) => {
       .setDescription("You have invested " + client.pogjar.get(message.author.id) + " pog" + pluralString + " into the pog jar!")
       .setThumbnail("https://i.imgur.com/vXDthSy.jpg")
       .setColor("#0fc13c");
-      message.channel.send({embed:embed});
+  message.channel.send({embed:embed});
   fs.writeFile("./data/pogjar.json", JSON.stringify(Array.from(client.pogjar.entries())), function(err){
       if(err) throw err;
   });
