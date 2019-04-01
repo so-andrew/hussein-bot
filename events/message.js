@@ -1,15 +1,23 @@
 const config = require("../config.json");
 const blacklist = require("../data/blacklist.json");
 const filter = require("../data/filter.json");
+const twitchRegex = /(http(s)?:\/\/)(www.)?(twitch.tv\/cyn0va)/ig;
 
 exports.run = async (client, message) => {
     // Ignore bot messages
-    if (message.author.bot) return;
+    if(message.author.bot) return;
     // Non-command features
-    if (pogCheck(message) && !disableCheck(client, "pog") && !message.content.startsWith(config.prefix)){
+    if(message.channel.type === "text" && !message.content.startsWith(config.prefix) && twitchRegex.test(message.content)){
+        try{
+            message.react(message.guild.emojis.find(emoji => emoji.name === "ResidentSleeper"));
+        }
+        catch(error){
+            console.log("Emote does not exist.");
+        }
+    }
+    if(pogCheck(message) && !disableCheck(client, "pog") && !message.content.startsWith(config.prefix)){
         let pogRef = require("../commands/pog.js");
         let pogType = whichPog(message);
-        //console.log(pogType);
         if(pogType === 2 || pogType === 3){
             try{
                 const filter = m => (m.author.id === message.author.id);
@@ -17,13 +25,35 @@ exports.run = async (client, message) => {
                 if(ogCheck(collected.first()) || gCheck(collected.first())) pogRef.run(client, message, pogType);
             }
             catch(error){
-                console.error(err);
+                console.error(error);
             }
         }
         else pogRef.run(client, message, pogType);
         return;
     }
-    if (/stand/i.test(message.content) && !disableCheck(client, "stand") && !message.content.startsWith(config.prefix)){
+    if(nCheck(message) && !message.content.startsWith(config.prefix)){
+        try{
+            if(message.content.charCodeAt(0) < 97) message.channel.send("I");
+            else message.channel.send("i");
+            const filter = m => (m.author.id === message.author.id);
+            const collected = await message.channel.awaitMessages(filter, {max: 1, time: 15000});
+            if(gCheck(collected.first())){
+                if(message.content.charCodeAt(0) < 97) message.channel.send("G");
+                else message.channel.send("g");
+                const filter = m => (m.author.id === message.author.id);
+                const collected = await message.channel.awaitMessages(filter, {max: 1, time: 15000});
+                if(eCheck(collected.first())){
+                    if(message.content.charCodeAt(0) < 97) message.channel.send("R");
+                    else message.channel.send("R");
+                }
+            }
+        }
+        catch(error){
+            console.error(error);
+        }
+        return;
+    }
+    if(/stand/i.test(message.content) && !disableCheck(client, "stand") && !message.content.startsWith(config.prefix)){
         let standRef = require("../commands/stand.js");
         standRef.run(client, message);
         return;
@@ -127,6 +157,21 @@ function poCheck(message){
 
 function gCheck(message){
     let gRegex = /^g{1}$/ig;
+    return gRegex.test(message.content);
+}
+
+function nCheck(message){
+    let nRegex = /^n{1}$/ig;
+    return nRegex.test(message.content);
+}
+
+function gCheck(message){
+    let gRegex = /^g{1}$/ig;
+    return gRegex.test(message.content);
+}
+
+function eCheck(message){
+    let gRegex = /^e{1}$/ig;
     return gRegex.test(message.content);
 }
 

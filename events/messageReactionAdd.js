@@ -1,5 +1,12 @@
+const config = require("../config.json");
+
 exports.run = (client, messageReaction) => {
     //console.log(messageReaction.emoji.identifier);
+    if(messageReaction.users.has(config.ownerID)){
+        messageReaction.message.react(messageReaction.emoji)
+            .then(() => {})
+            .catch(console.log)
+    }
     if(messageReaction.emoji.id === "310668328794587138"){
         messageReaction.message.react("310668328794587138")
             .then(() => {})
@@ -17,7 +24,7 @@ exports.run = (client, messageReaction) => {
     }
     if(messageReaction.emoji.identifier === "%F0%9F%A4%94" ){
       messageReaction.message.react("%F0%9F%A4%94")
-        .then(()=>{})
-        .catch(console.log)
+          .then(()=>{})
+          .catch(console.log)
     }
 };
