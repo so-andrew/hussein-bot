@@ -20,19 +20,34 @@ module.exports.setPresence = (client) => {
 async function setGame(client){
   game = randomize(games);
   await client.user.setPresence({game: {name: game, type: 0}});
-  console.log(`Currently playing ${game}.`);
+  const d = new Date();
+  let minuteString = d.getMinutes().toString();
+  if(d.getMinutes() < 10) minuteString = "0" + minuteString;
+  let secondString = d.getSeconds().toString();;
+  if(d.getSeconds() < 10) secondString = "0" + secondString;
+  console.log(`${d.getHours()}:${minuteString}:${secondString} - Currently playing ${game}.`);
 }
 
 async function setWatch(client){
   watch = randomize(viewing);
   await client.user.setPresence({game: {name: watch, type: 3}});
-  console.log(`Currently watching ${watch}.`);
+  const d = new Date();
+  let minuteString = d.getMinutes().toString();
+  if(d.getMinutes() < 10) minuteString = "0" + minuteString;
+  let secondString = d.getSeconds().toString();;
+  if(d.getSeconds() < 10) secondString = "0" + secondString;
+  console.log(`${d.getHours()}:${minuteString}:${secondString} - Currently watching ${watch}.`);
 }
 
 async function setListen(client){
   listen = randomize(listening);
   await client.user.setPresence({game: {name: listen, type: 2}});
-  console.log(`Currently listening to ${listen}.`);
+  const d = new Date();
+  let minuteString = d.getMinutes().toString();
+  if(d.getMinutes() < 10) minuteString = "0" + minuteString;
+  let secondString = d.getSeconds().toString();;
+  if(d.getSeconds() < 10) secondString = "0" + secondString;
+  console.log(`${d.getHours()}:${minuteString}:${secondString} - Currently listening to ${listen}.`);
 }
 
 function randomize(obj){

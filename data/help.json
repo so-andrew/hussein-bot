@@ -142,5 +142,11 @@
         "desc": "Checks the amount of pogs that the user (or a mentioned user) has placed into the pog jar.",
         "params": "`@mention` (optional)",
         "type": "macro"
+    },
+    "avatar":{
+        "name": "avatar",
+        "desc": "Returns the avatar of the mentioned user, or if no one is mentioned, returns the avatar of the invoking user.",
+        "params": "`@mention` (optional)",
+        "type": "macro"
     }
 }

@@ -16,10 +16,42 @@
   },
   "2.2.0":{
       "date": "8/3/17",
-      "desc": ""
+      "desc": "First commit to GitHub, cleaning up of code",
+      "features": "Message reactions"
   },
   "2.3.0":{
-      "date": "8/11/17",
-      "desc": ""
+      "date": "8/14/17",
+      "desc": "Improving macro features",
+      "features": "Macro editing, search info"
+  },
+  "2.4.0":{
+      "date": "11/7/17",
+      "desc": "First implementation of the League player rotation system",
+      "features": "League player rotation system"
+  },
+  "2.5.0":{
+      "date": "3/8/18",
+      "desc": "Alternate presence modes added to the rotation (watching, listening)",
+      "features": "Alternate presence modes"
+  },
+  "2.6.0":{
+      "date": "2/12/19",
+      "desc": "Added a pog jar to keep track of how many times \"pog\" is used in the server",
+      "features": "Pog jar adding and tracking, updated presence lists"
+  },
+  "2.7.0":{
+      "date": "2/27/19",
+      "desc": "Added crab rave audio macro, cleaned up display of image macros, cleaned up code",
+      "features": "Crab rave with custom messages, display of image macros using embeds"
+  },
+  "2.7.1":{
+      "date": "3/1/19",
+      "desc": "Message check easter eggs",
+      "features": "New message check added, updated presence lists"
+  },
+  "2.8.0":{
+      "date": "3/4/19",
+      "desc": "Avatar display added, bugs fixed",
+      "features": "Display avatar for user, fixed presence setting bug"
   }
 }

@@ -15,5 +15,11 @@ exports.run = (client) => {
   // noinspection Annotator
   logger.info(`${client.user.username} - (${client.user.id})`);
   presence.setPresence(client);
-  client.interval = setInterval(presence.setPresence, 60000*5, client);
+  try{
+      clearInterval(client.interval);
+      client.interval = setInterval(presence.setPresence, 60000*5, client);
+  }
+  catch(error){
+      console.error(error);
+  }
 };

@@ -83,8 +83,7 @@ exports.run = async (client, message) => {
                 client.cooldown.push(message.author.id);
                 removeCooldown(client, message, 5);
             }
-            catch (err) {
-                console.log(`Command ${cmd} does not exist.`);
+            catch(err){
                 console.error(err);
             }
         }
