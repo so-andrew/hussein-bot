@@ -11,9 +11,9 @@ exports.run = (client, message, args) => {
             .setColor(3447003)
             .setDescription("An index of commands currently supported by Hussein Bot.")
             .setFooter("Type !help [command] for more info on a specific command.")
-            .addField("Primary Commands", "`insult`, `say`, `clean`, `pogjar`, `about`")
+            .addField("Primary Commands", "`insult`, `say`, `clean`, `pogjar`, `about`, `avatar`")
             .addField("Mod Commands", "`smite`, `unsmite`")
-            .addField("Original Macros", "`doajig`, `england`, `obliterate`, `pizzatime`, `jojo`")
+            .addField("Original Macros", "`doajig`, `england`, `obliterate`, `pizzatime`, `jojo`, `crabrave`")
             .addField("User Macro System", "`m create`, `m search`, `m delete`, `m list`, `m edit`, `m info`")
             .addField("League Player Rotation", "`gamemode print`, `gamemode next`, `gamemode refresh`");
         message.channel.send({embed: embed});
