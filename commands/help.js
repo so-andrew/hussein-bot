@@ -2,24 +2,28 @@ const helpJSON = require('../data/help.json');
 const Discord = require('discord.js');
 let helpFile = new Map();
 
-exports.run = (client, message, args) => {
-    fetchHelpJSON();
-    console.log("Command !%s received from %s", "help", message.author.username);
-    if(!args || !args.length){
-        const embed = new Discord.RichEmbed()
-            .setTitle("Commands")
-            .setColor(3447003)
-            .setDescription("An index of commands currently supported by Hussein Bot.")
-            .setFooter("Type !help [command] for more info on a specific command.")
-            .addField("Primary Commands", "`insult`, `say`, `clean`, `pogjar`, `about`, `avatar`")
-            .addField("Mod Commands", "`smite`, `unsmite`")
-            .addField("Original Macros", "`doajig`, `england`, `obliterate`, `pizzatime`, `jojo`, `crabrave`")
-            .addField("User Macro System", "`m create`, `m search`, `m delete`, `m list`, `m edit`, `m info`")
-            .addField("League Player Rotation", "`gamemode print`, `gamemode next`, `gamemode refresh`");
-        message.channel.send({embed: embed});
+module.exports = {
+    name: 'help',
+    description: "Help function",
+    execute(message, args){
+        fetchHelpJSON();
+        console.log("Command !%s received from %s", "help", message.author.username);
+        if(!args || !args.length){
+            const embed = new Discord.RichEmbed()
+                .setTitle("Commands")
+                .setColor(3447003)
+                .setDescription("An index of commands currently supported by Hussein Bot.")
+                .setFooter("Type !help [command] for more info on a specific command.")
+                .addField("Primary Commands", "`insult`, `say`, `clean`, `pogjar`, `about`, `avatar`")
+                .addField("Mod Commands", "`smite`, `unsmite`")
+                .addField("Original Macros", "`doajig`, `england`, `obliterate`, `pizzatime`, `jojo`, `crabrave`")
+                .addField("User Macro System", "`m create`, `m search`, `m delete`, `m list`, `m edit`, `m info`")
+                .addField("League Player Rotation", "`gamemode print`, `gamemode next`, `gamemode refresh`");
+            message.channel.send({embed: embed});
+        }
+        else help(message, args);
     }
-    else help(message, args);
-};
+}
 
 function fetchHelpJSON(){
     helpFile = new Map();

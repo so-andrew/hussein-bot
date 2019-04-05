@@ -3,58 +3,63 @@ let urlRegex = /(http(s)?:\/\/)(www.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}([
 const config = require("../config.json");
 const Discord = require("discord.js");
 
-exports.run = (client, message, args) => {
-    if(!args || !args.length){
-        message.channel.send("Needs more parameters.");
-        return;
-    }
-    if(args[0] === "create"){
-        //at least 3 arguments, args[1] cannot be a URL, args[2] must be a URL
-        if(args.length === 3 && !urlRegex.test(args[1]) && urlRegex.test(args[2])){
-            if(!client.macros.has(args[1])){
-                client.macros = createMacro(message, client.macros, args);
+module.exports = {
+    name: 'm',
+    description: "The base command for image macros. Returns the specified image from the database, if it exists. See `!help m create`, `!help m search`, `!help m delete`, `!help m list`, `!help m edit`, and `!help m info` for other commands related to the macro feature.",
+    cooldown: 3,
+    execute(message, args){
+        if(!args || !args.length){
+            message.channel.send("Needs more parameters.");
+            return;
+        }
+        if(args[0] === "create"){
+            //at least 3 arguments, args[1] cannot be a URL, args[2] must be a URL
+            if(args.length === 3 && !urlRegex.test(args[1]) && urlRegex.test(args[2])){
+                if(!message.client.macros.has(args[1])){
+                    message.client.macros = createMacro(message, message.client.macros, args);
+                }
+                else message.channel.send("This macro already exists.");
             }
-            else message.channel.send("This macro already exists.");
+            else{
+                message.channel.send("Command usage: `!m create [name] [link]`");
+            }
+        }
+        else if(args[0] === "search"){
+            if(args.length === 2){
+                searchMacro(message, message.client.macros, args[1]);
+            }
+            else{
+                message.channel.send("Command usage: `!m search [name]`");
+            }
+        }
+        else if(args[0] === "delete"){
+            if(args.length === 2){
+                message.client.macros = deleteMacro(message, message.client.macros, args[1]);
+            }
+            else{
+                message.channel.send("Command usage: `!m delete [name]`");
+            }
+        }
+        else if(args[0] === "list"){
+            listMacros(message, message.client.macros);
+        }
+        else if(args[0] === "edit"){
+            if(args.length === 3){
+                editMacro(message, message.client.macros, args)
+            }
+            else message.channel.send("Command usage: `!m edit [name] [name/link]`");
+        }
+        else if(args[0] === "info") {
+            if (args.length === 2) {
+                macroInfo(message, message.client.macros, args[1]);
+            }
+            else message.channel.send("Command usage: `!m info [name]`");
         }
         else{
-            message.channel.send("Command usage: `!m create [name] [link]`");
+            retrieveMacro(message, message.client.macros, args[0]);
         }
     }
-    else if(args[0] === "search"){
-        if(args.length === 2){
-            searchMacro(message, client.macros, args[1]);
-        }
-        else{
-            message.channel.send("Command usage: `!m search [name]`");
-        }
-    }
-    else if(args[0] === "delete"){
-        if(args.length === 2){
-            client.macros = deleteMacro(message, client.macros, args[1]);
-        }
-        else{
-            message.channel.send("Command usage: `!m delete [name]`");
-        }
-    }
-    else if(args[0] === "list"){
-        listMacros(message, client.macros);
-    }
-    else if(args[0] === "edit"){
-        if(args.length === 3){
-            editMacro(message, client.macros, args)
-        }
-        else message.channel.send("Command usage: `!m edit [name] [name/link]`");
-    }
-    else if(args[0] === "info") {
-        if (args.length === 2) {
-            macroInfo(message, client.macros, args[1]);
-        }
-        else message.channel.send("Command usage: `!m info [name]`");
-    }
-    else{
-        retrieveMacro(message, client.macros, args[0]);
-    }
-};
+}
 
 function createMacro(message, macros, args){
     let newMacro = {

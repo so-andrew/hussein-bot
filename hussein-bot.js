@@ -6,11 +6,12 @@ const Enmap = require("enmap");
 const EnmapLevel = require("enmap-level");
 
 client.macros = new Enmap({ provider: new EnmapLevel({ name: 'macros' }) });
-client.cooldown = [];
-client.disable = [];
+client.disable = new Discord.Collection();
 client.interval = null;
 client.gamemodes = JSON.parse(fs.readFileSync("./data/gamemodes.json"));
 client.pogjar = new Map(JSON.parse(fs.readFileSync("./data/pogjar.json")));
+client.commands = new Discord.Collection();
+client.cooldowns = new Discord.Collection();
 
 fs.readdir("./events/", (err, files) => {
     if (err) return console.error(err);
@@ -20,6 +21,12 @@ fs.readdir("./events/", (err, files) => {
         client.on(eventName, (...args) => eventFunction.run(client, ...args));
     });
 });
+
+const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+for(const file of commandFiles){
+    const command = require(`./commands/${file}`);
+    client.commands.set(command.name, command);
+}
 
 client.login(config.token)
     .then(randomizeArray(client.gamemodes))

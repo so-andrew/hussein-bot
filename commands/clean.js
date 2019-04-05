@@ -1,14 +1,19 @@
-exports.run = (client, message, args) => {
-    console.log("Command !%s received from %s", "clean", message.author.username);
-    if(message.channel.type === "dm"){
-        message.channel.send("Cannot delete messages in a DM channel.");
-        return;
-    }
-    if(args && args.length){
-        clean(message, args);
-    }
-    else message.channel.send("Please input a valid number of messages to delete.");
-};
+module.exports = {
+    name: 'clean',
+    description: "Deletes previous messages.",
+    guildOnly: true,
+    execute(message, args){
+        console.log("Command !%s received from %s", "clean", message.author.username);
+        if(message.channel.type === "dm"){
+            message.channel.send("Cannot delete messages in a DM channel.");
+            return;
+        }
+        if(args && args.length){
+            clean(message, args);
+        }
+        else message.channel.send("Please input a valid number of messages to delete.");
+      }
+}
 
 async function clean(message, args){
     if(!isNaN(args)){

@@ -53,5 +53,10 @@
       "date": "3/4/19",
       "desc": "Avatar display added, bugs fixed",
       "features": "Display avatar for user, fixed presence setting bug"
+  },
+  "2.9.0":{
+      "date": "3/4/19",
+      "desc": "New command handling structure, bugfixing",
+      "features": "Using new structure for loading commands"
   }
 }
