@@ -3,9 +3,11 @@ const Discord = require("discord.js");
 module.exports = {
     name: 'pogjar',
     description: "Checks the amount of pogs that the user (or a mentioned user) has placed into the pog jar.",
+    params: "`@mention` (optional)",
+    category: "fun",
     cooldown: 5,
     execute(message, args){
-        console.log("Command !%s received from %s", "pogjar", message.author.username);
+        console.log(`Command ${module.exports.name} received from ${message.author.username}`);
         let pogCount = 0;
         let pluralString = "s";
         if(!args || !args.length){

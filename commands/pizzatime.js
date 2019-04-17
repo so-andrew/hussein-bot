@@ -3,10 +3,12 @@ const presence = require("../commands/presence.js");
 module.exports = {
 		name: 'pizzatime',
 		description: "Joins the current voice channel and plays the Pizza Theme from Spider-Man 2.",
+		params: "User must be in a voice channel",
+		category: "novelty",
 		guildOnly: true,
 		cooldown: 10,
 		async execute(message, args){
-				console.log("Command !%s received from %s", "pizzatime", message.author.username);
+				console.log(`Command ${module.exports.name} received from ${message.author.username}`);
 				if(message.member.voiceChannel){
 						try{
 								const connection = await message.member.voiceChannel.join();

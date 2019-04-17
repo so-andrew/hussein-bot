@@ -1,11 +1,12 @@
-const whitelist = require("../data/whitelist.json");
+//const whitelist = require("../data/whitelist.json");
 const config = require("../config.json");
 
 module.exports = {
     name: 'disable',
     description: "Disables a given command until re-enabled.",
+    dev: true,
     execute(message, args){
-        console.log("Command !%s received from %s", "disable", message.author.username);
+        console.log(`Command ${module.exports.name} received from ${message.author.username}`);
         if(message.client.commands.has(args[0]) && message.author.id == config.ownerID){
           if(!message.client.disable.has(args[0])){
             message.client.disable.set(args[0]);

@@ -1,6 +1,8 @@
 module.exports = {
     name: 'unsmite',
     description: "The inverse function of the smite command",
+    category: "mod",
+    privileged: true,
     guildOnly: true,
     execute(message){
         let user = message.guild.member(message.author.id);

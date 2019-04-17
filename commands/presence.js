@@ -1,55 +1,48 @@
 const games = require("../data/games.json");
 const viewing = require("../data/watch.json");
 const listening = require("../data/listen.json");
+const utils = require('./utils.js');
 
 module.exports.setPresence = (client) => {
-  var choice = Math.floor(Math.random()*3);
-  switch(choice){
-    case 0:
-      setGame(client);
-      break;
-    case 1:
-      setWatch(client);
-      break;
-    case 2:
-      setListen(client);
-      break;
-  }
+    const choice = Math.floor(Math.random()*3);
+    switch(choice){
+        case 0:
+            // Set presence to "Playing x"
+            setGame(client);
+            break;
+        case 1:
+            // Set presence to "Watching x"
+            setWatch(client);
+            break;
+        case 2:
+            // Set presence to "Listening to x"
+            setListen(client);
+            break;
+    }
 }
 
+// Set presence to "Playing x"
 async function setGame(client){
-  game = randomize(games);
+  const game = randomElement(games);
   await client.user.setPresence({game: {name: game, type: 0}});
-  const d = new Date();
-  let minuteString = d.getMinutes().toString();
-  if(d.getMinutes() < 10) minuteString = "0" + minuteString;
-  let secondString = d.getSeconds().toString();;
-  if(d.getSeconds() < 10) secondString = "0" + secondString;
-  console.log(`${d.getHours()}:${minuteString}:${secondString} - Currently playing ${game}.`);
+  console.log(`${utils.currentTime()} - Currently playing ${game}.`);
 }
 
+// Set presence to "Watching x"
 async function setWatch(client){
-  watch = randomize(viewing);
+  const watch = randomElement(viewing);
   await client.user.setPresence({game: {name: watch, type: 3}});
-  const d = new Date();
-  let minuteString = d.getMinutes().toString();
-  if(d.getMinutes() < 10) minuteString = "0" + minuteString;
-  let secondString = d.getSeconds().toString();;
-  if(d.getSeconds() < 10) secondString = "0" + secondString;
-  console.log(`${d.getHours()}:${minuteString}:${secondString} - Currently watching ${watch}.`);
+  console.log(`${utils.currentTime()} - Currently watching ${watch}.`);
 }
 
+// Set presence to "Listening to x"
 async function setListen(client){
-  listen = randomize(listening);
+  const listen = randomElement(listening);
   await client.user.setPresence({game: {name: listen, type: 2}});
-  const d = new Date();
-  let minuteString = d.getMinutes().toString();
-  if(d.getMinutes() < 10) minuteString = "0" + minuteString;
-  let secondString = d.getSeconds().toString();;
-  if(d.getSeconds() < 10) secondString = "0" + secondString;
-  console.log(`${d.getHours()}:${minuteString}:${secondString} - Currently listening to ${listen}.`);
+  console.log(`${utils.currentTime()} - Currently listening to ${listen}.`);
 }
 
-function randomize(obj){
+// Returns random element from given list that is part of an object
+function randomElement(obj){
   return obj.list[Math.floor(Math.random() * obj.list.length)];
 }

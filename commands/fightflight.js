@@ -1,6 +1,7 @@
 module.exports = {
     name: 'fightflight',
     description: "Fight or flight response",
+    dev: true,
     offensive: true,
     execute(message, bool){
         if(bool){

@@ -7,6 +7,8 @@ let sayings = new Map();
 module.exports = {
     name: 'say',
     description: "Quotes function",
+    params: "Under construction",
+    category: "fun",
     execute(message, args){
         fetchSayJSON();
         if(!args || !args.length){
@@ -25,6 +27,9 @@ module.exports = {
                 else if(quote.author === "Hassan"){
                     embed.setColor("DARK_BLUE");
                 }
+                else{
+                    embed.setColor("BLUE");
+                }
             }
             else if(quote.name === "convert"){
                 embed.setDescription(`- ${message.author.username}`);
@@ -36,30 +41,35 @@ module.exports = {
         }
         else{
             let quote = sayings.get(args[0]);
-            const embed = new Discord.RichEmbed()
-                .setTitle(`"${quote.text}"`);
-            if(quote.hasOwnProperty("author")){
-                embed.setDescription(`- ${quote.author}`);
-                if(quote.author === "Tyler"){
-                    embed.setColor("GREEN");
+            const embed = new Discord.RichEmbed();
+            if(quote.text.length > 256) embed.setDescription(`"${quote.text}"`);
+            else embed.setTitle(`"${quote.text}"`);
+            if(quote.text.length < 256){
+                if(quote.hasOwnProperty("author")){
+                    embed.setDescription(`- ${quote.author}`);
+                    if(quote.author === "Tyler"){
+                        embed.setColor("GREEN");
+                    }
+                    else if(quote.author === "Hussein"){
+                        embed.setColor("DARK_RED");
+                    }
+                    else if(quote.author === "Hassan"){
+                        embed.setColor("DARK_BLUE");
+                    }
+                    else if(quote.author === "Sarinda"){
+                        embed.setColor("DARK_GREEN");
+                    }
                 }
-                else if(quote.author === "Hussein"){
-                    embed.setColor("DARK_RED");
+                else if(quote.name === "convert"){
+                    if(message.mentions && message.author.id === config.ownerID) embed.setDescription(`- ${message.mentions.members.first().user.username}`);
+                    else embed.setDescription(`- ${message.author.username}`);
                 }
-                else if(quote.author === "Hassan"){
-                    embed.setColor("DARK_BLUE");
-                }
-                else if(quote.author === "Sarinda"){
-                    embed.setColor("DARK_GREEN");
+                else{
+                    embed.setDescription("- Anonymous");
+                    embed.setColor("BLUE");
                 }
             }
-            else if(quote.name === "convert"){
-              if(message.mentions && message.author.id === config.ownerID) embed.setDescription(`- ${message.mentions.members.first().user.username}`);
-              else embed.setDescription(`- ${message.author.username}`);
-            }
-            else{
-                embed.setDescription("- Anonymous");
-            }
+            else embed.setColor("BLUE");
             message.channel.send({embed: embed});
         }
     }

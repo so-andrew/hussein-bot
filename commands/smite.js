@@ -1,10 +1,14 @@
 module.exports = {
     name: 'smite',
     description: "Strips the mentioned user of their basic human rights. Only wieldable by the bot's creator, and will not work on admins.",
+    category: "mod",
+    params: "`@mention` (required)",
+    exinput: "`!smite` <@231184514997551114>",
+    exoutput: "<@231184514997551114> BEGONE THOT",
     guildOnly: true,
     cooldown: 5,
     execute(message, args){
-        console.log("Command !%s received from %s", "smite", message.author.username);
+        console.log(`Command ${module.exports.name} received from ${message.author.username}`);
         if(message.guild.name !== "Memespeak") message.channel.send("Wrong server, nerd.");
         else{
             if(!args || !args.length) message.channel.send("No one to smite.");

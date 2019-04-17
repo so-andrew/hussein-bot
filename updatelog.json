@@ -58,5 +58,10 @@
       "date": "3/4/19",
       "desc": "New command handling structure, bugfixing",
       "features": "Using new structure for loading commands"
+  },
+  "3.0.0":{
+      "date": "pending",
+      "desc": "Feature update: utility functions, Twitch notifications version 1, rewrite of macro system to use SQLite database as backend",
+      "features": "Coinflip, dice, list randomization, choose from list, Twitch notifications, macro system rewrite"
   }
 }

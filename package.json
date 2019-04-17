@@ -1,17 +1,26 @@
 {
   "name": "hussein-bot",
-  "version": "2.9.0",
+  "version": "3.0.0",
   "description": "The Coon and his goon",
   "main": "hussein-bot.js",
   "author": "Lain of the Wired",
   "dependencies": {
+    "@types/express": "^4.16.1",
+    "axios": "^0.18.0",
     "discord.js": "^11.4.2",
-    "Enmap": "^2.7.2",
-    "winston": "^2.3.1"
+    "express": "^4.16.4",
+    "node-vibrant": "^3.2.0-alpha",
+    "sequelize": "^5.2.12",
+    "sqlite3": "^4.0.6",
+    "winston": "^2.4.4"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node hussein-bot.js"
+  },
+  "engines": {
+    "node": "11.13.0"
   },
   "repository": {
     "type": "git",
@@ -21,5 +30,10 @@
   "bugs": {
     "url": "https://github.com/so-andrew/hussein-bot/issues"
   },
-  "homepage": "https://github.com/so-andrew/hussein-bot#readme"
+  "homepage": "https://github.com/so-andrew/hussein-bot#readme",
+  "keywords": [
+    "discord",
+    "bot",
+    "hussein"
+  ]
 }

@@ -1,8 +1,9 @@
 module.exports = {
     name: 'time',
     description: "Returns current time.",
+    category: "utility",
     execute(message){
-        console.log("Command !%s received from %s", "time", message.author.username);
+        console.log(`Command ${module.exports.name} received from ${message.author.username}`);
         let currentHour = message.createdAt.getHours();
         let PM = false;
         if(currentHour > 12){

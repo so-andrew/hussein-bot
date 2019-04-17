@@ -4,16 +4,19 @@ const fs = require("fs");
 module.exports = {
     name: 'gamemode',
     description: "The base command for player rotation games in League of Legends. See `!help gamemode print`, `!help gamemode next`, and `!help gamemode refresh` for related commands.",
+    params: "`[Command name]` (required)",
+    category: "gamemode",
+    subcommands: ["gamemode print", "gamemode next", "gamemode refresh"],
     cooldown: 3,
     execute(message, args){
-        console.log("Command !%s received from %s", "gamemode", message.author.username);
+        console.log(`Command ${module.exports.name} received from ${message.author.username}`);
         if(args[0]==="print" || args[0]==="list"){
             let queueStr = "";
             if(message.client.gamemodes.length>0){
-                for(i = 0;i<message.client.gamemodes.length;i++){
-                  queueStr += (i+1) +") " + message.client.gamemodes[i] + "\n";
+                for(i = 0;i < message.client.gamemodes.length;i++){
+                  queueStr += (i+1) + ") " + message.client.gamemodes[i] + "\n";
                 }
-                message.channel.send(`Gamemode queue:\n\n\`\`\`${queueStr}\`\`\``);
+                message.channel.send(`Gamemode queue:\n\`\`\`${queueStr}\`\`\``);
             }
             else message.channel.send("No more gamemodes in queue.");
         }

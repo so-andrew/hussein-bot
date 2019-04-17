@@ -148,5 +148,37 @@
         "desc": "Returns the avatar of the mentioned user, or if no one is mentioned, returns the avatar of the invoking user.",
         "params": "`@mention` (optional)",
         "type": "macro"
+    },
+    "addtwitch":{
+        "name": "addtwitch",
+        "desc": "Adds a Twitch streamer to the tracker, allowing for notifications whenever he/she streams.",
+        "params": "`[username / URL]` (required)",
+        "type": "macro"
+    },
+    "removetwitch":{
+        "name": "removetwitch",
+        "desc": "Removes a streamer from the tracker, turning off stream notifications.",
+        "params": "`[username]` (required)",
+        "type": "macro"
+    },
+    "coinflip":{
+        "name": "coinflip",
+        "desc": "Flips a coin. Can also be invoked with `!flip` and `!coin`.",
+        "params": "`[number]` (optional)",
+        "type": "macro"
+    },
+    "choose":{
+        "name": "choose",
+        "desc": "Chooses from a given list of options.",
+        "params": "`[choice 1] | [choice 2] | ... | [choice n] (n > 1)`",
+        "exinput": "`!choose The Legend of Zelda | Metroid | Super Mario`",
+        "exoutput": "Real niggas choose `The Legend of Zelda`.",
+        "type": "function"
+    },
+    "config":{
+        "name": "config",
+        "desc": "Initializes the per-guild settings for Hussein Bot, including the default Twitch notification channel and the prefix.",
+        "params": "User must have \"Manage Server\" permission.",
+        "type":  "macro"
     }
 }

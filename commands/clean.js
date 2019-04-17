@@ -1,16 +1,15 @@
 module.exports = {
     name: 'clean',
     description: "Deletes previous messages.",
+    params: "`Integer` (required)",
+    exinput: "`!clean 5`",
+    exoutput: "Deleted `5 messages`. <:dab:310668328794587138>",
+    category: "utility",
     guildOnly: true,
     execute(message, args){
-        console.log("Command !%s received from %s", "clean", message.author.username);
-        if(message.channel.type === "dm"){
-            message.channel.send("Cannot delete messages in a DM channel.");
-            return;
-        }
-        if(args && args.length){
-            clean(message, args);
-        }
+        console.log(`Command ${module.exports.name} received from ${message.author.username}`);
+        if(message.channel.type === "dm") return message.channel.send("Cannot delete messages in a DM channel.");
+        if(args && args.length) clean(message, args);
         else message.channel.send("Please input a valid number of messages to delete.");
       }
 }
