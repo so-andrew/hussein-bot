@@ -10,7 +10,7 @@ module.exports = {
         console.log(`Command ${module.exports.name} received from ${message.author.username}`);
         const guilds = loadGuilds();
         let offensive = false;
-        if(guilds.has(message.guild.id)) offensive = guilds.get(message.guild.id).offensive;
+        if(message.guild && guilds.has(message.guild.id)) offensive = guilds.get(message.guild.id).offensive;
         if(!args || !args.length){
             const commandsWithCategory = message.client.commands.filter(command => command.category);
             const commandCategories = new Discord.Collection();
