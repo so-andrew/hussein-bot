@@ -6,6 +6,7 @@ const http = require("http");
 const express = require("express");
 const app = express();
 const config = require("./config.json");
+const utils = require("./commands/utils.js");
 const Sequelize = require("sequelize");
 //const webhookListener = require('./webhooklistener.js');
 
@@ -80,7 +81,7 @@ client.login(config.token)
     });
 
 app.get("/", (request, response) => {
-    console.log(Date.now() + " Ping Received");
+    console.log(`${utils.currentTime()} - Ping received.`);
     response.sendStatus(200);
 });
 app.listen(process.env.PORT);
