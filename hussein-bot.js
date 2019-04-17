@@ -20,23 +20,34 @@ client.commands = new Discord.Collection();
 client.cooldowns = new Discord.Collection();
 client.twitchGames = new Discord.Collection(JSON.parse(fs.readFileSync("./data/twitchgames.json")));
 client.guildPrefs = new Discord.Collection();
+client.macros = new Discord.Collection();
 client.coins = [];
 client.latenight = false;
 
+// Initializing guild preference files
+const guildPrefFiles = fs.readdirSync('./data/guilds').filter(file => file.endsWith('json'));
+for(const file of guildPrefFiles){
+    const guildPrefs = JSON.parse(fs.readFileSync(`./data/guilds/${file}`));
+    client.guildPrefs.set(guildPrefs.id, guildPrefs);
+}
+
 // Initializing macro database
-const sequelize = new Sequelize('database', 'user', 'password', {
-    host: 'localhost',
-    dialect: 'sqlite',
-    logging: false,
-    storage: 'database.sqlite',
-});
-client.macroDB = sequelize.define('macros', {
-    name: { type: Sequelize.STRING, unique: true, },
-    text: Sequelize.TEXT,
-    creatorID: Sequelize.STRING,
-    creatorName: Sequelize.STRING,
-    uses: { type: Sequelize.INTEGER, defaultValue: 0, allowNull: false, },
-});
+for(let [key, value] of client.guildPrefs){
+    const sequelize = new Sequelize('database', 'user', 'password', {
+        host: 'localhost',
+        dialect: 'sqlite',
+        logging: false,
+        storage: `./data/macros/${key}.sqlite`,
+    });
+    const macroDB = sequelize.define('macros', {
+        name: { type: Sequelize.STRING, unique: true, },
+        text: Sequelize.TEXT,
+        creatorID: Sequelize.STRING,
+        creatorName: Sequelize.STRING,
+        uses: { type: Sequelize.INTEGER, defaultValue: 0, allowNull: false, },
+    });
+    client.macros.set(key, macroDB);
+}
 
 // Initializing event handlers
 fs.readdir("./events/", (err, files) => {
@@ -53,13 +64,6 @@ const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('
 for(const file of commandFiles){
     const command = require(`./commands/${file}`);
     client.commands.set(command.name, command);
-}
-
-// Initializing guild preference files
-const guildPrefFiles = fs.readdirSync('./data/guilds').filter(file => file.endsWith('json'));
-for(const file of guildPrefFiles){
-    const guildPrefs = JSON.parse(fs.readFileSync(`./data/guilds/${file}`));
-    client.guildPrefs.set(guildPrefs.id, guildPrefs);
 }
 
 // Initializing coin imades for coinflip command

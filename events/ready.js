@@ -15,7 +15,9 @@ exports.run = (client) => {
     twitch.twitchCheck(client);
     //webhook.subscribe(client);
     try{
-        client.macroDB.sync();
+        for(let [key, value] of client.macros){
+            value.sync();
+        }
         clearInterval(client.presenceInterval);
         clearInterval(client.twitchCheckInterval);
         client.presenceInterval = setInterval(presence.setPresence, 60000*5, client);
