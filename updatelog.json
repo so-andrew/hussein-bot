@@ -68,5 +68,10 @@
       "date": "4/17/19",
       "desc": "Small bugfix patch",
       "features": "None"
+  },
+  "3.1.0":{
+      "date": "4/17/19",
+      "desc": "Per-server macros, cleaning up files",
+      "fatures": "Per-server macros"
   }
 }

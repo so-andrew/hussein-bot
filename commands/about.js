@@ -13,7 +13,7 @@ module.exports = {
             .attachFiles(["./resources/hussein.png"])
             .setThumbnail("attachment://hussein.png")
             .setColor("BLUE")
-            .addField("Current Version", "3.0.1", true)
+            .addField("Current Version", "3.1.0", true)
             .addField("GitHub Repository", "https://github.com/so-andrew/hussein-bot/", true);
         message.channel.send({embed: embed});
     }
