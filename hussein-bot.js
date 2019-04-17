@@ -8,7 +8,6 @@ const app = express();
 const config = require("./config.json");
 const utils = require("./commands/utils.js");
 const Sequelize = require("sequelize");
-//const webhookListener = require('./webhooklistener.js');
 
 // Properties of client, useful to keep track of state
 client.disable = new Discord.Collection();
@@ -31,7 +30,7 @@ for(const file of guildPrefFiles){
     client.guildPrefs.set(guildPrefs.id, guildPrefs);
 }
 
-// Initializing macro database
+// Initializing macro databases
 for(let [key, value] of client.guildPrefs){
     const sequelize = new Sequelize('database', 'user', 'password', {
         host: 'localhost',
@@ -72,18 +71,16 @@ for(const file of coinFiles){
     client.coins.push(`${file.substring(0, file.indexOf('.'))}`);
 }
 
-// Webhook listener (in development hell)
-//webhookListener.on('twitchLive', test);
-
 // Login to Discord
 client.login(config.token)
     .then(() => {
-        randomizeArray(client.gamemodes);
-        randomizeArray(client.coins);
+        client.gamemodes = utils.randomizeArray(client.gamemodes);
+        client.coins = utils.randomizeArray(client.coins);
     }).catch((error) => {
-      console.log(error);
+        console.log(error);
     });
 
+// Receive pings to keep alive
 app.get("/", (request, response) => {
     console.log(`${utils.currentTime()} - Ping received.`);
     response.sendStatus(200);
@@ -92,20 +89,3 @@ app.listen(process.env.PORT);
 setInterval(() => {
     http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
 }, 280000);
-
-function randomizeArray(array){
-    let i = array.length;
-    if(i == 0) return;
-    while(--i){
-      let j = Math.floor(Math.random()*(i+1));
-      let tempi = array[i];
-      let tempj = array[j];
-      array[i]= tempj;
-      array[j]= tempi;
-    }
-}
-
-function test(result){
-    if(!result) return;
-    if(result.type === "live") console.log(`${result.user_name} is now live!`);
-}
