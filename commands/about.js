@@ -9,7 +9,7 @@ module.exports = {
         console.log(`Command ${module.exports.name} received from ${message.author.username}`);
         const embed = new Discord.RichEmbed()
             .setTitle("**Hussein Bot** - \"Hi I live here\"")
-            .setDescription("Created by <@197598081867448320> using the Discord.js JavaScript library (Now with 200% more JavaScript)\n\nCredit to <@231973798436536322> for the idea and basic logic structure")
+            .setDescription("Created by <@197598081867448320> using the Discord.js JavaScript library\n\nCredit to <@231973798436536322> for the idea and basic logic structure")
             .attachFiles(["./resources/hussein.png"])
             .setThumbnail("attachment://hussein.png")
             .setColor("BLUE")
