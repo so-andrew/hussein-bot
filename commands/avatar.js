@@ -15,6 +15,7 @@ module.exports = {
             else embed.setColor(message.member.displayHexColor);
         }
         else{
+            if(!message.mentions.members || !message.mentions.members.length) return message.channel.send("Invalid parameters, please mention a user.");
             embed.setImage(message.mentions.users.first().avatarURL)
             if(message.channel.type === "dm") embed.setColor(3447003);
             else embed.setColor(message.mentions.members.first().displayHexColor);
