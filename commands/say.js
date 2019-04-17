@@ -9,6 +9,7 @@ module.exports = {
     description: "Quotes function",
     params: "Under construction",
     category: "fun",
+    offensive: true,
     execute(message, args){
         fetchSayJSON();
         if(!args || !args.length){
