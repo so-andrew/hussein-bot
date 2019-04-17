@@ -4,7 +4,7 @@ module.exports = {
     params: "`Integer` (required)",
     exinput: "`!clean 5`",
     exoutput: "Deleted `5 messages`. <:dab:310668328794587138>",
-    category: "utility",
+    category: "mod",
     guildOnly: true,
     execute(message, args){
         console.log(`Command ${module.exports.name} received from ${message.author.username}`);
