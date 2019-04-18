@@ -13,15 +13,15 @@ module.exports = {
                 console.log("Notification role no longer exists.");
                 return message.channel.send("The notification role may no longer exist, please tell a server admin to run `!config` or `!settwitchrole` again.");
             }
-		const role = message.guild.roles.get(`${guildPrefs.notificationRole}`);
+            const role = message.guild.roles.get(`${guildPrefs.notificationRole}`);
             if(message.member.roles.has(`${role.id}`)){
                 message.member.removeRole(role);
                 console.log(`Removing role ${role.name} from ${message.member.user.username}.`);
                 return message.channel.send("You will no longer receive Twitch live notifications.");
             }
             else{
-                message.member.addRole(role);               
-		console.log(`Assigning role ${role.name} to ${message.member.user.username}.`);
+                message.member.addRole(role);
+                console.log(`Assigning role ${role.name} to ${message.member.user.username}.`);
                 return message.channel.send("You will now receive Twitch live notifications.");
             }
         }

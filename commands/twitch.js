@@ -61,6 +61,8 @@ async function request(client, streamer, guild){
                 const d = new Date();
                 liveTime = d.getTime();
                 let streamStartTime = new Date(stream.started_at).getTime();
+                //console.log(liveTime);
+                //console.log(streamStartTime);
                 // If user has been live for less than 30 minutes, notify
                 if(liveTime - streamStartTime < 1800000){
                     let channel = client.guilds.get(`${guild.id}`).channels.get(`${guild.twitchNotificationChannel}`);
