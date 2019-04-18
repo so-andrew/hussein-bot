@@ -17,7 +17,7 @@ module.exports = {
             if(message.member.hasPermission("MANAGE_GUILD")){
                 try{
                     fs.readFileSync(`./data/guilds/${message.guild.id}.json`);
-                    message.channel.send("A preference file for this guild already exists, would you like to recreate it? (Y/N)\n\nTo change a single property (such as the bot's prefix), consider using the commands `!setprefix` or `!settwitch` instead.");
+                    message.channel.send("A preference file for this guild already exists, would you like to recreate it? (Y/N)\n\n*To change a single property (such as the bot's prefix), consider using the commands `!setprefix` or `!settwitch` instead.*");
                     const filter = m => m.author.id === message.author.id;
                     const collected = await message.channel.awaitMessages(filter, {max:1, time:15000});
                     if(collected.size === 0 || collected.first().content.toLowerCase() !== "y"){
@@ -61,18 +61,25 @@ module.exports = {
                 }
                 message.channel.send("Would you like me to create a role that will be pinged when a streamer goes live? (Y/N)\n\n*This message will expire in 15 seconds...*");
                 let roleComplete = false;
-                let loopCount = 0;
+                loopCount = 0;
                 while(!roleComplete){
                     const filter = m => m.author.id === message.author.id;
                     const collected = await message.channel.awaitMessages(filter, {max: 1, time: 15000});
                     // If no response, end call to command
                     if(collected.size === 0) return message.channel.send("No response, eh?");
                     if(collected.first().content.toLowerCase() === "y"){
-                        const role = await message.guild.createRole({
-                            name: 'Notification Squad',
-                            color: 'GREEN',
-                        });
-                        guildPrefs.setNotificationRole(role);
+                        const roleExists = await message.guild.roles.find(role => role.name = 'Notification Squad');
+                        if(!roleExists){
+                            const role = await message.guild.createRole({
+                                name: 'Notification Squad',
+                                color: 'GREEN',
+                            });
+                            guildPrefs.setNotificationRole(role);
+                        }
+                        else{
+                            message.channel.send("Role with name Notification Squad exists, will use that role for now. If this is not desired, use `!settwitchrole` to specify a different role.");
+                            guildPrefs.setNotificationRole(roleExists);
+                        }
                         roleComplete = true;
                         break;
                     }
@@ -107,7 +114,7 @@ module.exports = {
                     }
                     else message.channel.send("Prefix is too long, try again.");
                 }
-                message.channel.send("Would you like to allow offensive commands in this server? (Y/N)\n\nThis message will expire in 15 seconds...");
+                message.channel.send("Would you like to allow offensive commands in this server? (Y/N)\n\n*This message will expire in 15 seconds...*");
                 let offensiveComplete = false;
                 loopCount = 0;
                 while(!offensiveComplete){
