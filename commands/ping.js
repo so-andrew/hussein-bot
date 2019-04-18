@@ -6,6 +6,6 @@ module.exports = {
     cooldown: 5,
     execute(message){
         console.log(`Command ${module.exports.name} received from ${message.author.username}`);
-        return message.channel.send(`Hussein Bot's average ping to Discord is ${message.client.ping}.`);
+        return message.channel.send(`Hussein Bot's average ping to Discord is ${message.client.ping} ms.`);
     }
 }
