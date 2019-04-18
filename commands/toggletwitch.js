@@ -4,10 +4,10 @@ module.exports = {
     category: "twitch",
     params: "None",
     cooldown: 3,
-    execute(message){
+    async execute(message){
         console.log(`Command ${module.exports.name} received from ${message.author.username}`);
-        if(client.guildPrefs.has(`${message.guild.id}`)){
-            const guildPrefs = client.guildPrefs.get(`${message.guild.id}`);
+        if(message.client.guildPrefs.has(`${message.guild.id}`)){
+            const guildPrefs = message.client.guildPrefs.get(`${message.guild.id}`);
             const roleExists =  await message.guild.roles.find(role => role.id === guildPrefs.notificationRole);
             if(!roleExists){
                 console.log("Notification role no longer exists.");
