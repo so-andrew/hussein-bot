@@ -9,6 +9,7 @@ module.exports = {
         if(message.client.guildPrefs.has(`${message.guild.id}`)){
             const guildPrefs = message.client.guildPrefs.get(`${message.guild.id}`);
             const roleExists =  await message.guild.roles.find(role => role.id === guildPrefs.notificationRole);
+            console.log(roleExists);
             if(!roleExists){
                 console.log("Notification role no longer exists.");
                 return message.channel.send("The notification role may no longer exist, please tell a server admin to run `!config` or `!settwitchrole` again.");
