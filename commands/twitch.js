@@ -60,6 +60,8 @@ async function request(client, streamer, guild){
                 // Stream is currently live
                 liveTime = (new Date).getTime();
                 let streamStartTime = new Date(stream.started_at).getTime();
+                //console.log(liveTime);
+                //console.log(streamStartTime);
                 // If user has been live for less than 30 minutes, notify
                 if(liveTime - streamStartTime < 1800000){
                     let channel = client.guilds.get(`${guild.id}`).channels.get(`${guild.twitchNotificationChannel}`); // Should be extensible to all guilds eventually
