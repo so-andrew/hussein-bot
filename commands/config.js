@@ -74,6 +74,7 @@ module.exports = {
                                 name: 'Notification Squad',
                                 color: 'GREEN',
                             });
+                            role.setMentionable(true);
                             guildPrefs.setNotificationRole(role);
                         }
                         else{

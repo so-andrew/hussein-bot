@@ -65,7 +65,8 @@ async function request(client, streamer, guild){
                 //console.log(streamStartTime);
                 // If user has been live for less than 30 minutes, notify
                 if(liveTime - streamStartTime < 1800000){
-                    let channel = client.guilds.get(`${guild.id}`).channels.get(`${guild.twitchNotificationChannel}`); // Should be extensible to all guilds eventually
+                    let channel = client.guilds.get(`${guild.id}`).channels.get(`${guild.twitchNotificationChannel}`);
+                    let role = client.guilds.get(`${guild.id}`).roles.get(`${guild.notificationRole}`);
                     let gameString = "";
                     // If game name is not cached, fetch name of game from Twitch API (not in provided stream info somehow)
                     if(!client.twitchGames.has(`${stream.game_id}`)){
@@ -85,6 +86,7 @@ async function request(client, streamer, guild){
                         .setThumbnail(streamer.icon)
                         .setColor(palette["Vibrant"].getRgb())
                         .setFooter(`${d.toLocaleString('en-US')} - Type !toggletwitch to stop receiving notifications`);
+                    await channel.send(role.toString());
                     const sentMessage = await channel.send({ embed: embed });
                     console.log(`${utils.currentTime()} - Streamer ${streamer.username} is now live playing ${gameString}.`);
                     // Special handling for certain users (can be extensible based on properties stored in JSON)
