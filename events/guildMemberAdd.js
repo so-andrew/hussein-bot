@@ -1,5 +1,5 @@
 exports.run = async (client, member) => {
-    console.log(`${member.tag} has joined a guild.`);
+    console.log(`${member.user.username} has joined a guild.`);
     const guild = member.guild;
     if(client.guildPrefs.has(`${guild.id}`)){
         const guildPrefs = client.guildPrefs.get(`${guild.id}`);
@@ -7,7 +7,7 @@ exports.run = async (client, member) => {
         if(!roleExists) console.log("Notification role no longer exists, not assigning role.");
         else{
             member.addRole(roleExists);
-            console.log(`Assigning role ${roleExists.name} to ${member.tag}.`);
+            console.log(`Assigning role ${roleExists.name} to ${member.user.username}.`);
         }
     }
 }
