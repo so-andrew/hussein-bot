@@ -58,7 +58,8 @@ async function request(client, streamer, guild){
             const stream = result.data.data[0];
             if(stream){
                 // Stream is currently live
-                liveTime = (new Date).getTime();
+                const d = new Date();
+                liveTime = d.getTime();
                 let streamStartTime = new Date(stream.started_at).getTime();
                 // If user has been live for less than 30 minutes, notify
                 if(liveTime - streamStartTime < 1800000){
@@ -81,7 +82,7 @@ async function request(client, streamer, guild){
                         .addField("URL", `https://www.twitch.com/${streamer.username}`)
                         .setThumbnail(streamer.icon)
                         .setColor(palette["Vibrant"].getRgb())
-                        .setFooter(liveTime.toLocaleString());
+                        .setFooter(`${d.toLocaleString('en-US')} - Type !toggletwitch to stop receiving notifications`);
                     const sentMessage = await channel.send({ embed: embed });
                     console.log(`${utils.currentTime()} - Streamer ${streamer.username} is now live playing ${gameString}.`);
                     // Special handling for certain users (can be extensible based on properties stored in JSON)
