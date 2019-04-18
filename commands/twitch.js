@@ -80,7 +80,8 @@ async function request(client, streamer, guild){
                         .addField("Playing", gameString, true)
                         .addField("URL", `https://www.twitch.com/${streamer.username}`)
                         .setThumbnail(streamer.icon)
-                        .setColor(palette["Vibrant"].getRgb());
+                        .setColor(palette["Vibrant"].getRgb())
+                        .setFooter(liveTime.toLocaleString());
                     const sentMessage = await channel.send({ embed: embed });
                     console.log(`${utils.currentTime()} - Streamer ${streamer.username} is now live playing ${gameString}.`);
                     // Special handling for certain users (can be extensible based on properties stored in JSON)
