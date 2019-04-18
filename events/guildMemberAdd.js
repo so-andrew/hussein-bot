@@ -1,4 +1,4 @@
-exports.run = (client, member) => {
+exports.run = async (client, member) => {
     console.log(`${member.tag} has joined a guild.`);
     const guild = member.guild;
     if(client.guildPrefs.has(`${guild.id}`)){
