@@ -35,7 +35,7 @@ module.exports = {
                     console.log("Preference file does not exist, creating one now...");
                 }
                 let guildPrefs = new GuildPrefs(message.guild);
-                message.channel.send("What channel would you like Twitch live notifications to appear in? (use \`#channel-name\`)\n\nThis message will expire in 15 seconds...");
+                message.channel.send("What channel would you like Twitch live notifications to appear in? (use \`#channel-name\`)\n\n*This message will expire in 15 seconds...*");
                 let channelComplete = false;
                 let loopCount = 0;
                 while(!channelComplete){
@@ -59,7 +59,35 @@ module.exports = {
                     }
                     else message.channel.send("No channels mentioned in your response, try again.");
                 }
-                message.channel.send("What prefix would you like to use for the server? (default is `!`, max length is 7)\n\nThis message will expire in 15 seconds...");
+                message.channel.send("Would you like me to create a role that will be pinged when a streamer goes live? (Y/N)\n\n*This message will expire in 15 seconds...*");
+                let roleComplete = false;
+                let loopCount = 0;
+                while(!roleComplete){
+                    const filter = m => m.author.id === message.author.id;
+                    const collected = await message.channel.awaitMessages(filter, {max: 1, time: 15000});
+                    // If no response, end call to command
+                    if(collected.size === 0) return message.channel.send("No response, eh?");
+                    if(collected.first().content.toLowerCase() === "y"){
+                        const role = await message.guild.createRole({
+                            name: 'Notification Squad',
+                            color: 'GREEN',
+                        });
+                        guildPrefs.setNotificationRole(role);
+                        roleComplete = true;
+                        break;
+                    }
+                    else if(collected.first().content.toLowerCase() === "n"){
+                        message.channel.send("Okay. You can always create or assign a role later with `!settwitchrole`.");
+                        roleComplete = true;
+                        break;
+                    }
+                    else loopCount++;
+                    if(loopCount >= 3){
+                        return message.channel.send("Too many invalid responses, please invoke `!config` again.");
+                    }
+                    else message.channel.send("Please enter Y or N.");
+                }
+                message.channel.send("What prefix would you like to use for the server? (default is `!`, max length is 7)\n\n*This message will expire in 15 seconds...*");
                 let prefixComplete = false;
                 loopCount = 0;
                 while(!prefixComplete){
@@ -108,6 +136,7 @@ module.exports = {
                         .setDescription("Preference file successfully created.")
                         .addField("Prefix", `${guildPrefs.prefix}`, true)
                         .addField("Twitch Notification Channel", `<#${guildPrefs.twitchNotificationChannel}>`, true)
+                        .addField("Twitch Notification Role", message.guild.roles.get(guildPrefs.notificationRole).name)
                         .addField("Offensive Commands Allowed", guildPrefs.offensive, true)
                         .setThumbnail(message.guild.iconURL)
                         .setColor("BLUE");
@@ -127,6 +156,7 @@ module.exports = {
                   .setDescription("Preference file successfully retrieved.")
                   .addField("Prefix", `${guildPrefs.prefix}`, true)
                   .addField("Twitch Notification Channel", `<#${guildPrefs.twitchNotificationChannel}>`, true)
+                  .addField("Twitch Notification Role", message.guild.roles.get(guildPrefs.notificationRole).name)
                   .addField("Offensive Commands Allowed", guildPrefs.offensive, true)
                   .setThumbnail(message.guild.iconURL)
                   .setColor("BLUE");
@@ -149,10 +179,15 @@ class GuildPrefs {
         this.twitchNotificationChannel = null;
         this.prefix = "!";
         this.offensive = false;
+        this.notificationRole = null;
     }
 
     setTwitchNotificationChannel(channel){
         this.twitchNotificationChannel = channel.id;
+    }
+
+    setNotificationRole(role){
+        this.notificationRole = role.id;
     }
 
     setOffensive(boolean){
