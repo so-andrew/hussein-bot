@@ -139,6 +139,7 @@ module.exports = {
                 }
                 try{
                     fs.writeFileSync(`./data/guilds/${message.guild.id}.json`, JSON.stringify(guildPrefs));
+                    message.client.guildPrefs.set(guildPrefs.id, guildPrefs);
                     const embed = new Discord.RichEmbed()
                         .setTitle(`**Preferences for ${message.guild.name}**`)
                         .setDescription("Preference file successfully created.")
