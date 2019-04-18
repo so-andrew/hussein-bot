@@ -68,7 +68,7 @@ module.exports = {
                     // If no response, end call to command
                     if(collected.size === 0) return message.channel.send("No response, eh?");
                     if(collected.first().content.toLowerCase() === "y"){
-                        const roleExists = await message.guild.roles.find(role => role.name = 'Notification Squad');
+                        const roleExists = await message.guild.roles.find(role => role.name === 'Notification Squad');
                         if(!roleExists){
                             const role = await message.guild.createRole({
                                 name: 'Notification Squad',
