@@ -61,7 +61,7 @@ module.exports = {
                 }
                 message.channel.send("Would you like me to create a role that will be pinged when a streamer goes live? (Y/N)\n\n*This message will expire in 15 seconds...*");
                 let roleComplete = false;
-                let loopCount = 0;
+                loopCount = 0;
                 while(!roleComplete){
                     const filter = m => m.author.id === message.author.id;
                     const collected = await message.channel.awaitMessages(filter, {max: 1, time: 15000});
