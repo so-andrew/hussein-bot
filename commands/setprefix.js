@@ -4,6 +4,7 @@ module.exports = {
     name: "setprefix",
     description: "Sets the prefix for the server. Modifies the guild preferences file.",
     category: "mod",
+    params: "`String` (required)",
     cooldown: 3,
     execute(message, args){
         if(message.channel.type !== "text") return message.channel.send("Must be used in a guild text channel.");
@@ -40,5 +41,5 @@ function setPrefix(object, prefix){
         object.prefix = prefix;
         return true;
     }
-    else return false;
+    return false;
 }
