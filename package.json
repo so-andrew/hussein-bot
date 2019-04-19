@@ -10,9 +10,10 @@
     "discord.js": "^11.4.2",
     "express": "^4.16.4",
     "node-vibrant": "^3.2.0-alpha",
-    "sequelize": "^5.2.12",
+    "sequelize": "^5.7.0",
     "sqlite3": "^4.0.6",
-    "winston": "^2.4.4"
+    "winston": "^2.4.4",
+    "ws": "^6.2.1"
   },
   "devDependencies": {},
   "scripts": {

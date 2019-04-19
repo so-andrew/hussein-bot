@@ -7,6 +7,7 @@ dependencies:
   sequelize: 5.6.1
   sqlite3: 4.0.6
   winston: 2.4.4
+  ws: 6.2.1
 packages:
   /@babel/polyfill/7.4.3:
     dependencies:
@@ -2080,6 +2081,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-ZGh/8kF9rrRNffkLFV4AzhvooEclrOH0xaugmqGsIfFgOE/pIz4fMc4Ef+5HSQqTEug2S9JZIWDR47duDSLfaA==
+  /ws/6.2.1:
+    dependencies:
+      async-limiter: 1.0.0
+    dev: false
+    resolution:
+      integrity: sha512-GIyAXC2cB7LjvpgMt9EKS2ldqr0MTrORaleiOno6TweZ6r3TKtoFQWay/2PceJ3RuBasOHzXNn5Lrw1X0bEjqA==
   /xhr/2.5.0:
     dependencies:
       global: 4.3.2
@@ -2128,3 +2135,4 @@ specifiers:
   sequelize: ^5.2.12
   sqlite3: ^4.0.6
   winston: ^2.4.4
+  ws: ^6.2.1
