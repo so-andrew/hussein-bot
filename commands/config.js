@@ -145,7 +145,7 @@ module.exports = {
                         .setDescription("Preference file successfully created.")
                         .addField("Prefix", `${guildPrefs.prefix}`, true)
                         .addField("Twitch Notification Channel", `<#${guildPrefs.twitchNotificationChannel}>`, true)
-                        .addField("Twitch Notification Role", message.guild.roles.get(guildPrefs.notificationRole).name)
+                        .addField("Twitch Notification Role", message.guild.roles.get(guildPrefs.notificationRole).toString(), true)
                         .addField("Offensive Commands Allowed", guildPrefs.offensive, true)
                         .setThumbnail(message.guild.iconURL)
                         .setColor("BLUE");
@@ -165,7 +165,7 @@ module.exports = {
                   .setDescription("Preference file successfully retrieved.")
                   .addField("Prefix", `${guildPrefs.prefix}`, true)
                   .addField("Twitch Notification Channel", `<#${guildPrefs.twitchNotificationChannel}>`, true)
-                  .addField("Twitch Notification Role", message.guild.roles.get(guildPrefs.notificationRole).name)
+                  .addField("Twitch Notification Role", message.guild.roles.get(guildPrefs.notificationRole).toString(), true)
                   .addField("Offensive Commands Allowed", guildPrefs.offensive, true)
                   .setThumbnail(message.guild.iconURL)
                   .setColor("BLUE");
