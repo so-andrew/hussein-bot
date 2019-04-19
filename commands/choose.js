@@ -25,6 +25,7 @@ module.exports = {
         let chosen = choices[Math.floor(Math.random() * choices.length)];
         console.log(`${chosen} chosen from list.`);
         let response = module.exports.responses[Math.floor(Math.random() * module.exports.responses.length)];
+        if(response[0] === "") chosen = chosen[0].toUpperCase() + chosen.substring(1);
         message.channel.send(`${response[0]}\`${chosen}\`${response[1]}`);
     }
 }
