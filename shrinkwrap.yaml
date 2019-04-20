@@ -4,7 +4,7 @@ dependencies:
   discord.js: 11.4.2
   express: 4.16.4
   node-vibrant: 3.2.0-alpha
-  sequelize: 5.6.1
+  sequelize: 5.7.0
   sqlite3: 4.0.6
   winston: 2.4.4
   ws: 6.2.1
@@ -364,19 +364,19 @@ packages:
   /@types/body-parser/1.17.0:
     dependencies:
       '@types/connect': 3.4.32
-      '@types/node': 11.13.4
+      '@types/node': 11.13.6
     dev: false
     resolution:
       integrity: sha512-a2+YeUjPkztKJu5aIF2yArYFQQp8d51wZ7DavSHjFuY1mqVgidGyzEQ41JIVNy82fXj8yPgy2vJmfIywgESW6w==
   /@types/connect/3.4.32:
     dependencies:
-      '@types/node': 11.13.4
+      '@types/node': 11.13.6
     dev: false
     resolution:
       integrity: sha512-4r8qa0quOvh7lGD0pre62CAb1oni1OO6ecJLGCezTmhQ8Fz50Arx9RUszryR8KlgK6avuSXvviL6yWyViQABOg==
   /@types/express-serve-static-core/4.16.2:
     dependencies:
-      '@types/node': 11.13.4
+      '@types/node': 11.13.6
       '@types/range-parser': 1.2.3
     dev: false
     resolution:
@@ -393,14 +393,14 @@ packages:
     dev: false
     resolution:
       integrity: sha512-FwI9gX75FgVBJ7ywgnq/P7tw+/o1GUbtP0KzbtusLigAOgIgNISRK0ZPl4qertvXSIE8YbsVJueQ90cDt9YYyw==
-  /@types/node/10.14.4:
+  /@types/node/10.14.5:
     dev: false
     resolution:
-      integrity: sha512-DT25xX/YgyPKiHFOpNuANIQIVvYEwCWXgK2jYYwqgaMrYE6+tq+DtmMwlD3drl6DJbUwtlIDnn0d7tIn/EbXBg==
-  /@types/node/11.13.4:
+      integrity: sha512-Ja7d4s0qyGFxjGeDq5S7Si25OFibSAHUi6i17UWnwNnpitADN7hah9q0Tl25gxuV5R1u2Bx+np6w4LHXfHyj/g==
+  /@types/node/11.13.6:
     dev: false
     resolution:
-      integrity: sha512-+rabAZZ3Yn7tF/XPGHupKIL5EcAbrLxnTr/hgQICxbeuAfWtT0UZSfULE+ndusckBItcv4o6ZeOJplQikVcLvQ==
+      integrity: sha512-Xoo/EBzEe8HxTSwaZNLZjaW6M6tA/+GmD3/DZ6uo8qSaolE/9Oarko0oV1fVfrLqOz0tx0nXJB4rdD5c+vixLw==
   /@types/range-parser/1.2.3:
     dev: false
     resolution:
@@ -493,7 +493,7 @@ packages:
       integrity: sha512-nne9/IiQ/hzIhY6pdDnbBtz7DjPTKrY00P/zvPSm5pOFkl6xuGrGnXn/VtTNNfNtAfZ9/1RtehkszU9qcTii0Q==
   /accepts/1.3.5:
     dependencies:
-      mime-types: 2.1.22
+      mime-types: 2.1.23
       negotiator: 0.6.1
     dev: false
     engines:
@@ -985,7 +985,7 @@ packages:
     dependencies:
       asynckit: 0.4.0
       combined-stream: 1.0.7
-      mime-types: 2.1.22
+      mime-types: 2.1.23
     dev: false
     engines:
       node: '>= 0.12'
@@ -1308,20 +1308,20 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha1-VSmk1nZUE07cxSZmVoNbD4Ua/O4=
-  /mime-db/1.38.0:
+  /mime-db/1.39.0:
     dev: false
     engines:
       node: '>= 0.6'
     resolution:
-      integrity: sha512-bqVioMFFzc2awcdJZIzR3HjZFX20QhilVS7hytkKrv7xFAn8bM1gzc/FOX2awLISvWe0PV8ptFKcon+wZ5qYkg==
-  /mime-types/2.1.22:
+      integrity: sha512-DTsrw/iWVvwHH+9Otxccdyy0Tgiil6TWK/xhfARJZF/QFhwOgZgOIvA2/VIGpM8U7Q8z5nDmdDWC6tuVMJNibw==
+  /mime-types/2.1.23:
     dependencies:
-      mime-db: 1.38.0
+      mime-db: 1.39.0
     dev: false
     engines:
       node: '>= 0.6'
     resolution:
-      integrity: sha512-aGl6TZGnhm/li6F7yx82bJiBZwgiEa4Hf6CNr8YO+r5UHr53tSTYZb102zyU50DOWWKeOv0uQLRL0/9EiKWCog==
+      integrity: sha512-ROk/m+gMVSrRxTkMlaQOvFmFmYDc7sZgrjjM76abqmd2Cc5fCV7jAMA5XUccEtJ3cYiYdgixUVI+fApc2LkXlw==
   /mime/1.4.1:
     dev: false
     hasBin: true
@@ -1374,12 +1374,12 @@ packages:
     hasBin: true
     resolution:
       integrity: sha1-MAV0OOrGz3+MR2fzhkjWaX11yQM=
-  /moment-timezone/0.5.23:
+  /moment-timezone/0.5.25:
     dependencies:
       moment: 2.24.0
     dev: false
     resolution:
-      integrity: sha512-WHFH85DkCfiNMDX5D3X7hpNH3/PUhjTGcD0U1SgfBGZxJ3qUmJh5FdvaFjcClxOvB3rzdfj4oRffbI38jEnC1w==
+      integrity: sha512-DgEaTyN/z0HFaVcVbSyVCUU6HeFdnNC3vE4c9cgu2dgMTvjBUBdBzWfasTBmAW45u5OIMeCJtU8yNjM22DHucw==
   /moment/2.24.0:
     dev: false
     resolution:
@@ -1431,7 +1431,7 @@ packages:
       integrity: sha512-TwWAOZb0j7e9eGaf9esRx3ZcLaE5tQ2lvYy1pb5IAaG1a2e2Kv5Lms1Y4hpj+ciXJRofIxxlt5haeQ/2ANeE0Q==
   /node-vibrant/3.2.0-alpha:
     dependencies:
-      '@types/node': 10.14.4
+      '@types/node': 10.14.5
       '@vibrant/core': 3.2.0-alpha
       '@vibrant/generator-default': 3.2.0-alpha
       '@vibrant/image-browser': 3.2.0-alpha
@@ -1701,7 +1701,7 @@ packages:
       is-typedarray: 1.0.0
       isstream: 0.1.2
       json-stringify-safe: 5.0.1
-      mime-types: 2.1.22
+      mime-types: 2.1.23
       oauth-sign: 0.9.0
       performance-now: 2.1.0
       qs: 6.5.2
@@ -1772,7 +1772,7 @@ packages:
       node: '>= 6.0.0'
     resolution:
       integrity: sha512-VMKl/gCCdIvB1gFZ7p+oqLFEyZEz3oMMYjkKvfEC7GoO9bBcxmfOOU9RdkoltfXGgBZFigSChihRly2gKtsh2w==
-  /sequelize/5.6.1:
+  /sequelize/5.7.0:
     dependencies:
       bluebird: 3.5.4
       cls-bluebird: 2.1.0
@@ -1781,7 +1781,7 @@ packages:
       inflection: 1.12.0
       lodash: 4.17.11
       moment: 2.24.0
-      moment-timezone: 0.5.23
+      moment-timezone: 0.5.25
       retry-as-promised: 3.2.0
       semver: 5.7.0
       sequelize-pool: 1.0.2
@@ -1793,7 +1793,7 @@ packages:
     engines:
       node: '>=6.0.0'
     resolution:
-      integrity: sha512-QsXUDar6ow0HrF9BtnHRaNumu6qRYb97dfwvez/Z5guH3i6w6k8+bp6gP3VCiDC+2qX+jQIyrYohKg9evy8GFg==
+      integrity: sha512-BlCq26jzsQLgxUtxchVdNNmoPoPtT3f1LpP/QEpEWhSO9rOiwWcanb6vNZtRdXkvfbwIgELzS6/RsCqJL0CHGA==
   /serve-static/1.13.2:
     dependencies:
       encodeurl: 1.0.2
@@ -1977,7 +1977,7 @@ packages:
   /type-is/1.6.16:
     dependencies:
       media-typer: 0.3.0
-      mime-types: 2.1.22
+      mime-types: 2.1.23
     dev: false
     engines:
       node: '>= 0.6'
@@ -2066,7 +2066,7 @@ packages:
       integrity: sha512-NBo2Pepn4hK4V01UfcWcDlmiVTs7VTB1h7bgnB0rgP146bYhMxX0ypCz3lBOfNxCO4Zuek7yeT+y/zM1OfMw4Q==
   /wkx/0.4.6:
     dependencies:
-      '@types/node': 11.13.4
+      '@types/node': 11.13.6
     dev: false
     resolution:
       integrity: sha512-LHxXlzRCYQXA9ZHgs8r7Gafh0gVOE8o3QmudM1PIkOdkXXjW7Thcl+gb2P2dRuKgW8cqkitCRZkkjtmWzpHi7A==
@@ -2132,7 +2132,7 @@ specifiers:
   discord.js: ^11.4.2
   express: ^4.16.4
   node-vibrant: ^3.2.0-alpha
-  sequelize: ^5.2.12
+  sequelize: ^5.7.0
   sqlite3: ^4.0.6
   winston: ^2.4.4
   ws: ^6.2.1
