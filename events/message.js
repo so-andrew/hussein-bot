@@ -26,15 +26,15 @@ exports.run = async (client, message) => {
         }
     }
     if(pogCheck(message) && !disableCheck(client, "pog") && !message.content.startsWith(prefix)){
-        if(!client.cooldowns.has(command.name)) client.cooldowns.set(command.name, new Discord.Collection());
+        if(!client.cooldowns.has("pog")) client.cooldowns.set("pog", new Discord.Collection());
         const now = Date.now();
-        const timestamps = client.cooldowns.get(command.name);
-        const cdAmount = (command.cooldown || 3) * 1000;
+        const timestamps = client.cooldowns.get("pog");
+        const cdAmount = (client.commands.get("pog").cooldown || 3) * 1000;
         if(timestamps.has(message.author.id)){
             const expTime = timestamps.get(message.author.id) + cdAmount;
             if(now < expTime){
                 const timeLeft = (expTime - now) / 1000;
-                return message.reply(`you cannot use the \`${command.name}\` command for ${timeLeft.toFixed(1)} second(s).`);
+                return message.reply(`you cannot use the \`pog\` command for ${timeLeft.toFixed(1)} second(s).`);
             }
         }
         if(message.author.id !== config.ownerID){
