@@ -26,6 +26,21 @@ exports.run = async (client, message) => {
         }
     }
     if(pogCheck(message) && !disableCheck(client, "pog") && !message.content.startsWith(prefix)){
+        if(!client.cooldowns.has(command.name)) client.cooldowns.set(command.name, new Discord.Collection());
+        const now = Date.now();
+        const timestamps = client.cooldowns.get(command.name);
+        const cdAmount = (command.cooldown || 3) * 1000;
+        if(timestamps.has(message.author.id)){
+            const expTime = timestamps.get(message.author.id) + cdAmount;
+            if(now < expTime){
+                const timeLeft = (expTime - now) / 1000;
+                return message.reply(`you cannot use the \`${command.name}\` command for ${timeLeft.toFixed(1)} second(s).`);
+            }
+        }
+        if(message.author.id !== config.ownerID){
+            timestamps.set(message.author.id, now);
+            setTimeout(() => timestamps.delete(message.author.id), cdAmount);
+        }
         let pogType = whichPog(message);
         if(pogType === 2 || pogType === 3){
             try{
@@ -37,7 +52,8 @@ exports.run = async (client, message) => {
                 console.error(error);
             }
         }
-        else client.commands.get("pog").execute(message, pogType);;
+        else client.commands.get("pog").execute(message, pogType);
+
         return;
     }
 
