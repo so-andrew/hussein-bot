@@ -4,6 +4,7 @@ const Discord = require("discord.js");
 module.exports = {
     name: 'pog',
     description: "Function to add to the pog jar.",
+    cooldown: 7,
     dev: true,
     async execute(message, args){
         let output;
