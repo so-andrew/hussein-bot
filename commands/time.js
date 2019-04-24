@@ -5,7 +5,11 @@ module.exports = {
     execute(message){
         console.log(`Command ${module.exports.name} received from ${message.author.username}`);
         const d = new Date();
-        message.channel.send(`UTC Offset: ${-1*d.getTimezoneOffset()/60}`);
+        console.log(`Old UTC Offset: ${-1*d.getTimezoneOffset()/60}`);
+        if(d.getTimezoneOffset() === 0){
+           d.setHours(d.getHours()-4);
+        }
+        console.log(`New UTC Offset: ${-1*d.getTimezoneOffset()/60}`);
         /*let currentHour = message.createdAt.getHours();
         let PM = false;
         if(currentHour > 12){
