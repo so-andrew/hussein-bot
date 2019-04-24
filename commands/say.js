@@ -1,7 +1,7 @@
 const fs = require("fs");
 let sayJSON = require("../data/sayings.json");
 const Discord = require("discord.js");
-const config = require("../config.json");
+//const config = require("../config.json");
 let sayings = new Map();
 
 module.exports = {
@@ -62,7 +62,7 @@ module.exports = {
                     }
                 }
                 else if(quote.name === "convert"){
-                    if(message.mentions && message.author.id === config.ownerID) embed.setDescription(`- ${message.mentions.members.first().user.username}`);
+                    if(message.mentions && message.author.id === process.env.OWNER_ID) embed.setDescription(`- ${message.mentions.members.first().user.username}`);
                     else embed.setDescription(`- ${message.author.username}`);
                 }
                 else{
