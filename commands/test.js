@@ -126,8 +126,7 @@ async function gameLookup(id){
                 'Client-ID': process.env.TWITCH_CLIENT_ID,
             }
         });
-        //console.log(result.data.data[0].name);
-        output = result.data.data[0].name;
+        let output = result.data.data[0].name;
         console.log(`output = ${result.data.data[0].name}`);
         return output;
     }

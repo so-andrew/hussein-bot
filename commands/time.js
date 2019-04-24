@@ -11,6 +11,10 @@ module.exports = {
           PM = true;
         }
 
+        const d = new Date();
+        console.log(d.getTimezoneOffset());
+        console.log(message.guild.region);
+      
         let timeString = `${currentHour}:${message.createdAt.getMinutes()}`
         if(PM === true){
           timeString+= " PM"
