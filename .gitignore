@@ -7,3 +7,4 @@ data/.DS_Store
 data/streamers/.DS_Store
 resources/.DS_Store
 shrinkwrap.yaml
+.env
