@@ -1,4 +1,4 @@
-const config = require("../config.json");
+//const config = require("../config.json");
 const blacklist = require("../data/blacklist.json");
 const filter = require("../data/filter.json");
 const Discord = require("discord.js");
@@ -8,7 +8,7 @@ exports.run = async (client, message) => {
     // Ignore bot messages
     if(message.author.bot) return;
     // Non-command features
-    let prefix = config.prefix;
+    let prefix = process.env.PREFIX;
     let offensiveAllowed = true;
     if(message.guild){
         if(client.guildPrefs.has(message.guild.id)){
@@ -37,7 +37,7 @@ exports.run = async (client, message) => {
                 return message.reply(`you cannot use the \`pog\` command for ${timeLeft.toFixed(1)} second(s).`);
             }
         }
-        if(message.author.id !== config.ownerID){
+        if(message.author.id !== process.env.OWNER_ID){
             timestamps.set(message.author.id, now);
             setTimeout(() => timestamps.delete(message.author.id), cdAmount);
         }
@@ -123,7 +123,7 @@ exports.run = async (client, message) => {
                 return message.reply(`you cannot use the \`${command.name}\` command for ${timeLeft.toFixed(1)} second(s).`);
             }
         }
-        if(message.author.id !== config.ownerID){
+        if(message.author.id !== process.env.OWNER_ID){
             timestamps.set(message.author.id, now);
             setTimeout(() => timestamps.delete(message.author.id), cdAmount);
         }

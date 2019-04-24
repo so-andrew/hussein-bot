@@ -5,9 +5,10 @@ const fs = require("fs");
 const http = require("http");
 const express = require("express");
 const app = express();
-const config = require("./config.json");
+//const config = require("./config.json");
 const utils = require("./commands/utils.js");
 const Sequelize = require("sequelize");
+require('dotenv').config();
 
 // Properties of client, useful to keep track of state
 client.disable = new Discord.Collection();
@@ -72,7 +73,7 @@ for(const file of coinFiles){
 }
 
 // Login to Discord
-client.login(config.token)
+client.login(process.env.token)
     .then(() => {
         client.gamemodes = utils.randomizeArray(client.gamemodes);
         client.coins = utils.randomizeArray(client.coins);
