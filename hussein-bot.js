@@ -5,7 +5,6 @@ const fs = require("fs");
 const http = require("http");
 const express = require("express");
 const app = express();
-//const config = require("./config.json");
 const utils = require("./commands/utils.js");
 const Sequelize = require("sequelize");
 require('dotenv').config();
@@ -32,7 +31,7 @@ for(const file of guildPrefFiles){
 }
 
 // Initializing macro databases
-for(let [key, value] of client.guildPrefs){
+for(const key of client.guildPrefs.keys()){
     const sequelize = new Sequelize('database', 'user', 'password', {
         host: 'localhost',
         dialect: 'sqlite',
