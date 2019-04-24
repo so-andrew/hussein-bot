@@ -36,6 +36,7 @@ module.exports.twitchCheck = (client) => {
     console.log(`${utils.currentTime()} - Check completed.`);
     const d = new Date();
     // Late night protocol
+    if(d.getTimezoneOffset() === 0) d.setHours(d.getHours() - 4);
     if(d.getHours() > 3 && d.getHours() < 10 && !client.latenight){
         clearInterval(client.twitchCheckInterval);
         client.twitchCheckInterval = setInterval(module.exports.twitchCheck, 60000*30, client);
