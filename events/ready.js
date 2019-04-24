@@ -15,7 +15,7 @@ exports.run = (client) => {
     twitch.twitchCheck(client);
     //webhook.subscribe(client);
     try{
-        for(const value of client.macros.value()){
+        for(const value of client.macros.values()){
             value.sync();
         }
         clearInterval(client.presenceInterval);
