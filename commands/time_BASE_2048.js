@@ -4,15 +4,7 @@ module.exports = {
     category: "utility",
     execute(message){
         console.log(`Command ${module.exports.name} received from ${message.author.username}`);
-        const d = new Date();
-<<<<<<< HEAD
-        console.log(`Old UTC Offset: ${-1*d.getTimezoneOffset()/60}`);
-        if(d.getTimezoneOffset() === 0){
-           d.setHours(d.getHours()-4);
-        }
-        console.log(`New UTC Offset: ${-1*d.getTimezoneOffset()/60}`);
-        console.log(d.toLocaleString('en-US'));
-        /*let currentHour = message.createdAt.getHours();
+        let currentHour = message.createdAt.getHours();
         let PM = false;
         if(currentHour > 12){
           currentHour -= 12;
@@ -31,9 +23,6 @@ module.exports = {
         else if(message.createdAt.getHours() >= 6 && message.createdAt.getHours() <= 9){
           message.reply(`it is ${timeString}. It's way too early for this.`);
         }
-        else message.reply(`it is ${timeString}.`);*/
-=======
-        message.channel.send(`It is ${d.toLocaleTimeString('en-US', { timeZone: 'America/New_York' })}.`);
->>>>>>> 83911f488673ab4b4f4987c1d656dd8586ae6816
+        else message.reply(`it is ${timeString}.`);
     }
 }

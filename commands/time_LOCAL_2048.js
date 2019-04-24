@@ -5,7 +5,6 @@ module.exports = {
     execute(message){
         console.log(`Command ${module.exports.name} received from ${message.author.username}`);
         const d = new Date();
-<<<<<<< HEAD
         console.log(`Old UTC Offset: ${-1*d.getTimezoneOffset()/60}`);
         if(d.getTimezoneOffset() === 0){
            d.setHours(d.getHours()-4);
@@ -32,8 +31,5 @@ module.exports = {
           message.reply(`it is ${timeString}. It's way too early for this.`);
         }
         else message.reply(`it is ${timeString}.`);*/
-=======
-        message.channel.send(`It is ${d.toLocaleTimeString('en-US', { timeZone: 'America/New_York' })}.`);
->>>>>>> 83911f488673ab4b4f4987c1d656dd8586ae6816
     }
 }

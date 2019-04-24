@@ -85,7 +85,7 @@ async function request(client, streamer, guild){
                         .addField("URL", `https://www.twitch.com/${streamer.username}`)
                         .setThumbnail(streamer.icon)
                         .setColor(palette["Vibrant"].getRgb())
-                        .setFooter(`${d.toLocaleString('en-US')} - Type !toggletwitch to stop receiving notifications`);
+                        .setFooter(`${d.toLocaleString('en-US', { timeZone: 'America/New_York' })} - Type !toggletwitch to stop receiving notifications`);
                     await channel.send(role.toString());
                     const sentMessage = await channel.send({ embed: embed });
                     console.log(`${utils.currentTime()} - Streamer ${streamer.username} is now live playing ${gameString}.`);
