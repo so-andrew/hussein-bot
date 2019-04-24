@@ -1,11 +1,11 @@
-const config = require("../config.json");
+//const config = require("../config.json");
 
 module.exports = {
     name: 'eval',
     description: "Dev function",
     dev: true,
     execute(message, args){
-        if(message.author.id !== config.ownerID) return;
+        if(message.author.id !== process.env.OWNER_ID) return;
         try {
             const code = args.join(" ");
             let evaled = eval(code);

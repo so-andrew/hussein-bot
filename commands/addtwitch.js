@@ -1,7 +1,7 @@
 const twitchRegex = /(http(s)?:\/\/)(www.)?(twitch.tv\/(?<name>[\w]+))/g;
 const Discord = require(`discord.js`);
 const fs = require('fs');
-const config = require('../config.json');
+//const config = require('../config.json');
 const axios = require('axios');
 
 module.exports = {
@@ -75,7 +75,7 @@ class Streamer {
         try{
             const result = await axios.get(`https://api.twitch.tv/helix/users?login=${this.username}`, {
                 headers: {
-                    'Client-ID': config.twitchClientID,
+                    'Client-ID': process.env.TWITCH_CLIENT_ID,
                 }
             });
             this.icon = result.data.data[0].profile_image_url;
@@ -90,7 +90,7 @@ class Streamer {
         try{
             const result = await axios.get(`https://api.twitch.tv/helix/users?login=${this.username}`, {
                 headers: {
-                    'Client-ID': config.twitchClientID,
+                    'Client-ID': process.env.TWITCH_CLIENT_ID,
                 }
             });
             this.user_id = result.data.data[0].id;
@@ -106,7 +106,7 @@ async function getIcon(name){
     try{
         const result = await axios.get(`https://api.twitch.tv/helix/users?login=${name}`, {
             headers: {
-                'Client-ID': config.twitchClientID,
+                'Client-ID': process.env.TWITCH_CLIENT_ID,
             }
         });
         const iconURL = result.data.data[0].profile_image_url;
@@ -121,7 +121,7 @@ async function getID(name){
     try{
         const result = await axios.get(`https://api.twitch.tv/helix/users?login=${name}`, {
             headers: {
-                'Client-ID': config.twitchClientID,
+                'Client-ID': process.env.TWITCH_CLIENT_ID,
             }
         });
         const iconURL = result.data.data[0].id;
@@ -136,7 +136,7 @@ async function getUser(name){
     try{
          const result = await axios.get(`https://api.twitch.tv/helix/users?login=${name}`, {
              headers: {
-                 'Client-ID': config.twitchClientID,
+                 'Client-ID': process.env.TWITCH_CLIENT_ID,
              }
          });
          return result.data.data[0];

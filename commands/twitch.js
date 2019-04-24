@@ -1,4 +1,4 @@
-const config = require('../config.json');
+//const config = require('../config.json');
 const Discord = require('discord.js');
 const Vibrant = require('node-vibrant');
 const axios = require('axios');
@@ -53,7 +53,7 @@ async function request(client, streamer, guild){
         try{
             // Get stream information from Twitch API
             const result = await axios.get(`https://api.twitch.tv/helix/streams?user_login=${streamer.username}`, {
-                headers: { 'Client-ID': config.twitchClientID }
+                headers: { 'Client-ID': process.env.TWITCH_CLIENT_ID }
             });
             const stream = result.data.data[0];
             if(stream){
@@ -123,7 +123,7 @@ async function gameLookup(id){
     console.log(`Looking up game with id ${id}.`);
     try{
         const result = await axios.get(`https://api.twitch.tv/helix/games?id=${id}`, {
-            headers: { 'Client-ID': config.twitchClientID }
+            headers: { 'Client-ID': process.env.TWITCH_CLIENT_ID }
         });
         return result.data.data[0].name;
     }
@@ -135,7 +135,7 @@ async function gameLookup(id){
 function gameLookupOld(id){
     let options = {
         headers: {
-            'Client-ID': config.twitchClientID,
+            'Client-ID': process.env.TWITCH_CLIENT_ID,
         },
         host: 'api.twitch.tv',
         path: `/helix/games?id=${id}`,

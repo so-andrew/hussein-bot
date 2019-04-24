@@ -1,6 +1,6 @@
 const urlRegex = /(http(s)?:\/\/)(www.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}([-a-zA-Z0-9@:%_+.~#?&/=]*)?/g;
 
-const config = require("../config.json");
+//const config = require("../config.json");
 const Discord = require("discord.js");
 const Sequelize = require("sequelize");
 
@@ -77,7 +77,7 @@ async function deleteMacro(message, arg, macroDB){
     console.log(`Command m delete received from ${message.author.username} with arguments ${arg}.`);
     const macro = await macroDB.findOne({ where: { name: arg.toLowerCase() } });
     if(macro){
-        if(message.author.id === macro.get('creatorID') || message.author.id === config.ownerID){
+        if(message.author.id === macro.get('creatorID') || message.author.id === process.env.OWNER_ID){
             await macroDB.destroy({ where: { name: arg } });
             return message.channel.send(`Macro \`${arg.toLowerCase()}\` deleted.`);
         }
@@ -107,7 +107,7 @@ async function editMacro(message, args, macroDB){
     console.log(`Command m edit received from ${message.author.username} with arguments ${args}.`)
     const macro = await macroDB.findOne({ where: { name: args[1].toLowerCase()} });
     if(macro){
-        if(message.author.id === macro.get('creatorID') || message.author.id === config.ownerID){
+        if(message.author.id === macro.get('creatorID') || message.author.id === process.env.OWNER_ID){
             if(urlRegex.test(args[2])){
                 // argument is a URL, editing macro text
                 const rowsChanged = await macroDB.update({ text: args[2] }, { where: { name: args[1].toLowerCase() } });

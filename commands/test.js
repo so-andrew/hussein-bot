@@ -1,9 +1,9 @@
 const https = require('https');
-const config = require('../config.json');
+//const config = require('../config.json');
 const Discord = require('discord.js');
 const fs = require('fs');
 const axios = require('axios');
-axios.defaults.headers.common['Client-ID'] = config.twitchClientID;
+axios.defaults.headers.common['Client-ID'] = process.env.TWITCH_CLIENT_ID;
 const webhook = new Discord.WebhookClient("565622071405838347", "OTPG2iZ_FQrgey1uob_1qk2l5c3Vb_u9ts8gTJ2j3GBtxC1SpEY69cnaPAWXE4qHcsFZ");
 // userlookup: `/helix/users/?login=${args[0]}`
 // streamlookup: `/helix/streams?user_login=${args[0]}`
@@ -15,7 +15,7 @@ module.exports = {
     async execute(message, args){
         /*let options = {
             headers: {
-                'Client-ID': config.twitchClientID,
+                'Client-ID': process.env.TWITCH_CLIENT_ID,
             },
             host: 'api.twitch.tv',
             path: `/helix/streams?user_login=${args[0]}`,
@@ -70,7 +70,7 @@ module.exports = {
       }*/
       /*const result = await axios.get(`https://api.twitch.tv/helix/users?user_login=${name}`, {
           headers: {
-              'Client-ID': config.twitchClientID,
+              'Client-ID': process.env.TWITCH_CLIENT_ID,
           }
       });
       console.log(result.data.data[0]);
@@ -79,7 +79,7 @@ module.exports = {
       //webhook.send("Pepega");
       /*const result = await axios.post(`https://api.twitch.tv/helix/webhooks/hub`, {
           headers:{
-              'Client-ID': config.twitchClientID,
+              'Client-ID': process.env.TWITCH_CLIENT_ID,
           },
           body:{
               'hub.callback': `https://discordapp.com/api/webhooks/565622071405838347/OTPG2iZ_FQrgey1uob_1qk2l5c3Vb_u9ts8gTJ2j3GBtxC1SpEY69cnaPAWXE4qHcsFZ`,
@@ -123,7 +123,7 @@ async function gameLookup(id){
     try{
         const result = await axios.get(`https://api.twitch.tv/helix/games?id=${id}`,{
             headers: {
-                'Client-ID': config.twitchClientID,
+                'Client-ID': process.env.TWITCH_CLIENT_ID,
             }
         });
         //console.log(result.data.data[0].name);
@@ -140,7 +140,7 @@ async function getUser(name){
     try{
          const result = await axios.get(`https://api.twitch.tv/helix/users?login=${name}`, {
              headers: {
-                 'Client-ID': config.twitchClientID,
+                 'Client-ID': process.env.TWITCH_CLIENT_ID,
              }
          });
          //console.log(result.data);
