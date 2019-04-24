@@ -10,6 +10,7 @@ module.exports = {
            d.setHours(d.getHours()-4);
         }
         console.log(`New UTC Offset: ${-1*d.getTimezoneOffset()/60}`);
+        console.log(d.toLocaleString('en-US'));
         /*let currentHour = message.createdAt.getHours();
         let PM = false;
         if(currentHour > 12){
