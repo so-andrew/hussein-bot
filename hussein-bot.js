@@ -73,7 +73,7 @@ for(const file of coinFiles){
 }
 
 // Login to Discord
-client.login(process.env.token)
+client.login(process.env.TOKEN)
     .then(() => {
         client.gamemodes = utils.randomizeArray(client.gamemodes);
         client.coins = utils.randomizeArray(client.coins);
