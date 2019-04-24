@@ -15,13 +15,14 @@ exports.run = (client) => {
     twitch.twitchCheck(client);
     //webhook.subscribe(client);
     try{
-        for(let [key, value] of client.macros){
+        for(const value of client.macros.value()){
             value.sync();
         }
         clearInterval(client.presenceInterval);
         clearInterval(client.twitchCheckInterval);
         client.presenceInterval = setInterval(presence.setPresence, 60000*5, client);
         const d = new Date();
+        if(d.getTimezoneOffset() === 0) d.setHours(d.getHours() - 4);
         if(d.getHours() > 3 && d.getHours() < 10 && !client.latenight){
             clearInterval(client.twitchCheckInterval);
             client.twitchCheckInterval = setInterval(twitch.twitchCheck, 60000*30, client);
