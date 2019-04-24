@@ -83,7 +83,6 @@ client.login(process.env.TOKEN)
 // Receive pings to keep alive
 app.get("/", (request, response) => {
     console.log(`${utils.currentTime()} - Ping received.`);
-    console.log(request);
     response.sendStatus(200);
 });
 app.listen(process.env.PORT);
