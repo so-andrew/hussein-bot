@@ -62,7 +62,7 @@ module.exports = {
                     }
                 }
                 else if(quote.name === "convert"){
-                    if(message.mentions && message.author.id === process.env.OWNER_ID) embed.setDescription(`- ${message.mentions.members.first().user.username}`);
+                    if(message.mentions && message.author.id === process.env.OWNER_ID) embed.setDescription(`- ${message.mentions.users.first().username}`);
                     else embed.setDescription(`- ${message.author.username}`);
                 }
                 else{
