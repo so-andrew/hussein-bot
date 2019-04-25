@@ -16,14 +16,16 @@ exports.run = async (client, message) => {
             offensiveAllowed = client.guildPrefs.get(message.guild.id).offensive;
         }
     }
-  
+
     // Anti-spam v1
     const prev50Messages = await message.channel.fetchMessages({ limit: 25});
     prev50Messages.sweep((m) => m.id === message.id);
     const authorMessages = prev50Messages.filter(m => m.author.id === message.author.id);
+    // Check for (exact) content match
     authorMessages.sweep((m) => m.content !== message.content);
     if(authorMessages.size >= 2){
         let spamCheck = false;
+        // Check timestamps to see if time between messages is less than 10 seconds
         for(const m of authorMessages.values()){
             if(Math.abs(message.createdAt - m.createdAt) <= 10000){
                 spamCheck = true;
@@ -34,7 +36,8 @@ exports.run = async (client, message) => {
             messagesToDelete.push(message);
             const sentMessage = await message.channel.send("This is a no spam zone!");
             await message.channel.bulkDelete(messagesToDelete).catch(error => console.log(error.stack));
-            sentMessage.delete(5000);
+            sentMessage.delete(7000);
+            return;
         }
     }
 
@@ -47,7 +50,7 @@ exports.run = async (client, message) => {
             console.log("Emote does not exist.");
         }
     }
-  
+
     // Pog checks
     if(pogCheck(message) && !disableCheck(client, "pog") && !message.content.startsWith(prefix)){
         if(!client.cooldowns.has("pog")) client.cooldowns.set("pog", new Discord.Collection());
