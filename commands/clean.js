@@ -20,7 +20,7 @@ async function clean(message, args){
         let pluralString = args[0] == 1 ? "" : "s";
         const messageCollection = await message.channel.fetchMessages({limit: parseInt(args) + 1});
         await message.channel.bulkDelete(messageCollection).catch(error => console.log(error.stack));
-        const sentMessage = await message.channel.send("Deleted `" + args + "` message" + pluralString + ". <:dab:310668328794587138>");
+        const sentMessage = await message.channel.send(`Deleted ${args} message${pluralString}. <:dab:310668328794587138>`);
         await sentMessage.delete(3000);
     }
     else message.channel.send("Please enter a numerical argument.");
