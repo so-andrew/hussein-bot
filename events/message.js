@@ -21,15 +21,17 @@ exports.run = async (client, message) => {
     prev50Messages.sweep((m) => m.id === message.id);
     const authorMessages = prev50Messages.filter(m => m.author.id === message.author.id);
     authorMessages.sweep((m) => m.content !== message.content);
-    console.log(authorMessages);
+    //console.log(authorMessages);
     if(authorMessages.size >= 2){
+        console.log("Nigger");
         let spamCheck = false;
-        for(const m in authorMessages.values()){
-            if(message.createdTimestamp - m.createdTimestamp <= 10000){
-                spamcheck = true;
+        for(const m of authorMessages.values()){
+            console.log(`m = ${m.createdTimestamp}, message = ${message.createdTimestamp}`);
+            if(Math.abs(message.createdAt - m.createdAt) <= 10000){
+                spamCheck = true;
             }
         }
-        if(spamcheck){
+        if(spamCheck){
             const messagesToDelete = Array.from(authorMessages.values());
             messagesToDelete.push(message);
             const sentMessage = await message.channel.send("This is a no spam zone!");
