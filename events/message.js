@@ -19,7 +19,9 @@ exports.run = async (client, message) => {
   
     const prev50Messages = await message.channel.fetchMessages({ limit: 25});
     const authorMessages = prev50Messages.filter(m => m.author.id === message.author.id);
+    authorMessages.sweep((m) => m.content !== message.content);
     console.log(authorMessages);
+    
 
     if(message.channel.type === "text" && !message.content.startsWith(prefix) && twitchRegex.test(message.content)){
         try{
