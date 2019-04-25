@@ -34,7 +34,8 @@ exports.run = async (client, message) => {
             const expTime = timestamps.get(message.author.id) + cdAmount;
             if(now < expTime){
                 const timeLeft = (expTime - now) / 1000;
-                return message.reply(`you cannot use the \`pog\` command for ${timeLeft.toFixed(1)} second(s).`);
+                const warningMessage = await message.reply(`you cannot use the \`pog\` command for ${timeLeft.toFixed(1)} second(s).`);
+                warningMessage.delete(3000);
             }
         }
         if(message.author.id !== process.env.OWNER_ID){
@@ -120,7 +121,8 @@ exports.run = async (client, message) => {
             const expTime = timestamps.get(message.author.id) + cdAmount;
             if(now < expTime){
                 const timeLeft = (expTime - now) / 1000;
-                return message.reply(`you cannot use the \`${command.name}\` command for ${timeLeft.toFixed(1)} second(s).`);
+                const warningMessage = await message.reply(`you cannot use the \`${command.name}\` command for ${timeLeft.toFixed(1)} second(s).`);
+                warningMessage.delete(3000);
             }
         }
         if(message.author.id !== process.env.OWNER_ID){
