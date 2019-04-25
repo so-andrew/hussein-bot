@@ -1,9 +1,9 @@
 module.exports = {
     name: 'cleanbot',
-    description: "Deletes previous messages from a bot user within the last n messages.",
+    description: "Deletes previous messages from a bot user.",
     params: "`Integer` (required)",
     exinput: "`!cleanbot 5`",
-    exoutput: "Deleted `5 messages`. <:dab:310668328794587138>",
+    exoutput: "Deleted 5 bot messages. <:dab:310668328794587138>",
     category: "mod",
     guildOnly: true,
     execute(message, args){
