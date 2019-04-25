@@ -16,6 +16,10 @@ exports.run = async (client, message) => {
             offensiveAllowed = client.guildPrefs.get(message.guild.id).offensive;
         }
     }
+  
+    const prev50Messages = await message.channel.fetchMessages({ limit: 25});
+    const authorMessages = prev50Messages.filter(m => m.author.id === message.author.id);
+    console.log(authorMessages);
 
     if(message.channel.type === "text" && !message.content.startsWith(prefix) && twitchRegex.test(message.content)){
         try{
