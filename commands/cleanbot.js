@@ -28,6 +28,7 @@ async function clean(message, args){
         await message.channel.bulkDelete(messagesToDelete).catch(error => console.log(error.stack));
         const sentMessage = await message.channel.send(`Deleted ${messagesToDelete.length} bot message${pluralString}. <:dab:310668328794587138>`);
         await sentMessage.delete(3000);
+        message.delete();
     }
     else message.channel.send("Please enter a numerical argument.");
 }
