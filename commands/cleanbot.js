@@ -18,12 +18,15 @@ module.exports = {
 async function clean(message, args){
     if(!isNaN(args)){
         const messageCollection = await message.channel.fetchMessages();
+        console.log(`mc.size = ${messageCollection.size}`);
         const botMessageCollection = messageCollection.filter(m => m.author.bot);
+        console.log(`bmc.size = ${botMessageCollection.size}`);
         if(botMessageCollection.size === 0) return message.channel.send(`No bot messages found within the last ${args[0]} messages.`);
 	const pluralString = botMessageCollection.size == 1 ? "" : "s";
         const botMessageArray = Array.from(botMessageCollection.values());
         let size = args[0];
         if(size >= botMessageArray.size) size = botMessageArray.size;
+        //console.log(botMessageArray);
         const messagesToDelete = botMessageArray.slice(0, size);
         await message.channel.bulkDelete(messagesToDelete).catch(error => console.log(error.stack));
         const sentMessage = await message.channel.send(`Deleted ${messagesToDelete.length} bot message${pluralString}. <:dab:310668328794587138>`);
