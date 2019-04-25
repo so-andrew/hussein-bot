@@ -18,10 +18,16 @@ exports.run = async (client, message) => {
     }
   
     const prev50Messages = await message.channel.fetchMessages({ limit: 25});
+    prev50Messages.sweep((m) => m.id === message.id);
     const authorMessages = prev50Messages.filter(m => m.author.id === message.author.id);
     authorMessages.sweep((m) => m.content !== message.content);
     console.log(authorMessages);
-    
+    if(size >= 2){
+        let spamCheck = false;
+        for(const m in authorMessages.values()){
+            if(m.
+        }
+    }
 
     if(message.channel.type === "text" && !message.content.startsWith(prefix) && twitchRegex.test(message.content)){
         try{
