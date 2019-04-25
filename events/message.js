@@ -7,6 +7,7 @@ const twitchRegex = /(http(s)?:\/\/)(www.)?(twitch.tv\/cyn0va)/ig;
 exports.run = async (client, message) => {
     // Ignore bot messages
     if(message.author.bot) return;
+  
     // Non-command features
     let prefix = process.env.PREFIX;
     let offensiveAllowed = true;
