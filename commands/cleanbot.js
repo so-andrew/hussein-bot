@@ -17,12 +17,12 @@ module.exports = {
 
 async function clean(message, args){
     if(!isNaN(args)){
-        const messageCollection = await message.channel.fetchMessages({ limit: parseInt(args) });
+        const messageCollection = await message.channel.fetchMessages({ limit: parseInt(args) + 1 });
         const botMessageCollection = messageCollection.filter(m => m.author.bot);
         if(botMessageCollection.size === 0) return message.channel.send(`No bot messages found within the last ${args[0]} messages.`);
         let pluralString = botMessageCollection.size == 1 ? "" : "s";
         await message.channel.bulkDelete(botMessageCollection).catch(error => console.log(error.stack));
-        const sentMessage = await message.channel.send(`Deleted ${botMessageCollection} bot message${pluralString}. <:dab:310668328794587138>`);
+        const sentMessage = await message.channel.send(`Deleted ${botMessageCollection.size} bot message${pluralString}. <:dab:310668328794587138>`);
         await sentMessage.delete(3000);
     }
     else message.channel.send("Please enter a numerical argument.");
