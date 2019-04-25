@@ -17,16 +17,14 @@ exports.run = async (client, message) => {
         }
     }
   
+    // Anti-spam v1
     const prev50Messages = await message.channel.fetchMessages({ limit: 25});
     prev50Messages.sweep((m) => m.id === message.id);
     const authorMessages = prev50Messages.filter(m => m.author.id === message.author.id);
     authorMessages.sweep((m) => m.content !== message.content);
-    //console.log(authorMessages);
     if(authorMessages.size >= 2){
-        console.log("Nigger");
         let spamCheck = false;
         for(const m of authorMessages.values()){
-            console.log(`m = ${m.createdTimestamp}, message = ${message.createdTimestamp}`);
             if(Math.abs(message.createdAt - m.createdAt) <= 10000){
                 spamCheck = true;
             }
@@ -36,10 +34,11 @@ exports.run = async (client, message) => {
             messagesToDelete.push(message);
             const sentMessage = await message.channel.send("This is a no spam zone!");
             await message.channel.bulkDelete(messagesToDelete).catch(error => console.log(error.stack));
-            sentMessage.delete(3000);
+            sentMessage.delete(5000);
         }
     }
 
+    // ResidentSleeper reactions for twitch.tv/cyn0va links
     if(message.channel.type === "text" && !message.content.startsWith(prefix) && twitchRegex.test(message.content)){
         try{
             message.react(message.guild.emojis.find(emoji => emoji.name === "ResidentSleeper"));
@@ -48,6 +47,8 @@ exports.run = async (client, message) => {
             console.log("Emote does not exist.");
         }
     }
+  
+    // Pog checks
     if(pogCheck(message) && !disableCheck(client, "pog") && !message.content.startsWith(prefix)){
         if(!client.cooldowns.has("pog")) client.cooldowns.set("pog", new Discord.Collection());
         const now = Date.now();
