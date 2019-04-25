@@ -17,6 +17,7 @@ module.exports = {
             let quote = sayDB[Math.floor(Math.random()*(sayDB.length))];
             const embed = new Discord.RichEmbed()
                 .setTitle(`"${quote.text}"`);
+            if(quote.name === "convert") embed.setTitle(`لَا إِلٰهَ إِلَّا ٱلله مُحَمَّدٌ رَسُولُ ٱلله`);
             if(quote.hasOwnProperty("author")){
                 embed.setDescription(`- ${quote.author}`);
                 if(quote.author === "Tyler"){
@@ -44,6 +45,7 @@ module.exports = {
             let quote = sayings.get(args[0]);
             const embed = new Discord.RichEmbed();
             if(quote.text.length > 256) embed.setDescription(`"${quote.text}"`);
+            else if(quote.name === "convert") embed.setTitle(`لَا إِلٰهَ إِلَّا ٱلله مُحَمَّدٌ رَسُولُ ٱلله`); 
             else embed.setTitle(`"${quote.text}"`);
             if(quote.text.length < 256){
                 if(quote.hasOwnProperty("author")){
