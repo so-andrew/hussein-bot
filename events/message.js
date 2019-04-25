@@ -22,10 +22,19 @@ exports.run = async (client, message) => {
     const authorMessages = prev50Messages.filter(m => m.author.id === message.author.id);
     authorMessages.sweep((m) => m.content !== message.content);
     console.log(authorMessages);
-    if(size >= 2){
+    if(authorMessages.size >= 2){
         let spamCheck = false;
         for(const m in authorMessages.values()){
-            if(m.
+            if(message.createdTimestamp - m.createdTimestamp <= 10000){
+                spamcheck = true;
+            }
+        }
+        if(spamcheck){
+            const messagesToDelete = Array.from(authorMessages.values());
+            messagesToDelete.push(message);
+            const sentMessage = await message.channel.send("This is a no spam zone!");
+            await message.channel.bulkDelete(messagesToDelete).catch(error => console.log(error.stack));
+            sentMessage.delete(3000);
         }
     }
 
