@@ -12,18 +12,12 @@ module.exports = {
         let pluralString = "s";
         if(args[0] === "top"){
             const pogjar = message.client.pogjar.clone();
-            console.log(pogjar);
-            let pogjarsort = pogjar.sort((a, b) => {
-              console.log("a = " + a + ", b = " + b);
-              return b - a;
-            });
-            console.log(pogjarsort);
+            let pogjarsort = pogjar.sort((a, b) => b - a);
             let i = 1;
             let output = "";
             for(const [key, value] of pogjarsort){
-                if(!message.guild) return message.channel.send("Not implemented yet.");
+                if(!message.guild) return message.channel.send("Can only be used in a guild text channel.");
                 if(message.guild.members.has(key)){
-                    //console.log(`${i}) ${message.guild.members.get(key).user} - ${value} pogs`);
                     output += `${i}) ${message.guild.members.get(key).user} - ${value} pogs\n`;
                     i++;
                 }
