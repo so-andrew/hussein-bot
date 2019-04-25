@@ -18,7 +18,7 @@ module.exports = {
             for(const [key, value] of pogjarsort){
                 if(!message.guild) return message.channel.send("Can only be used in a guild text channel.");
                 if(message.guild.members.has(key)){
-                    output += `${i}) ${message.guild.members.get(key).user} - ${value} pogs\n`;
+                    output += `**${i})** ${message.guild.members.get(key).user} - ${value} pogs\n`;
                     i++;
                 }
             }
