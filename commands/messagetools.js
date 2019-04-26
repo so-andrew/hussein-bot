@@ -10,13 +10,16 @@ module.exports.sweepPogReplies = async(client) => {
                     if(m.embeds[0].title === "Pog Jar") pogMessages.push(m);
                 }
             }
-            try{
-                await channel.bulkDelete(pogMessages);
+            if(pogMessages.length !== 0){
+                try{
+                    await channel.bulkDelete(pogMessages);
+                    console.log(`Purged ${pogMessages.length} pog message(s) in ${guild.name} - ${channel.name}`);
+                }
+                catch(error){
+                    console.error(error);
+                    console.log(`A problem occurred while deleting messages in ${guild.name} - ${channel.name}`);
+                }
             }
-            catch(error){
-                
-            }
-            if(pogMessages.length > 0) console.log(`Purged ${pogMessages.length} pog message(s) in ${guild.name} - ${channel.name}`);
         }
     }
 }
