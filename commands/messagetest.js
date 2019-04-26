@@ -5,8 +5,14 @@ module.exports = {
     async execute(message){
         const messageCollection = await message.channel.fetchMessages();
         const botMessageCollection = messageCollection.filter(m => m.author.bot);
+        const pogMessages = [];
         for(const m of botMessageCollection.values()){
-            if(m.embeds) console.log(m.embeds[0]);
+            if(m.embeds && m.embeds.length){
+                if(m.embeds[0].title === "Pog Jar"){
+                    console.log(m.embeds[0].title);
+                    pogMessages.push(m);
+                }
+            }
             else console.log("No Embeds");
         }
     }
