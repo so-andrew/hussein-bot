@@ -32,6 +32,7 @@ exports.run = async (client, message) => {
             }
         }
         if(spamCheck){
+            // Murk him
             const messagesToDelete = Array.from(authorMessages.values());
             messagesToDelete.push(message);
             const sentMessage = await message.channel.send("This is a no spam zone!");
@@ -47,7 +48,7 @@ exports.run = async (client, message) => {
             message.react(message.guild.emojis.find(emoji => emoji.name === "ResidentSleeper"));
         }
         catch(error){
-            console.log("Emote does not exist.");
+            console.log(`Emote ResidentSleeper does not exist in ${message.guild.name}.`);
         }
     }
 
@@ -81,7 +82,6 @@ exports.run = async (client, message) => {
             }
         }
         else client.commands.get("pog").execute(message, pogType);
-
         return;
     }
 
