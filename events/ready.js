@@ -1,7 +1,7 @@
 const logger = require('winston');
 const presence = require("../commands/presence.js");
 const twitch = require("../commands/twitch.js");
-const  = require("../commands/uti
+const messagetools = require("../commands/messagetools.js");
 //const webhook = require("../commands/webhook.js");
 
 logger.remove(logger.transports.Console);
@@ -23,7 +23,7 @@ exports.run = (client) => {
         clearInterval(client.twitchCheckInterval);
         clearInterval(client.sweepInterval);
         client.presenceInterval = setInterval(presence.setPresence, 60000*5, client);
-        client.sweepInterval = setInterval(
+        client.sweepInterval = setInterval(messageTools);
         const d = new Date();
         if(d.getTimezoneOffset() === 0) d.setHours(d.getHours() - 4);
         if(d.getHours() > 3 && d.getHours() < 10 && !client.latenight){
