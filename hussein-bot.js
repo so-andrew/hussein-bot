@@ -13,6 +13,7 @@ require('dotenv').config();
 client.disable = new Discord.Collection();
 client.presenceInterval = null;
 client.twitchCheckInterval = null;
+client.sweepInterval = null;
 client.gamemodes = JSON.parse(fs.readFileSync("./data/gamemodes.json"));
 client.pogjar = new Discord.Collection(JSON.parse(fs.readFileSync("./data/pogjar.json")));
 client.commands = new Discord.Collection();

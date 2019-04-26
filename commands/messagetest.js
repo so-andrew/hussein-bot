@@ -13,7 +13,6 @@ module.exports = {
                     pogMessages.push(m);
                 }
             }
-            else console.log("No Embeds");
         }
     }
 }
