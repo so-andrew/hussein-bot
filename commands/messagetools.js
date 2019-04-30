@@ -24,7 +24,7 @@ module.exports.sweepPogReplies = async(client) => {
     }
 }
 
-module.exports.validatePerms = (client) => {
+module.exports.validatePerms = async(client) => {
     for(const guild of client.guilds.values()){
         const role = await guild.roles.find(role => role.name === "Basic Human Rights")
         if(!role) continue;
