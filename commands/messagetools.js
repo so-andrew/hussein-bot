@@ -23,3 +23,14 @@ module.exports.sweepPogReplies = async(client) => {
         }
     }
 }
+
+module.exports.validatePerms = (client) => {
+    for(const guild of client.guilds.values()){
+        const role = await guild.roles.find(role => role.name === "Basic Human Rights")
+        if(!role) continue;
+        if(!role.hasPermission('CHANGE_NICKNAME')){
+            console.log("Cannot change nickname, modifying perms.");
+            role.setPermissions(['VIEW_CHANNEL', 'SEND_MESSAGES', 'CHANGE_NICKNAME','EMBED_LINKS', 'ATTACH_FILES', 'READ_MESSAGE_HISTORY', 'MENTION_EVERYONE', 'USE_EXTERNAL_EMOJIS', 'ADD_REACTIONS', 'CONNECT', 'SPEAK', 'USE_VAD']);
+        }
+    }
+}
