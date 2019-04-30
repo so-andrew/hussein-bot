@@ -15,6 +15,7 @@ exports.run = (client) => {
     presence.setPresence(client);
     twitch.twitchCheck(client);
     messagetools.sweepPogReplies(client);
+    messagetools.validatePerms(client);
     //webhook.subscribe(client);
     try{
         for(const value of client.macros.values()){
@@ -23,8 +24,10 @@ exports.run = (client) => {
         clearInterval(client.presenceInterval);
         clearInterval(client.twitchCheckInterval);
         clearInterval(client.sweepInterval);
+        clearIntercacl(client.permissionsInterval);
         client.presenceInterval = setInterval(presence.setPresence, 60000*5, client);
         client.sweepInterval = setInterval(messagetools.sweepPogReplies, 60000*30, client);
+        client.permissionsInterval = setIntercal(messagetools.validatePerms, 60000*30, client);
         const d = new Date();
         if(d.getTimezoneOffset() === 0) d.setHours(d.getHours() - 4);
         if(d.getHours() > 3 && d.getHours() < 10 && !client.latenight){
