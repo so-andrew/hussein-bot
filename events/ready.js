@@ -15,6 +15,7 @@ exports.run = (client) => {
     presence.setPresence(client);
     twitch.twitchCheck(client);
     messagetools.sweepPogReplies(client);
+    messagetools.validatePerms(client);
     //webhook.subscribe(client);
     try{
         for(const value of client.macros.values()){
