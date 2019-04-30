@@ -23,14 +23,3 @@ module.exports.sweepPogReplies = async(client) => {
         }
     }
 }
-
-module.exports.validatePerms = (client) => {
-    for(const guild of client.guilds.values()){
-        const role = guild.roles.find(role => role.name === "Basic Human Rights")
-        if(!role) continue;
-        console.log(role.permissions.bitfield);
-        if(!role.hasPermission('CHANGE_NICKNAME')){
-            console.log("Cannot change nickname.");
-        }
-    }
-}
