@@ -13,7 +13,7 @@ module.exports = {
 				if(message.member.voiceChannel){
 						try{
 								const connection = await message.member.voiceChannel.join();
-								message.channel.send("**PIZZA TIME**");
+								message.channel.send("**PIZZA TIME**\n\n");
                 const embed = new Discord.RichEmbed()
                   .setImage('https://cdn.discordapp.com/attachments/231599783255605248/336404762587037696/unknown.png')
                   .setColor([167,24,20]);
