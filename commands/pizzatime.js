@@ -13,7 +13,7 @@ module.exports = {
 						try{
 								const connection = await message.member.voiceChannel.join();
 								message.channel.send("**PIZZA TIME**\n\nhttps://cdn.discordapp.com/attachments/231599783255605248/336404762587037696/unknown.png");
-								client.user.setPresence({ status:'online', game: {name: 'PIZZA TIME'}});
+								message,client.user.setPresence({ status:'online', game: {name: 'PIZZA TIME'}});
 								const dispatcher = connection.playFile('./resources/pizzatheme.mp3');
 								if(parseInt(args[0]) === 0){
 										dispatcher.setVolume(0);
