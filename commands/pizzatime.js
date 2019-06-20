@@ -1,4 +1,5 @@
 const presence = require("../commands/presence.js");
+const Discord = require('discord.js');
 
 module.exports = {
 		name: 'pizzatime',
@@ -12,8 +13,12 @@ module.exports = {
 				if(message.member.voiceChannel){
 						try{
 								const connection = await message.member.voiceChannel.join();
-								message.channel.send("**PIZZA TIME**\n\nhttps://cdn.discordapp.com/attachments/231599783255605248/336404762587037696/unknown.png");
-								client.user.setPresence({ status:'online', game: {name: 'PIZZA TIME'}});
+								message.channel.send("**PIZZA TIME**\n\n");
+                const embed = new Discord.RichEmbed()
+                  .setImage('https://cdn.discordapp.com/attachments/231599783255605248/336404762587037696/unknown.png')
+                  .setColor([167,24,20]);
+                message.channel.send({embed: embed})
+								message.client.user.setPresence({ status:'online', game: {name: 'PIZZA TIME'}});
 								const dispatcher = connection.playFile('./resources/pizzatheme.mp3');
 								if(parseInt(args[0]) === 0){
 										dispatcher.setVolume(0);
@@ -21,10 +26,10 @@ module.exports = {
 								else dispatcher.setVolume(0.15);
 								dispatcher.on('end', async () => {
 										try{
-												const connection = await client.voiceConnections.get(message.guild.id);
+												const connection = await message.client.voiceConnections.get(message.guild.id);
 												setTimeout(()=>{
 													connection.disconnect();
-													presence.setPresence(client);
+													presence.setPresence(message.client);
 												}, 3000);
 										}
 										catch(err){

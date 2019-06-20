@@ -19,7 +19,7 @@ exports.run = async (client, message) => {
     }
 
     // Anti-spam v1
-    const prev50Messages = await message.channel.fetchMessages({ limit: 25});
+    /*const prev50Messages = await message.channel.fetchMessages({ limit: 25});
     prev50Messages.sweep((m) => m.id === message.id);
     const authorMessages = prev50Messages.filter(m => m.author.id === message.author.id);
     // Check for (exact) content match
@@ -42,7 +42,7 @@ exports.run = async (client, message) => {
             sentMessage.delete(7000);
             return;
         }
-    }
+    }*/
 
     // ResidentSleeper reactions for twitch.tv/cyn0va links
     if(message.channel.type === "text" && !message.content.startsWith(prefix) && twitchRegex.test(message.content)){
