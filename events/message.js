@@ -7,7 +7,7 @@ const twitchRegex = /(http(s)?:\/\/)(www.)?(twitch.tv\/cyn0va)/ig;
 exports.run = async (client, message) => {
     // Ignore bot messages
     if(message.author.bot) return;
-  
+
     // Non-command features
     let prefix = process.env.PREFIX;
     let offensiveAllowed = true;
@@ -28,6 +28,7 @@ exports.run = async (client, message) => {
         let spamCheck = false;
         // Check timestamps to see if time between messages is less than 10 seconds
         for(const m of authorMessages.values()){
+            console.log(m);
             if(Math.abs(message.createdAt - m.createdAt) <= 10000){
                 spamCheck = true;
             }
