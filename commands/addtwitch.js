@@ -15,6 +15,7 @@ module.exports = {
         if(!message.guild) return message.channel.send("Must be used in a guild text channel.");
         console.log(`Command ${module.exports.name} received from ${message.author.username} in ${message.guild.name} with arguments ${args}.`);
         if(!args || !args.length) return message.channel.send("Not enough parameters.");
+        if(!message.member.permissions.has("ADMINISTRATOR")) return message.channel.send("You do not have permission to use this command.");
         const streamers = loadStreamers(message.guild);
         if(twitchRegex.test(args[0])){
             // Argument is a URL, extract username
