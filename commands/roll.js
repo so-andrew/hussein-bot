@@ -18,7 +18,7 @@ module.exports = {
 }
 
 function roll(message, range){
-    let rollInt = Math.floor(Math.random() * range + 1) + 1;
+    let rollInt = Math.floor(Math.random() * range) + 1;
     const embed = new Discord.RichEmbed()
         .setTitle(`${message.author.username} rolled a **${rollInt}**!`);
     if(message.channel.type === "dm") embed.setColor(3447003);
