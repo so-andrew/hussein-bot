@@ -12,7 +12,7 @@ module.exports = {
     execute(message, args){
         console.log(`Command ${module.exports.name} received from ${message.author.username}`);
         if(!args || !args.length) roll(message, 100);
-        else if(!isNaN(args[0]) && args[0] > 0 && args[0] <= 100) coinflip(message, parseInt(args[0]));
+        else if(!isNaN(args[0]) && args[0] > 0 && args[0] <= 100) roll(message, parseInt(args[0]));
         else message.channel.send("Please enter a valid number.");
     }
 }
