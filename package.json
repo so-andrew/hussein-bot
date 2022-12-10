@@ -10,7 +10,7 @@
     "axios": "^0.18.1",
     "discord.js": "^11.6.2",
     "dotenv": "^7.0.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "node-opus": "^0.3.3",
     "node-vibrant": "^3.2.0-alpha",
     "sequelize": "^5.21.5",
